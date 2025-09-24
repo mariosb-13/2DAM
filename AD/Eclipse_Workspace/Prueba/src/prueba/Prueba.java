@@ -1,0 +1,15 @@
+package prueba;
+
+import java.io.File;
+
+public class Prueba {
+
+	public static void main(String[] args) {
+		System.out.println("La carpeta de mi usuario es " + System.getProperty("user.home"));
+		File miFichero = new File("/Users/alumnado/nuevoFichero.txt");
+
+		System.out.println("exist" + miFichero.exists());
+		System.out.println("getParent" + miFichero.getParent());
+	}
+
+}
