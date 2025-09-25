@@ -1,5 +1,0 @@
-INDEX VERSION 1.134+\\Vboxsvr\2dam\AD\Eclipse_Workspace\.metadata\.plugins\org.eclipse.jdt.core
-1865797976.index
-980467903.index
-2298930795.index
-3813152371.index
