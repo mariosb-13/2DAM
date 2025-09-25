@@ -1,0 +1,24 @@
+package ejercicio1;
+
+public class Ejercicio1 {
+
+	public static void main(String[] args) {
+		
+		System.out.println("El sistema operativo es: " + System.getProperty("os.name"));
+		System.out.println("La versión del SO es: " );
+		System.out.println("Su tipo de arquitectura es: " );
+		
+		System.out.println("El usuario actual es: " );
+		System.out.println("Su directorio HOME es: " );
+		System.out.println("El directorio donde me ejecuto es: " );
+		
+		System.out.println("Java se encuentra instalado en: " );
+		System.out.println("Su versión es: " );
+		System.out.println("El nombre del vendedor es: " );
+		System.out.println("Se puede encontrar en: " );
+		
+		System.out.println("Para las rutas se usa el carácter separador: " );
+		System.out.println("Y dentro de los ficheros se usa el separador de líneas: " );
+	}
+
+}

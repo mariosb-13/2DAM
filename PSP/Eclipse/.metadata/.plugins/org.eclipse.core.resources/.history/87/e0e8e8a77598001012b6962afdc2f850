@@ -1,0 +1,23 @@
+package prueba;
+
+public class CrearProceso {
+
+	public static void main(String[] args) {
+		
+		String ruta="/System/Applications/Calculator.app";
+		
+		CrearProceso cp = new CrearProceso();
+	}
+	
+	public void ejecutar(String ruta) {
+		ProcessBuilder pb;
+		
+		try {
+			pb= new ProcessBuilder(ruta);
+			pb.start();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+}
