@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Dia de Andalucia</string>
+    <string name="app_name">Dia de Andalucía</string>
+    <string name="textViewTexto">Felíz dia de Andalucía</string>
 </resources>

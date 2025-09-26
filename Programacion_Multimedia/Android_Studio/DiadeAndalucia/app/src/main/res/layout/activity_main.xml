@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="77dp"
         android:layout_marginBottom="34dp"
-        android:text="Feliz Día de Andalucía"
+        android:text="@string/textViewTexto"
         app:layout_constraintBottom_toTopOf="@+id/Imagen_Bandera"
         app:layout_constraintEnd_toEndOf="@+id/Imagen_Bandera"
         app:layout_constraintStart_toStartOf="@+id/Imagen_Bandera"

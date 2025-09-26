@@ -2,6 +2,7 @@ package es.iescarrillo.diadeandalucia;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
@@ -44,7 +45,35 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         Toast.makeText(getApplicationContext(), "Feliz Día de Andalucía", Toast.LENGTH_SHORT).show();
     }
 
-    protected void onDestroy(Bundle savedInstanceState) {
+    protected void onDestroy() {
+        super.onDestroy();
         mp.stop();
+        Log.i("Estado","Actividad Destruida");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("Estado","Actividad Ejecutada");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("Estado","Actividad Iniciada");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mp.stop();
+        Log.i("Estado","Actividad Pausada");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("Estado","Actividad Detenida");
+
     }
 }
