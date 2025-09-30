@@ -11,7 +11,6 @@ public class Sumador {
 	}
 	
 	public static void main(String[] args) {
-		Sumador sum = new Sumador();
-		System.out.println(sum.Suma(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
+		System.out.println(Sumador.Suma(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
 	}
 }
