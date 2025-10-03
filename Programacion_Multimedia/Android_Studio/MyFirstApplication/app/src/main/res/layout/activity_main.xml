@@ -67,5 +67,4 @@
         android:layout_marginBottom="2dp"
         android:text="Siguiente" />
 
-
 </LinearLayout>
