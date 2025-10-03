@@ -3,6 +3,7 @@ package es.iescarrillo.myfirstapplication;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -19,6 +20,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        Button buttonNext = (Button) findViewById(R.id.button_Siguiente);
+
+        buttonNext.setOnClickListener(this);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -32,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         EditText etName = (EditText) findViewById(R.id.etName);
         TextView tvGrettings = (TextView) findViewById(R.id.infoNombre);
 
-        if (etName.getText().toString().length()==0){
+        if (etName.getText().toString().isEmpty()){
             tvGrettings.setText("Debes insertar un nombre");
             tvGrettings.setTextColor(Color.RED);
         }
