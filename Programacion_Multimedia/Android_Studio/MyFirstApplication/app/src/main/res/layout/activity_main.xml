@@ -46,19 +46,21 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button_E"
+                android:id="@+id/button_english"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
+                android:backgroundTint="#35A1EB"
                 android:text="English" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button_Spanish"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
+                android:backgroundTint="#35A1EB"
                 android:text="Spanish" />
         </LinearLayout>
 
@@ -75,6 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
+            android:backgroundTint="#046EB3"
             android:text="Siguiente" />
 
     </LinearLayout>
