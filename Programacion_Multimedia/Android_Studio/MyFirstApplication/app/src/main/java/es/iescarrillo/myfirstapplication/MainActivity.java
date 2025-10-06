@@ -1,5 +1,7 @@
 package es.iescarrillo.myfirstapplication;
 
+import static android.view.View.VISIBLE;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView tvGrettings = (TextView) findViewById(R.id.infoNombre);
 
         if (etName.getText().toString().isEmpty()){
-            tvGrettings.setText("Debes insertar un nombre");
+            tvGrettings.setVisibility(VISIBLE);
             tvGrettings.setTextColor(Color.RED);
         }
     }
