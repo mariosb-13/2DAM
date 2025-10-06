@@ -1,0 +1,19 @@
+25/09/2024  12:38    <DIR>          .
+11/06/2024  13:17    <DIR>          ..
+26/04/2024  13:05    <DIR>          .VirtualBox
+19/01/2024  10:41    <DIR>          3D Objects
+25/09/2024  12:38                 1 carpetas.txt
+25/09/2024  12:48                 10 ficheros.txt
+11/06/2024  15:03    <DIR>          Contacts
+25/09/2024  09:03    <DIR>          Desktop
+19/09/2024  09:27    <DIR>          Documents
+25/09/2024  11:25    <DIR>          Downloads
+11/06/2024  15:03    <DIR>          Favorites
+11/06/2024  15:03    <DIR>          Links
+11/06/2024  15:03    <DIR>          Music
+19/01/2024  10:43    <DIR>          OneDrive
+11/06/2024  15:03    <DIR>          Pictures
+11/06/2024  15:03    <DIR>          Saved Games
+11/06/2024  15:03    <DIR>          Searches
+11/06/2024  15:03    <DIR>          Videos
+24/04/2024  09:25    <DIR>          VirtualBox VMs
