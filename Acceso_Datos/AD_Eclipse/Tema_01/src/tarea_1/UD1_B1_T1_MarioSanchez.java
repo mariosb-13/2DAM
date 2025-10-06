@@ -1,4 +1,4 @@
-package ejercicio1;
+package tarea_1;
 
 public class UD1_B1_T1_MarioSanchez {
 

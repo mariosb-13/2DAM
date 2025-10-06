@@ -1,4 +1,4 @@
-package ejercicio1;
+package tarea_1;
 
 import java.io.File;
 import java.io.IOException;
