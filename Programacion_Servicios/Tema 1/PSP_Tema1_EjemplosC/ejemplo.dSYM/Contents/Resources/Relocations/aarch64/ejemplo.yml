@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/alumnado/Desktop/2DAM/Programacion_Servicios/Tema 1/PSP_Tema1_EjemplosC/ejemplo'
+relocations:     []
+...
