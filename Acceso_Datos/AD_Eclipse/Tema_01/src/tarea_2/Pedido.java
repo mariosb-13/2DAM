@@ -1,7 +1,13 @@
 package tarea_2;
 
-public class Pedido {
+import java.io.Serializable;
 
+public class Pedido implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1608806531564872175L;
 	private String descripcion;
 	private int numUnidades;
 	private double precio;
