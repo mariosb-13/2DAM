@@ -1,10 +1,9 @@
-package es.iescarrillo.myfirstapplication;
+package es.iescarrillo.myfirstappmsb;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,9 +12,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
-
-    Button button_return;
-    TextView tvName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,27 +23,11 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        button_return = (Button) findViewById(R.id.button_return);
-        tvName = (TextView) findViewById(R.id.tvName);
-
-        Intent viewMainIntent = getIntent();
-        tvName.setText("Tu nombre es " + viewMainIntent.getStringExtra("name"));
-        button_return.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (findViewById(R.id.button_return).isPressed()){
-            //Creamos el intent para volver a la mainActivity
-            Intent viewNameIntent = new Intent(this, MainActivity.class);
-
-            //Añadimos datos para el mainActivity
-            viewNameIntent.putExtra("name", tvName.getText().toString());
 
 
-            //Iniciamos la primera Activity
-            startActivity(viewNameIntent);
-        }
     }
 }

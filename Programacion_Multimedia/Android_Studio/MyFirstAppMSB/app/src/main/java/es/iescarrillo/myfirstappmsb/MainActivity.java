@@ -1,4 +1,4 @@
-package es.iescarrillo.myfirstapplication;
+package es.iescarrillo.myfirstappmsb;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,41 +12,31 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
-
-    Button button_return;
-    TextView tvName;
-
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    Button buttonMensaje;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        button_return = (Button) findViewById(R.id.button_return);
-        tvName = (TextView) findViewById(R.id.tvName);
-
-        Intent viewMainIntent = getIntent();
-        tvName.setText("Tu nombre es " + viewMainIntent.getStringExtra("name"));
-        button_return.setOnClickListener(this);
+        buttonMensaje = (Button) findViewById(R.id.botonMensaje);
+        buttonMensaje.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (findViewById(R.id.button_return).isPressed()){
-            //Creamos el intent para volver a la mainActivity
-            Intent viewNameIntent = new Intent(this, MainActivity.class);
+        //Boton siguiente que manda a la siguiente Activity
+        if (findViewById(R.id.botonMensaje).isPressed()) {
+            //Creamos un Intent para ir a la siguiente activity
+            Intent viewNameIntent = new Intent(this, SecondActivity.class);
 
-            //Añadimos datos para el mainActivity
-            viewNameIntent.putExtra("name", tvName.getText().toString());
-
-
-            //Iniciamos la primera Activity
+            //Inicia la Actividad
             startActivity(viewNameIntent);
         }
     }
