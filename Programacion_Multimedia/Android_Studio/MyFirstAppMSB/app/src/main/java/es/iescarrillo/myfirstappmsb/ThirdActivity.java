@@ -33,7 +33,7 @@ public class ThirdActivity extends AppCompatActivity implements View.OnClickList
         tvDatos = findViewById(R.id.textViewDatos);
         tvDatos2 = findViewById(R.id.textViewDatos2);
         tvDatos3 = findViewById(R.id.textViewDatos3);
-        tvDatos4 = findViewById(R.id.textViewSwitch);
+        tvDatos4 = findViewById(R.id.textViewDatos4);
 
         btnVolver = findViewById(R.id.buttonVolver);
         btnVolver.setOnClickListener(this);
