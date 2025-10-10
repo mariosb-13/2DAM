@@ -1,38 +1,41 @@
-# 2DAM
+# 2DAM 🚀
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/mariosb-13/2DAM) 
 ![GitHub stars](https://img.shields.io/github/stars/mariosb-13/2DAM?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/mariosb-13/2DAM?style=social)
+![GitHub license](https://img.shields.io/github/license/mariosb-13/2DAM)
 
 ---
 
 ## 📌 Descripción
 
 Este repositorio contiene los materiales, ejercicios y proyectos desarrollados durante el ciclo de **2º de Desarrollo de Aplicaciones Multiplataforma (2DAM)**.  
-Aquí encontrarás ejemplos de programación, interfaces gráficas, bases de datos, servicios y más.
+Podrás encontrar ejemplos de programación, bases de datos, interfaces gráficas, servicios y mucho más.
 
 ---
 
 ## 🛠 Tecnologías utilizadas
 
-- **Java**  
-- **JavaFX**  
-- **MySQL**  
-- **HTML / CSS / JavaScript**  
-- **Otros** según los módulos  
+- **Java** ☕  
+- **JavaFX** 🎨  
+- **MySQL** 🗄️  
+- **HTML / CSS / JavaScript** 🌐  
+- Otros según el módulo
 
 ---
 
-## 📂 Estructura del repositorio
+## 📂 Módulos y proyectos
 
-Cada carpeta corresponde a un módulo del ciclo. Puedes hacer clic para acceder directamente:
+Accede a cada módulo directamente haciendo clic en el nombre o en el badge:
 
-- [Acceso_Datos](./Acceso_Datos) → Proyectos relacionados con bases de datos y SQL.
-- [Desarrollo_Interfaces](./Desarrollo_Interfaces) → Aplicaciones con interfaces gráficas.
-- [Ingles](./Ingles) → Materiales y ejercicios en inglés.
-- [Programacion_Multimedia](./Programacion_Multimedia) → Proyectos multimedia.
-- [Programacion_Servicios](./Programacion_Servicios) → Desarrollo de servicios.
-- [Sistemas_Gestion_Empresarial](./Sistemas_Gestion_Empresarial) → Aplicaciones de gestión empresarial.
+| Módulo | Descripción | Enlace |
+|--------|------------|--------|
+| ![DB](https://img.shields.io/badge/Acceso_Datos-📂-blue) | Proyectos de bases de datos y SQL | [Ir](./Acceso_Datos) |
+| ![UI](https://img.shields.io/badge/Desarrollo_Interfaces-🎨-green) | Aplicaciones con interfaces gráficas | [Ir](./Desarrollo_Interfaces) |
+| ![ENG](https://img.shields.io/badge/Ingles-📘-orange) | Materiales y ejercicios en inglés | [Ir](./Ingles) |
+| ![MM](https://img.shields.io/badge/Programacion_Multimedia-🎬-red) | Proyectos multimedia | [Ir](./Programacion_Multimedia) |
+| ![SERV](https://img.shields.io/badge/Programacion_Servicios-⚙️-purple) | Desarrollo de servicios | [Ir](./Programacion_Servicios) |
+| ![ERP](https://img.shields.io/badge/Sistemas_Gestion_Empresarial-🏢-teal) | Aplicaciones de gestión empresarial | [Ir](./Sistemas_Gestion_Empresarial) |
 
 ---
 
@@ -44,20 +47,21 @@ Cada carpeta corresponde a un módulo del ciclo. Puedes hacer clic para acceder 
    ```
 
 2. Accede a la carpeta del proyecto que quieras ejecutar.
-3. Sigue las instrucciones específicas de cada módulo (por ejemplo, abrir el proyecto en **Eclipse** o ejecutar scripts SQL).
+3. Cada módulo puede incluir instrucciones propias (por ejemplo, abrir en **Eclipse**, ejecutar scripts SQL o compilar proyectos Java).
 
 ---
 
-## 📖 Documentación y recursos
+## 📖 Recursos y documentación
 
-* Algunos proyectos incluyen archivos README propios con instrucciones específicas.
-* Puedes consultar el contenido de cada carpeta para ver ejemplos y ejercicios completos.
+* Algunos módulos incluyen archivos README individuales con instrucciones específicas.
+* Explora cada carpeta para ver ejemplos completos y ejercicios destacados.
 
 ---
 
 ## 🤝 Contribuciones
 
-¡Todas las contribuciones son bienvenidas! Si quieres añadir ejercicios, mejorar documentación o reportar errores, abre un **pull request**.
+¡Todas las contribuciones son bienvenidas!
+Si deseas añadir ejercicios, mejorar documentación o reportar errores, abre un **pull request**.
 
 ---
 
