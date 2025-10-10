@@ -41,7 +41,7 @@ Cada carpeta corresponde a un módulo del ciclo. Puedes hacer clic para acceder 
 1. Clona el repositorio:  
    ```bash
    git clone https://github.com/mariosb-13/2DAM.git
-````
+   ```
 
 2. Accede a la carpeta del proyecto que quieras ejecutar.
 3. Sigue las instrucciones específicas de cada módulo (por ejemplo, abrir el proyecto en **Eclipse** o ejecutar scripts SQL).
