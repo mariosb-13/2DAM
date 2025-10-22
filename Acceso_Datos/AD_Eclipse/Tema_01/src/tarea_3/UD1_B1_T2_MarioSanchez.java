@@ -18,7 +18,7 @@ public class UD1_B1_T2_MarioSanchez {
 		if (!f.exists()) {
 			System.out.println("No se ha encontrado el archivo especificado");
 		} else {
-			System.out.println("Introduzca una vocal: ");
+			System.out.print("Introduzca una vocal: ");
 			char vocal = sc.next().charAt(0);
 
 			if (esVocal(vocal)) {
@@ -35,10 +35,8 @@ public class UD1_B1_T2_MarioSanchez {
 		if (c == 'a' | c == 'e' | c == 'i' | c == 'o' | c == 'u' | c == 'á' | c == 'é' | c == 'í' | c == 'ó'
 				| c == 'ú') {
 			return true;
-		} else {
-			System.out.println("No se ha introducido una vocal");
-			return false;
 		}
+		return false;
 	}
 
 	public static void copiaConVocal(File f1, File f2, char c) {
@@ -48,36 +46,24 @@ public class UD1_B1_T2_MarioSanchez {
 			FileReader fr = new FileReader(f1);
 			FileWriter fw = new FileWriter(f2);
 
-			StringBuilder linea = new StringBuilder();
 			int caracter;
-			boolean contieneVocal = false;
 			char vocal = Character.toLowerCase(c);
 
-			// Leemos carácter a carácter
 			while ((caracter = fr.read()) != -1) {
 				char ch = (char) caracter;
-				linea.append(ch);
 
-				// Si el carácter es una vocal (comparamos en minúsculas)
-				if (Character.toLowerCase(ch) == vocal) {
-					contieneVocal = true;
-				}
-
-				// Cuando llegamos al final de una línea o del archivo
-				if (ch == '\n') {
-					// Si la línea contiene la vocal, la escribimos en el nuevo archivo
-					if (contieneVocal) {
-						fw.write(linea.toString());
+				// Si es una vocal (considerando tildes), la reemplazamos por la vocal elegida
+				if (esVocal(ch)) {
+					// Mantener mayúsculas si el original lo es
+					if (Character.isUpperCase(ch)) {
+						fw.write(Character.toUpperCase(vocal));
+					} else {
+						fw.write(vocal);
 					}
-					// Reiniciamos para la siguiente línea
-					linea.setLength(0);
-					contieneVocal = false;
+				} else {
+					// Si no es vocal, escribimos el carácter tal cual
+					fw.write(ch);
 				}
-			}
-
-			// Caso especial: última línea si no termina en salto de línea
-			if (linea.length() > 0 && contieneVocal) {
-				fw.write(linea.toString());
 			}
 
 			fr.close();
