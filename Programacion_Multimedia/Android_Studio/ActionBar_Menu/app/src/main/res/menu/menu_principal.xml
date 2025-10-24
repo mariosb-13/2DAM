@@ -2,7 +2,20 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Buscar" />
-    <item android:title="Acerca de" />
-    <item android:title="Prueba" />
+    <item
+        android:id="@+id/MenuBuscar"
+        android:title="Buscar"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/MenuAcerca"
+        android:title="Acerca de"
+        android:icon="@android:drawable/ic_menu_info_details"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/MenuPrueba"
+        android:title="Prueba"
+        app:showAsAction="never" />
 </menu>
