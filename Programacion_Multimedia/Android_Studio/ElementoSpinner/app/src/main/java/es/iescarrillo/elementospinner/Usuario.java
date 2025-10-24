@@ -7,7 +7,6 @@ public class Usuario implements Serializable {
     private int id;
     private String nombre;
     private String apellido1;
-
     private String apellido2;
 
     public Usuario() {
