@@ -1,19 +1,31 @@
 package tarea_3;
 
-import java.util.ArrayList;
+import com.google.gson.Gson;
 
 public class HiloPoblacion extends Thread {
-	ArrayList<String> pueblos;
+    String ciudadSeleccionada;
 
-	@Override
-	public void run() {
+    public HiloPoblacion(String ciudadSeleccionada) {
+        this.ciudadSeleccionada = ciudadSeleccionada;
+    }
 
-		String url = "https://countriesnow.space/api/v0.1/countries/cities";
-		String body = "{ \"city\": \"Spain\" }";
-		
-		
-		HttpHelper.postJson(url, body);
-		
-	}
+    @Override
+    public void run() {
+        String url = "https://countriesnow.space/api/v0.1/countries/population/cities";
+        String body = "{ \"city\": \"" + ciudadSeleccionada + "\" }";
 
+        String json = HttpHelper.postJson(url, body);
+        Gson gson = new Gson();
+
+        PoblacionGson respuesta = gson.fromJson(json, PoblacionGson.class);
+
+        // Obtener la población más reciente
+        if (respuesta.data != null && respuesta.data.populationCounts != null
+                && !respuesta.data.populationCounts.isEmpty()) {
+            int poblacion = respuesta.data.populationCounts.get(0).value;
+            System.out.println("Población de " + ciudadSeleccionada + ": " + poblacion);
+        } else {
+            System.out.println("No se encontró población para " + ciudadSeleccionada);
+        }
+    }
 }
