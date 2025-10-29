@@ -1,4 +1,4 @@
-package u1.xml;
+package tarea_4;
 
 public class Ingrediente {
 	private String nombreIngrediente;
