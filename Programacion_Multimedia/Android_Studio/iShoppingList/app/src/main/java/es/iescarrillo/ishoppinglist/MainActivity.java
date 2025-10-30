@@ -57,7 +57,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public View.OnClickListener showDetails(View vista){
+        Producto selectedProduct = (Producto) spinnerProducts.getSelectedItem();
         Intent intent = new Intent(MainActivity.this, InfoProduct.class);
+        intent.putExtra("producto",selectedProduct);
         startActivity(intent);
         return null;
     }
