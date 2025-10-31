@@ -32,8 +32,8 @@
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="63dp"
-            android:spinnerMode="dialog"
             android:prompt="@string/prompt_spinner"
+            android:spinnerMode="dialog"
             tools:ignore="HardcodedText" />
 
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -13,27 +14,36 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class InfoProduct extends AppCompatActivity {
+public class EditProduct extends AppCompatActivity {
+
 
     public int id;
     public String name;
     public String note_info;
     public boolean state_buy;
 
-    TextView tvTitle, tvInfo, tvID;
+    TextView tvId;
+    EditText etTitle,etInfo;
     Switch switchStateBuy;
-    Button btnReturn, btnEdit;
+    Button btnCancel,btnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_info_product);
+        setContentView(R.layout.activity_edit_product);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        //Establecemos
+        etTitle=findViewById(R.id.etTitle);
+        tvId=findViewById(R.id.tvID2);
+        etInfo=findViewById(R.id.etInfo);
+        btnSave=findViewById(R.id.btnSave);
+        btnCancel=findViewById(R.id.btnCancel);
 
         //Nos traemos los datos del activity anterior
         Intent intent = getIntent();
@@ -42,44 +52,33 @@ public class InfoProduct extends AppCompatActivity {
         note_info = intent.getStringExtra("note_info");
         state_buy = intent.getBooleanExtra("state_buy", false);
 
-        tvTitle = findViewById(R.id.tvTitle);
-        tvID = findViewById(R.id.tvID);
-        tvInfo = findViewById(R.id.tvInfo);
-
-        switchStateBuy = findViewById(R.id.switchStateBuy);
-
-        btnReturn = findViewById(R.id.btnCancel);
-        btnEdit = findViewById(R.id.btnEdit);
 
 
-        //Escribimos los campos con el producto seleccionado
-        tvTitle.setText(String.valueOf(name));
-        tvID.setText("ID: " + String.valueOf(id));
-        tvInfo.setText("Info: " + String.valueOf(note_info));
-        switchStateBuy.setChecked(state_buy);
-        //Esto hace que no se pueda cambiar el estado del switch
-        switchStateBuy.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            switchStateBuy.setChecked(state_buy); // siempre mantiene el valor original
-        });
+        etTitle.setText(name);
+        tvId.setText(String.valueOf(id));
+        etInfo.setText(String.valueOf(note_info));
 
     }
 
-    public void returnActivity(View vista) {
+    public void returnActivity(View vista){
         Intent volverIntent = new Intent(this, MainActivity.class);
         startActivity(volverIntent);
     }
 
-    public void edit(View vista) {
-        Intent editIntent = new Intent(this, EditProduct.class);
+    public void saveProduct(View vista) {
+        //Nos traemos los datos de los editText
+        String newName = etTitle.getText().toString();
+        String newNote = etInfo.getText().toString();
+        boolean newState = switchStateBuy.isChecked();
 
-        editIntent.putExtra("id",id);
-        editIntent.putExtra("name",name);
-        editIntent.putExtra("note_info", note_info);
-        editIntent.putExtra("state_buy", state_buy);
-        startActivity(editIntent);
+        // Creamos un Intent para enviar los datos de vuelta
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("name", newName);
+        resultIntent.putExtra("note_info", newNote);
+        resultIntent.putExtra("state_buy", newState);
 
-
+        setResult(RESULT_OK, resultIntent); // Indicamos que la operación fue exitosa
+        finish(); // Cerramos EditProduct y volvemos a MainActivity
     }
-
 
 }

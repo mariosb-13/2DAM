@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".InfoProduct">
 
     <LinearLayout
         android:layout_width="409dp"
@@ -14,54 +14,63 @@
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
-        android:gravity="top"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView"
+        <EditText
+            android:id="@+id/etTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lista Compra"
+            android:ems="10"
+            android:hint="Título Producto"
+            android:inputType="text"
             android:textAlignment="center"
             android:textSize="24sp" />
 
-        <Spinner
-            android:id="@+id/spinner"
+        <TextView
+            android:id="@+id/tvID2"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:prompt="@string/prompt_spinner"
-            android:spinnerMode="dialog" />
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/etInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Información "
+            android:inputType="text" />
+
+        <Switch
+            android:id="@+id/switchStateBuy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estado Compra" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button_addProduct"
+                android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Añadir Producto" />
+                android:onClick="returnActivity"
+                android:text="Cancelar" />
 
             <Button
-                android:id="@+id/button_addPending"
+                android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Añadir Pendiente" />
-        </LinearLayout>
+                android:onClick="saveProduct"
+                android:text="Guardar" />
 
-        <Button
-            android:id="@+id/buttonDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="showDetails"
-            android:text="Ver Detalles" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

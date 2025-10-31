@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IShoppingList">
         <activity
+            android:name=".EditProduct"
+            android:exported="false" />
+        <activity
             android:name=".InfoProduct"
             android:exported="false" />
         <activity
