@@ -5,63 +5,87 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F5F5F5"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        android:gravity="top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- Título -->
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lista Compra"
-            android:textAlignment="center"
-            android:textSize="24sp" />
+            android:text="Lista de Compra"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#444444"
+            android:layout_marginBottom="24dp"
+            android:textAlignment="center" />
 
+        <!-- Spinner -->
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:prompt="@string/prompt_spinner"
-            android:spinnerMode="dialog" />
+            android:layout_height="60dp"
+            android:spinnerMode="dropdown"
+            android:backgroundTint="#B0BEC5"
+            android:padding="8dp"
+            android:layout_marginBottom="24dp" />
 
+        <!-- Botones horizontales -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="16dp">
 
             <Button
                 android:id="@+id/button_addProduct"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
-                android:text="Añadir Producto" />
+                android:text="Añadir Producto"
+                android:onClick="addProduct"
+                android:backgroundTint="#AED581"
+                android:textColor="#FFFFFF"
+                android:elevation="2dp"
+                android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/button_addPending"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
-                android:text="Añadir Pendiente" />
+                android:text="Añadir Pendiente"
+                android:onClick="addPending"
+                android:backgroundTint="#AED581"
+                android:textColor="#FFFFFF"
+                android:elevation="2dp"
+                android:layout_marginStart="8dp" />
         </LinearLayout>
 
+        <!-- Botón de ver detalles -->
         <Button
             android:id="@+id/buttonDetails"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:text="Ver Detalles"
             android:onClick="showDetails"
-            android:text="Ver Detalles" />
+            android:backgroundTint="#81D4FA"
+            android:textColor="#FFFFFF"
+            android:elevation="2dp"
+            android:layout_marginBottom="8dp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

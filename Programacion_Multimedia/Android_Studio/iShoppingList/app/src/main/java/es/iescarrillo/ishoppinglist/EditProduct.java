@@ -16,69 +16,68 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class EditProduct extends AppCompatActivity {
 
-
     public int id;
     public String name;
     public String note_info;
     public boolean state_buy;
 
-    TextView tvId;
-    EditText etTitle,etInfo;
+    EditText etTitle, etInfo;
     Switch switchStateBuy;
-    Button btnCancel,btnSave;
+    Button btnCancel, btnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_edit_product);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        //Establecemos
-        etTitle=findViewById(R.id.etTitle);
-        tvId=findViewById(R.id.tvID2);
-        etInfo=findViewById(R.id.etInfo);
-        btnSave=findViewById(R.id.btnSave);
-        btnCancel=findViewById(R.id.btnCancel);
+        etTitle = findViewById(R.id.etTitle);
+        etInfo = findViewById(R.id.etInfo);
+        switchStateBuy = findViewById(R.id.switchStateBuy);
+        btnSave = findViewById(R.id.btnSave);
+        btnCancel = findViewById(R.id.btnCancel);
 
-        //Nos traemos los datos del activity anterior
         Intent intent = getIntent();
         id = intent.getIntExtra("id", 0);
         name = intent.getStringExtra("name");
         note_info = intent.getStringExtra("note_info");
         state_buy = intent.getBooleanExtra("state_buy", false);
 
-
-
         etTitle.setText(name);
-        tvId.setText(String.valueOf(id));
-        etInfo.setText(String.valueOf(note_info));
-
-    }
-
-    public void returnActivity(View vista){
-        Intent volverIntent = new Intent(this, MainActivity.class);
-        startActivity(volverIntent);
+        etInfo.setText(note_info);
+        switchStateBuy.setChecked(state_buy);
     }
 
     public void saveProduct(View vista) {
-        //Nos traemos los datos de los editText
         String newName = etTitle.getText().toString();
         String newNote = etInfo.getText().toString();
         boolean newState = switchStateBuy.isChecked();
 
-        // Creamos un Intent para enviar los datos de vuelta
-        Intent resultIntent = new Intent();
-        resultIntent.putExtra("name", newName);
-        resultIntent.putExtra("note_info", newNote);
-        resultIntent.putExtra("state_buy", newState);
+        // Actualizamos el producto directamente
+        for (Producto producto : MainActivity.listProducts) {
+            if (producto.getId() == id) {
+                producto.setName(newName);
+                producto.setNote_info(newNote);
+                producto.setState_buy(newState);
+                break;
+            }
+        }
 
-        setResult(RESULT_OK, resultIntent); // Indicamos que la operación fue exitosa
-        finish(); // Cerramos EditProduct y volvemos a MainActivity
+        // Volvemos al MainActivity
+        Intent volverIntent = new Intent(this, MainActivity.class);
+        startActivity(volverIntent);
+        finish();
     }
 
+    public void returnActivity(View vista) {
+        Intent volverIntent = new Intent(this, MainActivity.class);
+        startActivity(volverIntent);
+        finish();
+    }
 }

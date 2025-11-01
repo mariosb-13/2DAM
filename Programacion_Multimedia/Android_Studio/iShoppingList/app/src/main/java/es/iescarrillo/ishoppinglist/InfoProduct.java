@@ -29,13 +29,13 @@ public class InfoProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_info_product);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        //Nos traemos los datos del activity anterior
         Intent intent = getIntent();
         id = intent.getIntExtra("id", 0);
         name = intent.getStringExtra("name");
@@ -45,41 +45,35 @@ public class InfoProduct extends AppCompatActivity {
         tvTitle = findViewById(R.id.tvTitle);
         tvID = findViewById(R.id.tvID);
         tvInfo = findViewById(R.id.tvInfo);
-
         switchStateBuy = findViewById(R.id.switchStateBuy);
-
         btnReturn = findViewById(R.id.btnCancel);
         btnEdit = findViewById(R.id.btnEdit);
 
-
-        //Escribimos los campos con el producto seleccionado
         tvTitle.setText(String.valueOf(name));
         tvID.setText("ID: " + String.valueOf(id));
         tvInfo.setText("Info: " + String.valueOf(note_info));
         switchStateBuy.setChecked(state_buy);
-        //Esto hace que no se pueda cambiar el estado del switch
-        switchStateBuy.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            switchStateBuy.setChecked(state_buy); // siempre mantiene el valor original
-        });
 
+        // Evitar que el usuario cambie el switch
+        switchStateBuy.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            switchStateBuy.setChecked(state_buy);
+        });
     }
 
     public void returnActivity(View vista) {
         Intent volverIntent = new Intent(this, MainActivity.class);
         startActivity(volverIntent);
+        finish();
     }
 
     public void edit(View vista) {
         Intent editIntent = new Intent(this, EditProduct.class);
-
-        editIntent.putExtra("id",id);
-        editIntent.putExtra("name",name);
+        editIntent.putExtra("id", id);
+        editIntent.putExtra("name", name);
         editIntent.putExtra("note_info", note_info);
         editIntent.putExtra("state_buy", state_buy);
         startActivity(editIntent);
-
-
+        // finish();  <-- comentar mientras depuras
     }
-
 
 }
