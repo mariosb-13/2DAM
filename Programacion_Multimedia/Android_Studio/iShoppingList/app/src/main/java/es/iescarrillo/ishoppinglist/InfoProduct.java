@@ -1,5 +1,6 @@
 package es.iescarrillo.ishoppinglist;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,7 @@ public class InfoProduct extends AppCompatActivity {
     Switch switchStateBuy;
     Button btnReturn, btnEdit;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +52,8 @@ public class InfoProduct extends AppCompatActivity {
         btnEdit = findViewById(R.id.btnEdit);
 
         tvTitle.setText(String.valueOf(name));
-        tvID.setText("ID: " + String.valueOf(id));
-        tvInfo.setText("Info: " + String.valueOf(note_info));
+        tvID.setText("ID: " + id);
+        tvInfo.setText("Info: " + note_info);
         switchStateBuy.setChecked(state_buy);
 
         // Evita que el usuario cambie el switch
@@ -73,7 +75,7 @@ public class InfoProduct extends AppCompatActivity {
         editIntent.putExtra("note_info", note_info);
         editIntent.putExtra("state_buy", state_buy);
         startActivity(editIntent);
-        // finish();  <-- comentar mientras depuras
+        finish();
     }
 
 }
