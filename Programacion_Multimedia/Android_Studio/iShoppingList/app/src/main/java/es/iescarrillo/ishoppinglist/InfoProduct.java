@@ -54,7 +54,7 @@ public class InfoProduct extends AppCompatActivity {
         tvInfo.setText("Info: " + String.valueOf(note_info));
         switchStateBuy.setChecked(state_buy);
 
-        // Evitar que el usuario cambie el switch
+        // Evita que el usuario cambie el switch
         switchStateBuy.setOnCheckedChangeListener((buttonView, isChecked) -> {
             switchStateBuy.setChecked(state_buy);
         });

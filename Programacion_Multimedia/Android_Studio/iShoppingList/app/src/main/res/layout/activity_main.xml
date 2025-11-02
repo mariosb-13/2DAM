@@ -71,7 +71,7 @@
                 android:onClick="addPending"
                 android:backgroundTint="#AED581"
                 android:textColor="#FFFFFF"
-                android:elevation="2dp"
+                android:elevation= "2dp"
                 android:layout_marginStart="8dp" />
         </LinearLayout>
 

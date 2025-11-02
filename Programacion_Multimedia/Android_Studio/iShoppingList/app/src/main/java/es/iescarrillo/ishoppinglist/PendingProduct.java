@@ -65,11 +65,7 @@ public class PendingProduct extends AppCompatActivity {
         }
 
         // Creamos el adaptador con la lista filtrada
-        ArrayAdapter<Producto> adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_spinner_item,
-                listProductsPending
-        );
+        ArrayAdapter<Producto> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, listProductsPending);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerProductsPending.setAdapter(adapter);
     }
@@ -99,7 +95,6 @@ public class PendingProduct extends AppCompatActivity {
     public void cancelPending(View vista) {
         finish();
     }
-
 
 
 }

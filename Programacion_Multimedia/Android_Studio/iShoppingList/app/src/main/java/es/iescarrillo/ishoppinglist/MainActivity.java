@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+
         btnAddProduct = findViewById(R.id.button_addProduct);
         btnAddPending = findViewById(R.id.button_addPending);
         btnDetails = findViewById(R.id.buttonDetails);
