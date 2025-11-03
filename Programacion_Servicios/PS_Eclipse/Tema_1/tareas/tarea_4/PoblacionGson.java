@@ -1,22 +1,22 @@
-package tarea_3;
+package tarea_4;
 
 import java.util.List;
 
 public class PoblacionGson {
-    boolean error;
-    String msg;
+    public boolean error;
+    public String msg;
     public Data data;
 
     public static class Data {
-        String city;
-        String country;
+        public String city;
+        public String country;
         public List<PopulationCount> populationCounts;
     }
 
     public static class PopulationCount {
-        public int year;
+        public String year;
         public int value;
-        String sex;
-        String reliability;
+        public String sex;
+        public String reliability;
     }
 }
