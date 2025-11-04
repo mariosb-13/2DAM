@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">InterfaceDesign</string>
+    <string name="button">Iniciar Sesión</string>
+    <string name="password">Password</string>
+    <string name="tvForgot">Forgot your password?</string>
+    <string name="hintUser">User</string>
+    <string name="hintPassword">Password</string>
+</resources>

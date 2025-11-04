@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/FrameLayout"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+
+<ImageView
+    android:id="@+id/imgBackground"
+    android:layout_width="match_parent"
+    android:layout_height="773dp"
+    app:srcCompat="@drawable/bg" />
+
+
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <View
+        android:layout_width="248dp"
+        android:layout_height="258dp"
+        android:layout_gravity="center"
+        android:background="#FBF8F8">
+
+    </View>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/blueMain"
+        android:text="@string/button" />
+
+    <EditText
+        android:id="@+id/etUser"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="User"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="90dp"
+
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+</FrameLayout>
+
+<ImageView
+    android:id="@+id/imageView"
+    android:layout_width="200dp"
+    android:layout_height="100dp"
+    android:layout_gravity="top|center"
+    app:srcCompat="@drawable/arch_linux_logo_1" />
+
+</FrameLayout>
+
