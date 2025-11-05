@@ -11,20 +11,20 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="249dp"
+        android:layout_height="198dp"
         android:layout_alignParentTop="true"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/utopia_logo" />
 
     <RelativeLayout
         android:id="@+id/viewContainer"
-        android:layout_width="336dp"
-        android:layout_height="405dp"
+        android:layout_width="375dp"
+        android:layout_height="498dp"
         android:layout_below="@id/imageView"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="35dp"
         android:background="@drawable/rounded_background"
         android:elevation="6dp">
 
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
-            android:text="Tour Utopia"
+            android:text="Utopia Tour"
             android:textColor="@color/black"
             android:textSize="30sp" />
 
@@ -56,18 +56,49 @@
             android:layout_below="@+id/textView2"
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
+            android:text="30 Julio 2024"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
             android:text="Wizink Center, Madrid ES"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imgAlbum"
             android:layout_width="243dp"
             android:layout_height="192dp"
+            android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
-
-            android:layout_below="@+id/textView3"
             app:srcCompat="@drawable/utopia_album" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgAlbum"
+            android:layout_alignStart="@+id/imgAlbum"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#392723"
+            android:text="Reservar" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgAlbum"
+            android:layout_alignEnd="@+id/imgAlbum"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#392723"
+            android:text="Ver más" />
+
 
     </RelativeLayout>
 
