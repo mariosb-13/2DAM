@@ -8,5 +8,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/Users/alumnado/Desktop/2DAM/Programacion_Servicios/PS_Eclipse/Tema_1/gson-2.13.1.jar"/>
+	<classpathentry kind="lib" path="lib/ordenar.jar"/>
+	<classpathentry kind="lib" path="lib/aleatorios.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
