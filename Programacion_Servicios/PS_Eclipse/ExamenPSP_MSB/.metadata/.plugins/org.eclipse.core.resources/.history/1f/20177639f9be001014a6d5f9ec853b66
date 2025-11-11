@@ -1,0 +1,38 @@
+package ejercicio2;
+
+public class Jugador extends Thread{
+	int id;
+	Arbitro arbitro1;
+	
+	/**
+	 * Constructor de jugador
+	 * @param id
+	 * @param arbitro1
+	 */
+	public Jugador(int id, Arbitro arbitro1) {
+		this.id = id;
+		this.arbitro1 = arbitro1;
+	}
+
+	/**
+	 * Comprueba si el número que genera el jugador coincide por el del árbitro
+	 */
+	public void run() {
+		int num=generarAleatorioJugador();
+		if (generarAleatorioJugador()==arbitro1.numAdivinar) {
+			System.out.println("Enhorabuena! El número " + generarAleatorioJugador() + " SI coincide");
+		}else {
+			System.out.println("El número " + generarAleatorioJugador() +" NO coincide con el número generado");
+		}
+	}
+	
+	/**
+	 * Método que genera el numero aleatorio
+	 * @return
+	 */
+	public int generarAleatorioJugador() {
+		return 1+(int)(10*Math.random());
+	}
+	
+	
+}

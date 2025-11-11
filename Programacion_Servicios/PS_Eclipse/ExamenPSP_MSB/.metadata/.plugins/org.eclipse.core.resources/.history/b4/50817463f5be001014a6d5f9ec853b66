@@ -1,0 +1,25 @@
+package ejercicio2;
+
+public class Jugador extends Thread{
+	int id;
+	Arbitro arbitro1;
+	
+	
+	
+	
+	public Jugador(int id, Arbitro arbitro1) {
+		this.id = id;
+		this.arbitro1 = arbitro1;
+	}
+
+
+
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+	
+	
+}

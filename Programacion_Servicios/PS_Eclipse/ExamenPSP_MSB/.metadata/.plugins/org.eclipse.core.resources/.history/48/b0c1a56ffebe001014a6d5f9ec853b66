@@ -1,0 +1,47 @@
+package ejercicio1;
+
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Ejercicio1Ficheros {
+	
+	public static void main(String[] args) throws FileNotFoundException {
+		escribirArchivos("informatica.txt");
+		escribirArchivos("ventas.txt");
+		escribirArchivos("marketing.txt");
+		escribirArchivos("rrhh.txt");
+
+		ProcessBuilder pb1 = new ProcessBuilder(args);
+	}
+	
+	public static int numEnteros() {
+		return 1+(int)(500*Math.random());
+	}
+	
+	/**
+	 * Método que escribe numeros entre el 1 y 500 en diferentes líneas
+	 * @param nombreArhivo
+	 */
+	public static void escribirArchivos(String nombreArhivo) {
+		int cont=0;
+			try {
+				BufferedWriter bw1 = new BufferedWriter(new FileWriter(nombreArhivo));
+				do {
+					int numAleatorio=numEnteros();
+	
+					bw1.write(numAleatorio + "");
+					bw1.newLine();
+					cont++;
+				} while (cont<5);
+				bw1.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		
+	}
+
+}

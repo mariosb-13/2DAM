@@ -1,0 +1,34 @@
+package ejercicio1;
+
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Ejercicio1Ficheros {
+	
+	public static void main(String[] args) throws FileNotFoundException {
+		try {
+			BufferedWriter bw1 = new BufferedWriter(new FileWriter("informatica.txt"));
+			int cont=0;
+			
+			do {
+				int numAleatorio=numEnteros();
+				bw1.write(numAleatorio + "");
+				bw1.newLine();
+				cont++;
+			} while (cont<5);
+			
+			bw1.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	public static int numEnteros() {
+		return 1+(int)(500*Math.random());
+	}
+
+}

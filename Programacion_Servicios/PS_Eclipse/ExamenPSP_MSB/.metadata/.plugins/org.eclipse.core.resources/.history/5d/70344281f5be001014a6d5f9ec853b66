@@ -1,0 +1,33 @@
+package ejercicio2;
+
+import java.util.Scanner;
+
+public class Jugador extends Thread{
+	int id;
+	Arbitro arbitro1;
+	
+	
+	
+	
+	public Jugador(int id, Arbitro arbitro1) {
+		this.id = id;
+		this.arbitro1 = arbitro1;
+	}
+
+
+
+
+	@Override
+	public void run() {
+		Scanner sc= new Scanner(System.in);
+		do {
+			System.out.println("Introduce el número:");
+			int num=sc.nextInt();
+			
+		} while ();
+		
+		sc.close();
+	}
+	
+	
+}

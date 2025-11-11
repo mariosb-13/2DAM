@@ -1,0 +1,13 @@
+package ejercicio2;
+
+public class Jugador extends Thread{
+	int id;
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+	
+	
+}

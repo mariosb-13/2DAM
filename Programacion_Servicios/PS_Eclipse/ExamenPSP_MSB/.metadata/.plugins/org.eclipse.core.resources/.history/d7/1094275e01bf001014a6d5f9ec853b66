@@ -1,0 +1,32 @@
+package ejercicio2;
+
+public class Arbitro {
+	
+	int numJugadores;
+	int numAdivinar;
+	boolean juegoAcabado=false;
+	
+	
+	/**
+	 * Constructor que indica el numero de jugadores e inicializa el numero que hay que adivinar
+	 * @param numJugadores
+	 */
+	public Arbitro(int numJugadores) {
+		this.numJugadores = numJugadores;
+		this.numAdivinar = generarAleatorio();
+	}
+
+
+	/**
+	 * Método que genera el numero aleatorio
+	 * @return
+	 */
+	public int generarAleatorio() {
+		return 1+(int)(10*Math.random());
+	}	
+	
+	public void adivinarNu() {
+		
+	}
+
+}

@@ -1,0 +1,31 @@
+package ejercicio2;
+
+import java.util.Scanner;
+
+public class Jugador extends Thread{
+	int id;
+	Arbitro arbitro1;
+	
+	
+	
+	
+	public Jugador(int id, Arbitro arbitro1) {
+		this.id = id;
+		this.arbitro1 = arbitro1;
+	}
+
+	@Override
+	public void run() {
+		
+	}
+	
+	/**
+	 * Método que genera el numero aleatorio
+	 * @return
+	 */
+	public int generarAleatorio() {
+		return 1+(int)(10*Math.random());
+	}
+	
+	
+}

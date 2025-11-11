@@ -1,0 +1,51 @@
+package ejercicio2;
+
+import java.util.Scanner;
+
+public class Arbitro {
+	
+	int numJugadores;
+	int numAdivinar;
+	boolean juegoAcabado=false;
+	
+	
+	/**
+	 * Constructor que indica el numero de jugadores e inicializa el numero que hay que adivinar
+	 * @param numJugadores
+	 */
+	public Arbitro(int numJugadores) {
+		this.numJugadores = numJugadores;
+		this.numAdivinar = generarAleatorio();
+	}
+
+
+	/**
+	 * Método que genera el numero aleatorio
+	 * @return
+	 */
+	public int generarAleatorio() {
+		return 1+(int)(10*Math.random());
+	}
+	
+	public boolean adivinarNum(int num) {
+		
+		if (num==numAdivinar) {
+			System.out.println("Felicidades, ha adivinado el numero");
+			return juegoAcabado=true;
+		}else {
+			System.out.println("Mala suerte, sigue intentandolo");
+			return juegoAcabado=false;
+		}
+		
+	}
+
+
+	@Override
+	public String toString() {
+		return "Arbitro [numJugadores=" + numJugadores + ", numAdivinar=" + numAdivinar + ", juegoAcabado="
+				+ juegoAcabado + "]";
+	}
+	
+	
+
+}

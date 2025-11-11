@@ -1,0 +1,65 @@
+package ejercicio2;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) throws InterruptedException {
+		Scanner sc = new Scanner(System.in);
+		int numArbitros;
+		int numJugadores;
+		int contArbitro = 0;
+		int contJugadores = 0;
+		Jugador j1;
+		System.out.println("===Juego de Adivinación===");
+		do {
+
+			System.out.println("Introduzca el número de árbitros(1-3)");
+			System.out.print(">");
+			numArbitros = sc.nextInt();
+
+			// comprueba si el numero introducido es correcto o no
+			if (numArbitros <= 0 || numArbitros > 3) {
+				System.out.println("El número de arbitros indicado es incorrecto");
+			} else {
+				do {
+					do {
+						System.out.println("\nIntroduzca el número de jugadores para el ARBITRO " + (contArbitro + 1) + " (2-6)");
+						System.out.print(">");
+						numJugadores = sc.nextInt();
+						if (numJugadores < 2 || numJugadores > 6) {
+							System.out.println("El número de jugadores indicado es incorrecto\n");
+						} else {
+							// Creamos el arbitro con el numero de jugadores
+							Arbitro arbitro1 = new Arbitro(numJugadores);
+							System.out.println("Creado ÁRBITRO " + (contArbitro + 1) + " (Número generado:"
+									+ arbitro1.numAdivinar + ")");
+							contArbitro++;
+							do {
+								// Se crea el jugador 1 (Hilo)
+								j1 = new Jugador(contJugadores, arbitro1);
+								System.out.println("Creado JUGADOR " + (contJugadores + 1) + " para el ARBITRO " + contArbitro);
+								
+								//Empiezan a jugar
+								j1.start();
+								j1.join();
+								contJugadores++;
+
+							} while (contJugadores < numJugadores);
+							contJugadores = 0;
+							
+							System.out.println("===Final del juego del Árbitro " + contArbitro+"===");
+						}
+					} while (numJugadores < 2 || numJugadores > 6 );
+
+				} while (contArbitro < numArbitros);
+			}
+		} while (numArbitros <= 0 || numArbitros > 3);
+		
+		System.out.println("===FINAL DEL JUEGO===");
+
+		sc.close();
+
+	}
+
+}
