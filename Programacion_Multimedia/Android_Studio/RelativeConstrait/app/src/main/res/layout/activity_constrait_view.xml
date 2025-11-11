@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_constraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    tools:context=".ConstraintView">
+    android:background="@color/black">
 
     <ImageView
         android:id="@+id/header_banner"
@@ -30,6 +28,21 @@
         app:layout_constraintTop_toBottomOf="@+id/header_banner"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_image2"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="16dp"
+        android:adjustViewBounds="true"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/post_image"
+        app:layout_constraintStart_toStartOf="@+id/post_image"
+        app:layout_constraintTop_toTopOf="@+id/tvBody"
+        app:shapeAppearanceOverlay="@style/RoundedImageView"
+        app:srcCompat="@drawable/profile_elon" />
+
+
     <Button
         android:id="@+id/btn_share"
         android:layout_width="94dp"
@@ -38,8 +51,9 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="#029DED"
         android:text="Share"
-        app:layout_constraintTop_toBottomOf="@+id/header_banner"
-        app:layout_constraintEnd_toStartOf="@+id/btn_follow" />
+        app:layout_constraintBottom_toBottomOf="@+id/btn_follow"
+        app:layout_constraintEnd_toStartOf="@+id/btn_follow"
+        app:layout_constraintTop_toBottomOf="@+id/header_banner" />
 
     <Button
         android:id="@+id/btn_follow"
@@ -49,8 +63,8 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="#029DED"
         android:text="Follow"
-        app:layout_constraintTop_toBottomOf="@+id/header_banner"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_banner" />
 
 
     <TextView
@@ -86,53 +100,142 @@
         app:layout_constraintStart_toEndOf="@+id/txt_following" />
 
 
-    <ImageView
-        android:id="@+id/post_image"
-        android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:layout_marginTop="80dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
+    <TextView
+        android:id="@+id/tvBody"
+        android:layout_width="214dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="32dp"
+        android:text="My new car!! It`s amazing #tesla #cybertruck"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/post_image"
+        app:layout_constraintEnd_toStartOf="@+id/tvTime"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_following"
-        app:srcCompat="@drawable/Cybertruck" />
+        app:layout_constraintStart_toEndOf="@+id/profile_image2" />
 
     <View
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/hr1"
+        android:layout_width="0dp"
+        android:layout_height="0.7dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/profile_image2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_following" />
 
-    <Button
-        android:id="@+id/btn_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#029BE9"
-        android:text="Home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+    <ImageView
+        android:id="@+id/post_image"
+        android:layout_width="400dp"
+        android:layout_height="278dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="11dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/hr2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBody"
+        app:layout_constraintVertical_bias="0.629"
+        app:srcCompat="@drawable/cybertruck" />
 
-    <Button
-        android:id="@+id/btn_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#029CEB"
-        android:text="Search"
-        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav"
-        app:layout_constraintStart_toEndOf="@+id/btn_home"
-        app:layout_constraintEnd_toStartOf="@+id/btn_message" />
+    <View
+        android:id="@+id/hr2"
+        android:layout_width="0dp"
+        android:layout_height="0.7dp"
+        android:layout_marginTop="11dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btn_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_button" />
 
     <Button
         android:id="@+id/btn_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
         android:backgroundTint="#029BE9"
-        android:text="Message"
-        app:layout_constraintBottom_toBottomOf="@+id/bottom_nav"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_search"
+        app:layout_constraintTop_toBottomOf="@+id/post_image" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Hace 50 min"
+        android:textColor="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/post_image"
+        app:layout_constraintEnd_toEndOf="@+id/post_image" />
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:backgroundTint="#029CEB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_message"
+        app:layout_constraintStart_toEndOf="@+id/btn_home"
+        app:layout_constraintTop_toBottomOf="@+id/post_image" />
+
+    <Button
+        android:id="@+id/btn_message2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:backgroundTint="#029BE9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_search"
+        app:layout_constraintTop_toBottomOf="@+id/post_image" />
+
+    <Button
+        android:id="@+id/btn_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:backgroundTint="#029BE9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_image" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="53dp"
+        android:layout_height="38dp"
+        android:src="@drawable/home"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_home"
+        app:layout_constraintEnd_toEndOf="@+id/btn_home"
+        app:layout_constraintStart_toStartOf="@+id/btn_home"
+        app:layout_constraintTop_toTopOf="@+id/btn_home" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="56dp"
+        android:layout_height="36dp"
+        android:src="@drawable/search"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_search"
+        app:layout_constraintEnd_toEndOf="@+id/btn_search"
+        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintStart_toStartOf="@+id/btn_search"
+        app:layout_constraintTop_toTopOf="@+id/btn_search" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="89dp"
+        android:layout_height="35dp"
+        android:src="@drawable/message"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_message"
+        app:layout_constraintEnd_toEndOf="@+id/btn_message"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_message"
+        app:layout_constraintTop_toTopOf="@+id/btn_message"
+        app:layout_constraintVertical_bias="0.615" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,12 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RelativeConstrait">
         <activity
-            android:name=".ConstraitView"
-            android:exported="false" />
-        <activity
-            android:name=".RelativeView"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -26,6 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ConstraitView"
+            android:exported="false" />
+        <activity
+            android:name=".RelativeView"
+            android:exported="false" />
     </application>
 
 </manifest>
