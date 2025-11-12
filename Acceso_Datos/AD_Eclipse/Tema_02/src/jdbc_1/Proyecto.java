@@ -1,4 +1,4 @@
-package boletin_2;
+package jdbc_1;
 
 public class Proyecto {
 	int proyecto_no; //PRIMARY KEY

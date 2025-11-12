@@ -1,4 +1,4 @@
-package boletin_2;
+package jdbc_1;
 
 public class Trabaja {
 	int emp_no; 		//PRIMARY KEY 	//REFERENCES empleado(emp_no),

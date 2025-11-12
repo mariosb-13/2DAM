@@ -1,4 +1,4 @@
-package boletin_2;
+package jdbc_2;
 
 public class Departamento {
 	int dept_no; //PRIMARY KEY
