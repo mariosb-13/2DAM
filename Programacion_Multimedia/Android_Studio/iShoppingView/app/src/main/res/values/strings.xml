@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">iShoppingList</string>
+    <string name="prompt_spinner">Selecciona una opción</string>
+</resources>

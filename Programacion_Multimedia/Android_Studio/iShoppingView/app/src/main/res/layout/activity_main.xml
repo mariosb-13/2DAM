@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F5F5F5"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lista de Compra"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#444444"
+            android:layout_marginBottom="24dp"
+            android:textAlignment="center" />
+
+        <!-- ListView -->
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="346dp"
+            android:layout_height="451dp" />
+
+        <!-- Botones horizontales -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/button_addProduct"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Añadir Producto"
+                android:onClick="addProduct"
+                android:backgroundTint="#AED581"
+                android:textColor="#FFFFFF"
+                android:elevation="2dp"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/button_addPending"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Añadir Pendiente"
+                android:onClick="addPending"
+                android:backgroundTint="#AED581"
+                android:textColor="#FFFFFF"
+                android:elevation= "2dp"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Botón de ver detalles -->
+        <Button
+            android:id="@+id/buttonDetails"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Ver Detalles"
+            android:onClick="showDetails"
+            android:backgroundTint="#81D4FA"
+            android:textColor="#FFFFFF"
+            android:elevation="2dp"
+            android:layout_marginBottom="8dp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
