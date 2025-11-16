@@ -1,0 +1,6 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado activado (Formal) -->
+    <item android:state_checked="true" android:drawable="@color/accent_red" />
+    <!-- Estado desactivado (Casual) -->
+    <item android:drawable="@color/accent_green" />
+</selector>
