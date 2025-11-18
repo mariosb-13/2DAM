@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="500">
+
+    <!-- El elemento se mueve desde arriba (-20%) a su posición original (0%) -->
+    <translate
+        android:fromYDelta="-20%"
+        android:toYDelta="0%"
+        android:interpolator="@android:anim/decelerate_interpolator"
+        />
+
+    <!-- El elemento aparece de transparente a opaco -->
+    <alpha
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:interpolator="@android:anim/decelerate_interpolator"
+        />
+
+</set>

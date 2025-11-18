@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Define el menú principal para la barra de acción (Toolbar) -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Ítem de Búsqueda -->
+    <!-- 'ifRoom' intenta mostrarlo como un icono en la barra si hay espacio. -->
+    <item
+        android:id="@+id/action_search"
+        android:title="@string/buscar"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="100"/>
+
+    <!-- Ítem de Ajustes -->
+    <!-- 'never' asegura que siempre aparezca en el menú de desbordamiento (los tres puntos). -->
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/ajustes"
+        app:showAsAction="never"
+        android:orderInCategory="200"/>
+
+    <!-- Submenú de Perfil/Opciones Adicionales -->
+    <item
+        android:id="@+id/action_more_options"
+        android:title="@string/otras_opciones"
+        app:showAsAction="never"
+        android:orderInCategory="300">
+        <!-- Contenido del submenú -->
+        <menu>
+            <item
+                android:id="@+id/action_profile"
+                android:title="@string/ver_perfil" />
+            <item
+                android:id="@+id/action_about"
+                android:title="@string/acerca_de" />
+        </menu>
+    </item>
+
+</menu>
