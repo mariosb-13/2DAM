@@ -2,5 +2,5 @@
     <!-- Estado activado (Formal) -->
     <item android:state_checked="true" android:drawable="@color/accent_red" />
     <!-- Estado desactivado (Casual) -->
-    <item android:drawable="@color/accent_green" />
+    <item android:drawable="@color/color1" />
 </selector>
