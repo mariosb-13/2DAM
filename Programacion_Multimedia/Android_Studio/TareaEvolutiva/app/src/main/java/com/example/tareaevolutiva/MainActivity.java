@@ -1,26 +1,49 @@
-package com.example.tareaevolutiva;
+package  com.example.tareaevolutiva;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.view.View;
+import android.widget.ImageButton; // Importante: es ImageButton, no Button
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+// Importación del SideSheet de Material 3
+import com.google.android.material.sidesheet.SideSheetDialog;
+import android.widget.Button; // Para los botones de dentro del sheet
 
 public class MainActivity extends AppCompatActivity {
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        // Asegúrate de que este nombre coincide con tu archivo XML principal
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.mainActivity), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        // REFERENCIAR EL BOTÓN DEL PERFIL
+        // En tu XML se llama "imgProfile" y es un ImageButton
+        ImageButton btnPerfil = findViewById(R.id.imgProfile);
+
+        // DARLE LA FUNCIONALIDAD
+        btnPerfil.setOnClickListener(v -> abrirMenuLateral());
+    }
+
+    /**
+     * Método que abre el menu lateral
+     */
+    private void abrirMenuLateral() {
+        // Crea la instancia de sideSheet
+        SideSheetDialog sideSheet = new SideSheetDialog(this);
+
+        // Asignarle el diseño XML del menú
+        sideSheet.setContentView(R.layout.layout_side_sheet);
+
+        Button btnLogout = sideSheet.findViewById(R.id.btnCerrarSesion);
+        if (btnLogout != null) {
+            btnLogout.setOnClickListener(v -> {
+                Toast.makeText(MainActivity.this, "Cerrando sesión...", Toast.LENGTH_SHORT).show();
+                sideSheet.dismiss();
+            });
+        }
+
+        // Mostrar el menú
+        sideSheet.show();
     }
 }

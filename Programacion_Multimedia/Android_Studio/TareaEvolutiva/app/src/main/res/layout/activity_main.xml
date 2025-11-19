@@ -15,27 +15,27 @@
         android:textOff="@string/modo_casual"
         android:textOn="@string/modo_formal"
         android:background="@drawable/toggle_modo_bg"
-        android:textColor="@color/toggle_modo_text"
+        android:textColor="@drawable/toggle_modo_text"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"/>
 
-
+    <!-- PARTE SUPERIOR -->
     <Switch
         android:id="@+id/switchAccesorios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="144dp"
         android:text="@string/mostrar_accesorios"
         android:textColor="@color/text_dark"
         android:thumbTint="@color/color1"
         android:trackTint="@color/color2"
-        app:layout_constraintTop_toTopOf="@id/toggleModo"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="@id/toggleModo"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
-    <!-- PARTE SUPERIOR -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/viewSuperior"
         android:layout_width="0dp"
@@ -57,6 +57,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- PARTE INFERIOR -->
@@ -143,4 +144,17 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="32dp"/>
+
+    <ImageButton
+        android:id="@+id/imgProfile"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@null"
+        android:contentDescription="Pantalón"
+        android:scaleType="fitCenter"
+        android:src="@drawable/usuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

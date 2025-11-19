@@ -16,4 +16,5 @@
 
     <!-- Botón principal -->
     <string name="btn_cambiar_outfit">Crear Outfit</string>
+    <string name="usuario_drippy_com">mario@drippy.com</string>
 </resources>
