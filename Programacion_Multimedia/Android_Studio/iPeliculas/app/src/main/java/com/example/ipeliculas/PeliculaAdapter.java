@@ -48,7 +48,7 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.Pelicu
 
         holder.tituloTextView.setText(pelicula.getTitulo());
         holder.sinopsisTextView.setText(pelicula.getSinopsis());
-        holder.imgPortada.setImageResource(pelicula.getImagen());
+        holder.imgPortada.setImageResource(Integer.parseInt(pelicula.getImagen()));
 
 /*        Glide.with(context)
                 .load(pelicula.getImagen())

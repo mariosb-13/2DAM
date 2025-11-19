@@ -5,45 +5,56 @@
     android:id="@+id/mainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_light">
+    android:background="@color/bg_light"
+    android:fitsSystemWindows="true"> <ToggleButton
+    android:id="@+id/toggleModo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="16dp"
+    android:textOff="@string/modo_casual"
+    android:textOn="@string/modo_formal"
+    android:background="@drawable/toggle_modo_bg"
+    android:textColor="@drawable/toggle_modo_text"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- MENÚ SUPERIOR -->
-    <ToggleButton
-        android:id="@+id/toggleModo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textOff="@string/modo_casual"
-        android:textOn="@string/modo_formal"
-        android:background="@drawable/toggle_modo_bg"
-        android:textColor="@drawable/toggle_modo_text"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+    <ImageButton
+        android:id="@+id/imgProfile"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@null"
+        android:contentDescription="Perfil"
+        android:scaleType="fitCenter"
+        android:src="@drawable/usuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- PARTE SUPERIOR -->
     <Switch
         android:id="@+id/switchAccesorios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="144dp"
+        android:layout_marginTop="12dp"
         android:text="@string/mostrar_accesorios"
         android:textColor="@color/text_dark"
         android:thumbTint="@color/color1"
         android:trackTint="@color/color2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/toggleModo"
+        app:layout_constraintStart_toStartOf="@id/toggleModo"
+        app:layout_constraintTop_toBottomOf="@id/toggleModo"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/viewSuperior"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        app:layout_constraintTop_toBottomOf="@id/toggleModo"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/switchAccesorios"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
             android:id="@+id/imgCamiseta"
@@ -57,19 +68,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- PARTE INFERIOR -->
-
-    <!-- ZAPATILLAS -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/viewInferior"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/viewSuperior">
 
@@ -91,10 +99,12 @@
         android:id="@+id/viewZapatillas"
         android:layout_width="0dp"
         android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintTop_toBottomOf="@id/viewInferior"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
             android:id="@+id/imgZapatilla"
@@ -110,13 +120,12 @@
             app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- BOTÓN ALEATORIO -->
     <ImageButton
         android:id="@+id/btnAleatorio"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/btn_aleatorio_circular"
         android:contentDescription="@string/desc_aleatorio"
         android:elevation="12dp"
@@ -127,7 +136,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- BOTÓN CREAR OUTFIT -->
     <Button
         android:id="@+id/btnCambiarOutfit"
         android:layout_width="0dp"
@@ -140,21 +148,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"/>
-
-    <ImageButton
-        android:id="@+id/imgProfile"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@null"
-        android:contentDescription="Pantalón"
-        android:scaleType="fitCenter"
-        android:src="@drawable/usuario"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginBottom="48dp"/> </androidx.constraintlayout.widget.ConstraintLayout>

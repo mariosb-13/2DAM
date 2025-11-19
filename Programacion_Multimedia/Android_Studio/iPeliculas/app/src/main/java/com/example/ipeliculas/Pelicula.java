@@ -49,7 +49,7 @@ public class Pelicula {
         this.sinopsis = sinopsis;
     }
 
-    public int getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
