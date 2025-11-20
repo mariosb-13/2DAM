@@ -1,15 +1,13 @@
 package com.example.ipeliculas;
 
-import android.widget.RatingBar;
-
 public class Pelicula {
     protected String titulo;
     protected String genero;
-    protected RatingBar valoracion;
+    protected float valoracion;
     protected String sinopsis;
-    protected String imagen;
+    protected int imagen;
 
-    public Pelicula(String titulo, String genero, RatingBar valoracion, String sinopsis, String imagen) {
+    public Pelicula(String titulo, String genero, float valoracion, String sinopsis, int imagen) {
         this.titulo = titulo;
         this.genero = genero;
         this.valoracion = valoracion;
@@ -33,11 +31,11 @@ public class Pelicula {
         this.genero = genero;
     }
 
-    public RatingBar getValoracion() {
+    public float getValoracion() {
         return valoracion;
     }
 
-    public void setValoracion(RatingBar valoracion) {
+    public void setValoracion(float valoracion) {
         this.valoracion = valoracion;
     }
 
@@ -49,13 +47,11 @@ public class Pelicula {
         this.sinopsis = sinopsis;
     }
 
-    public String getImagen() {
+    public int getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(int imagen) {
         this.imagen = imagen;
     }
-
-
 }

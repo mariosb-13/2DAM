@@ -11,8 +11,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private PeliculaAdapter adaptadorPeli;
+    private List<Pelicula> listaPeliculas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +31,59 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Configurar la Toolbar
+        // Importa: androidx.appcompat.widget.Toolbar
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        recyclerView=findViewById(R.id.recyclerView);
+        listaPeliculas= new ArrayList<>();
+
+        listaPeliculas = new ArrayList<>();
+
+        listaPeliculas.add(new Pelicula("Titanic", "Drama", 4.5f,
+                "Un joven artista y una aristócrata se enamoran a bordo del insumergible RMS Titanic, desafiando las normas sociales mientras el barco se dirige hacia un trágico destino en las heladas aguas del Atlántico Norte.",
+                R.drawable.titanic_portada));
+
+        listaPeliculas.add(new Pelicula("Avatar", "Ciencia Ficción", 4.8f,
+                "En el exuberante mundo alienígena de Pandora, un exmarine paralítico ocupa su lugar en un programa que le permite controlar un cuerpo biológico híbrido, pero pronto se encuentra dividido entre seguir órdenes y proteger a la civilización nativa.",
+                R.drawable.avatar_portada));
+
+        listaPeliculas.add(new Pelicula("El Padrino", "Crimen", 5.0f,
+                "El envejecido patriarca de una dinastía del crimen organizado en la posguerra de Nueva York transfiere el control de su imperio clandestino a su hijo reacio, desatando una serie de traiciones y guerras entre familias mafiosas.",
+                R.drawable.padrino_portada));
+
+        listaPeliculas.add(new Pelicula("Matrix", "Ciencia Ficción", 4.7f,
+                "Un hacker informático aprende de misteriosos rebeldes la verdadera naturaleza de su realidad y su papel en la guerra contra sus controladores: una inteligencia artificial poderosa que mantiene a la humanidad dormida en una simulación.",
+                R.drawable.matrix_portada));
+
+        listaPeliculas.add(new Pelicula("Inception", "Thriller", 4.6f,
+                "Un ladrón experto en el peligroso arte de la extracción, robar secretos del subconsciente durante el estado de sueño, recibe una última oportunidad de redención si logra lo imposible: implantar una idea en la mente de un heredero corporativo.",
+                R.drawable.inception_portada));
+
+        listaPeliculas.add(new Pelicula("Pulp Fiction", "Crimen", 4.9f,
+                "Las vidas de dos asesinos a sueldo de la mafia, un boxeador, la esposa de un gánster y un par de bandidos de cafetería se entrelazan en cuatro historias de violencia y redención en Los Ángeles.",
+                R.drawable.pulp_portada));
+
+        listaPeliculas.add(new Pelicula("Jurassic Park", "Ciencia Ficción", 4.4f,
+                "Un multimillonario invita a un grupo de científicos a su parque temático en una isla remota, donde ha logrado clonar dinosaurios reales. Sin embargo, una falla de seguridad convierte la visita en una pesadilla de supervivencia prehistórica.",
+                R.drawable.jurassic_portada));
+
+        listaPeliculas.add(new Pelicula("Forrest Gump", "Drama", 4.8f, // Te he subido la nota, 1.5 era muy poco ;)
+                "Las presidencias de Kennedy y Johnson, la guerra de Vietnam y otros eventos históricos se desarrollan a través de la perspectiva de un hombre de Alabama con un coeficiente intelectual bajo, cuya inocencia altera la historia.",
+                R.drawable.forrest_portada));
+
+        adaptadorPeli=new PeliculaAdapter(listaPeliculas,this);
+        recyclerView.setAdapter(adaptadorPeli);
+
+        recyclerView = findViewById(R.id.recyclerView);
+        adaptadorPeli = new PeliculaAdapter(listaPeliculas, this);
+        recyclerView.setAdapter(adaptadorPeli);
+
+        // Le dice al Recycler que se comporte como una lista vertical estándar
+        recyclerView.setLayoutManager(new androidx.recyclerview.widget.LinearLayoutManager(this));
+        recyclerView.scheduleLayoutAnimation();
     }
 
 
@@ -36,7 +97,14 @@ public class MainActivity extends AppCompatActivity {
         // Carga el archivo main_menu.xml en el objeto Menu
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
-        return true; // Devuelve 'true' para que el menú se muestre.
+
+        //Establecemos el titulo del action bar
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Cartelera de Cine");
+        }
+
+        return true;
+
     }
 
     /**
@@ -48,14 +116,8 @@ public class MainActivity extends AppCompatActivity {
         // Obtenemos el ID del ítem que ha sido pulsado
         int id = item.getItemId();
 
-        if (id == R.id.action_search) {
-            Toast.makeText(this, "Acción de Búsqueda seleccionada", Toast.LENGTH_SHORT).show();
-            return true;
-        } else if (id == R.id.action_settings) {
+        if (id == R.id.acercaDe) {
             Toast.makeText(this, "Acción de Ajustes seleccionada", Toast.LENGTH_SHORT).show();
-            return true;
-        } else if (id == R.id.action_profile) {
-            Toast.makeText(this, "Acción de Perfil seleccionada", Toast.LENGTH_SHORT).show();
             return true;
         }
 
