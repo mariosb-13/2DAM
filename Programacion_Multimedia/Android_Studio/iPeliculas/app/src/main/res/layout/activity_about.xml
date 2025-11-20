@@ -6,11 +6,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:context=".AboutActivity">
 
-
-<androidx.appcompat.widget.Toolbar
+    <!-- Toolbar: Misma configuración para mantener el estilo -->
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
@@ -21,13 +21,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <!-- Contenido: Centrado debajo de la Toolbar -->
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tvAppInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aplicación desarrollada por Mario Sánchez\nVersión 1.0."
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:lineSpacingExtra="4dp"
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

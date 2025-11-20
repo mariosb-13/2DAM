@@ -82,8 +82,10 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.Pelicu
             intent.putExtra("TITULO", pelicula.getTitulo());
             intent.putExtra("GENERO", pelicula.getGenero());
             intent.putExtra("SINOPSIS", pelicula.getSinopsis());
-            intent.putExtra("IMAGEN", pelicula.getImagen()); // Pasamos el ID (int)
+            intent.putExtra("IMAGEN", pelicula.getImagen());
             intent.putExtra("VALORACION", pelicula.getValoracion());
+            intent.putExtra("FECHA_ESTRENO", pelicula.getFechaEstreno());
+            intent.putExtra("DIRECTOR", pelicula.getDirector());
 
             // Iniciar la actividad
             context.startActivity(intent);
