@@ -3,6 +3,7 @@
     <string name="ajustes">Ajustes</string>
     <string name="otras_opciones">Otras Opciones</string>
     <string name="ver_perfil">Ver Perfil</string>
-    <string name="acerca_de">Acerca de...</string>
+    <string name="acerca_de">Acerca de…</string>
+    <string name="cine">Ir al cine</string>
     <string name="buscar">Buscar</string>
 </resources>

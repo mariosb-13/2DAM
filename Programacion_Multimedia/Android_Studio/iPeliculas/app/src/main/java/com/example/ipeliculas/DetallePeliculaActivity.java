@@ -88,6 +88,10 @@ public class DetallePeliculaActivity extends AppCompatActivity {
 
             startActivity(intent);
             return true;
+        }else if(id == R.id.mapsCine){
+            Intent intent = new Intent(this, ActivityGoogleMaps.class);
+            startActivity(intent);
+            return true;
         }
 
         // Si el ítem no fue manejado por nuestro código, dejamos que el sistema lo maneje.

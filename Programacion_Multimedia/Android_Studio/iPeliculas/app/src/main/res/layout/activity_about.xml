@@ -9,19 +9,17 @@
     android:fitsSystemWindows="true"
     tools:context=".AboutActivity">
 
-    <!-- Toolbar: Misma configuración para mantener el estilo -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Contenido: Centrado debajo de la Toolbar -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"

@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IPeliculas">
         <activity
+            android:name=".ActivityGoogleMaps"
+            android:exported="false" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDiMYwcfL_SevL1j7QSKGNFsoybGjG_os4" />
+        <activity
             android:name=".AboutActivity"
             android:exported="false" />
         <activity
