@@ -1,0 +1,6 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado activado -->
+    <item android:state_checked="true" android:color="@color/text_light" />
+    <!-- Estado desactivado -->
+    <item android:color="@color/text_dark" />
+</selector>
