@@ -6,9 +6,10 @@
     android:id="@+id/mainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_light"
+    android:background="@color/cardview_light_background"
     android:fitsSystemWindows="true">
 
+    <!-- Toggle de Modo (Casual/Formal) -->
     <ToggleButton
         android:id="@+id/toggleModo"
         android:layout_width="wrap_content"
@@ -22,6 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <!-- Botón de Perfil -->
     <ImageButton
         android:id="@+id/imgProfile"
         android:layout_width="30dp"
@@ -35,6 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Switch de Accesorios -->
     <Switch
         android:id="@+id/switchAccesorios"
         android:layout_width="wrap_content"
@@ -48,6 +51,7 @@
         app:layout_constraintTop_toBottomOf="@id/toggleModo"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
+    <!-- ScrollView de Camisetas -->
     <HorizontalScrollView
         android:id="@+id/scrollCamisetas"
         android:layout_width="0dp"
@@ -69,24 +73,34 @@
             <ImageButton
                 android:id="@+id/imgCamiseta"
                 android:layout_width="180dp"
-                android:layout_height="180dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
                 android:background="@null"
                 android:contentDescription="Camiseta"
                 android:scaleType="centerInside"
-                android:src="@drawable/camiseta_travis"
-                android:layout_marginEnd="16dp"/>
+                android:src="@drawable/camiseta_travis" />
 
             <ImageButton
                 android:layout_width="180dp"
-                android:layout_height="180dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
                 android:background="@null"
                 android:contentDescription="Camiseta 2"
                 android:scaleType="centerInside"
-                android:src="@drawable/camiseta2"
-                android:layout_marginEnd="16dp"/>
+                android:src="@drawable/camiseta2" />
+
+            <ImageButton
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:background="@null"
+                android:contentDescription="Camiseta 2"
+                android:scaleType="centerInside"
+                android:src="@drawable/camiseta_off" />
         </LinearLayout>
     </HorizontalScrollView>
 
+    <!-- ScrollView de Pantalones -->
     <HorizontalScrollView
         android:id="@+id/scrollPantalones"
         android:layout_width="0dp"
@@ -108,24 +122,34 @@
             <ImageButton
                 android:id="@+id/imgPantalon"
                 android:layout_width="180dp"
-                android:layout_height="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
                 android:background="@null"
                 android:contentDescription="Pantalón"
                 android:scaleType="centerInside"
-                android:src="@drawable/pantalones"
-                android:layout_marginEnd="16dp"/>
+                android:src="@drawable/pantalones" />
 
             <ImageButton
                 android:layout_width="180dp"
-                android:layout_height="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
                 android:background="@null"
                 android:contentDescription="Pantalón 2"
                 android:scaleType="centerInside"
-                android:src="@drawable/nike_pantalones"
-                android:layout_marginEnd="16dp"/>
+                android:src="@drawable/nike_pantalones" />
+
+            <ImageButton
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:background="@null"
+                android:contentDescription="Pantalón 2"
+                android:scaleType="centerInside"
+                android:src="@drawable/pantalones_chandal" />
         </LinearLayout>
     </HorizontalScrollView>
 
+    <!-- ScrollView de Zapatillas -->
     <HorizontalScrollView
         android:id="@+id/scrollZapatillas"
         android:layout_width="0dp"
@@ -146,7 +170,7 @@
 
             <ImageButton
                 android:id="@+id/imgZapatilla"
-                android:layout_width="200dp"
+                android:layout_width="170dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="16dp"
                 android:background="@null"
@@ -155,21 +179,31 @@
                 android:src="@drawable/zapatillas_travis" />
 
             <ImageButton
-                android:layout_width="180dp"
+                android:layout_width="160dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="16dp"
                 android:background="@null"
                 android:contentDescription="Zapatilla 2"
                 android:scaleType="centerInside"
                 android:src="@drawable/akimbo" />
+            <ImageButton
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:background="@null"
+                android:contentDescription="Zapatilla 2"
+                android:scaleType="centerInside"
+                android:src="@drawable/dunk" />
         </LinearLayout>
     </HorizontalScrollView>
 
+    <!-- Botón Aleatorio -->
     <ImageButton
         android:id="@+id/btnAleatorio"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/btn_aleatorio_circular"
         android:contentDescription="@string/desc_aleatorio"
         android:elevation="12dp"
@@ -178,6 +212,22 @@
         android:src="@drawable/mezcla"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollZapatillas" />
+        app:layout_constraintTop_toBottomOf="@id/scrollZapatillas"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation" />
+
+    <!-- BARRA DE NAVEGACIÓN INFERIOR (BottomNavigationView) -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/color0"
+        app:menu="@menu/menu_bottom_nav"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:itemTextColor="@color/color4">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

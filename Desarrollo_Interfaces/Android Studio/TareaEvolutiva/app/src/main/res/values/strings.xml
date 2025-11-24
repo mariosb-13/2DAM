@@ -17,4 +17,9 @@
     <!-- Botón principal -->
     <string name="btn_cambiar_outfit">Crear Outfit</string>
     <string name="usuario_drippy_com">mario@drippy.com</string>
+    <string name="outfits">Outfits</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="calendario">Calendario</string>
+    <string name="armario">Armario</string>
 </resources>
