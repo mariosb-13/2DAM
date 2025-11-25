@@ -13,6 +13,7 @@ public class Escritor extends Thread {
 	public void run() {
 		try {
 			for (int i = 0; i < 100; i++) {
+				System.out.println("ESCRITOR " + this.id + ": Intentando escribir");
 				this.ac.comenzarEscribir();
 				sleep(500);
 			}

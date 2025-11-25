@@ -13,10 +13,10 @@ public class Lector extends Thread {
 	@Override
 	public void run() {
 		try {
-			for (int i = 0; i < 100; i++) {
+			for (int i = 0; i < 50; i++) {
 				System.out.println("LECTOR " + this.id + ": Intentando leer");
 				this.ac.comenzarLeer();
-				sleep(1000);
+				sleep(2000);
 			}
 			this.ac.salirLeer();
 		} catch (InterruptedException e) {

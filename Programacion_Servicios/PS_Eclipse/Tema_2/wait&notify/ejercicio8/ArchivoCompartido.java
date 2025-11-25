@@ -12,20 +12,26 @@ public class ArchivoCompartido {
 
 	public synchronized void comenzarLeer() throws InterruptedException {
 		while (estaEscribiendo) {
+			System.out.println("Alguien esta escribiendo... Me espero");
 			wait();
 		}
+		System.out.println("Comienzo lectura");
 		numLectores++;
-
+		
 	}
 
 	public synchronized void salirLeer() {
 		numLectores--;
+		notifyAll();			
+		
 	}
 
 	public synchronized void comenzarEscribir() throws InterruptedException {
 		while (estaEscribiendo || numLectores > 0) {
+			System.out.println("No puedo escribir");
 			wait();
 		}
+		System.out.println("Comienzo a escribir");
 		this.estaEscribiendo = true;
 	}
 
