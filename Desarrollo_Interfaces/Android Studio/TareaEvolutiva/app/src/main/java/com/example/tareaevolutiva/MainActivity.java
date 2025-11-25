@@ -2,13 +2,10 @@ package  com.example.tareaevolutiva;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton; // Importante: es ImageButton, no Button
-import android.widget.Toast;
+import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
-// Importación del SideSheet de Material 3
 import com.google.android.material.sidesheet.SideSheetDialog;
-import android.widget.Button; // Para los botones de dentro del sheet
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
