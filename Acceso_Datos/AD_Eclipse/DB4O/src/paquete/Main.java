@@ -1,10 +1,31 @@
-import com.db4o.Db4o;
+// CLASE: Main.java
+package paquete;
+
 import com.db4o.ObjectContainer;
 
 public class Main {
     public static void main(String[] args) {
-        ObjectContainer db = Db4o.openFile("test.db4o");
-        System.out.println("DB4O abierto correctamente: " + db);
-        db.close();
+        
+        Db4oConnection dbConn = new Db4oConnection();
+
+        if (dbConn.abrir()) {
+            
+            ObjectContainer db = dbConn.getDb(); 
+
+            Db4oCRUD.inicializarBD(db);
+
+            Db4oCRUD.consultarEmpleados(db);
+
+            Db4oCRUD.modificarSalario(db, "SÁNCHEZ", 500.0);
+            
+            Db4oCRUD.eliminarEmpleado(db, "REY");
+            
+            Db4oCRUD.consultarEmpleados(db);
+
+            dbConn.cerrar();
+            
+        } else {
+            System.err.println("No se pudo iniciar la aplicación.");
+        }
     }
 }
