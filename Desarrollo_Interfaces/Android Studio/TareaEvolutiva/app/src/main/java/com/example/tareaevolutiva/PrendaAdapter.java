@@ -3,53 +3,47 @@ package com.example.tareaevolutiva;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-
+import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
 
 public class PrendaAdapter extends RecyclerView.Adapter<PrendaAdapter.PrendaViewHolder> {
 
-    private final List<Integer> mDataSet;
+    private final List<Integer> mPrendas;
+    private final int mLayoutResId; // Guarda el ID del layout específico
 
-    /**
-     * Constructor
-     * @param dataSet Lista de IDs de recursos (R.drawable.nombre_imagen)
-     */
-    public PrendaAdapter(List<Integer> dataSet) {
-        mDataSet = dataSet;
-    }
-
-    // El ViewHolder contiene las vistas para cada elemento de la lista
-    public static class PrendaViewHolder extends RecyclerView.ViewHolder {
-        public ImageButton imgPrenda;
-
-        public PrendaViewHolder(View view) {
-            super(view);
-            // El layout item_prenda.xml solo tiene un ImageButton
-            imgPrenda = (ImageButton) view;
-        }
+    public PrendaAdapter(List<Integer> prendas, int layoutResId) {
+        this.mPrendas = prendas;
+        this.mLayoutResId = layoutResId;
     }
 
     @NonNull
     @Override
     public PrendaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Infla el layout item_prenda.xml
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_prenda, parent, false);
-        return new PrendaViewHolder(v);
+        // Infla la vista usando el layout específico (mLayoutResId)
+        View view = LayoutInflater.from(parent.getContext()).inflate(mLayoutResId, parent, false);
+        return new PrendaViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PrendaViewHolder holder, int position) {
-        // Establece la imagen de la prenda usando el ID del recurso
-        holder.imgPrenda.setImageResource(mDataSet.get(position));
+        int drawableResId = mPrendas.get(position);
+        holder.imageViewPrenda.setImageResource(drawableResId);
     }
 
     @Override
     public int getItemCount() {
-        return mDataSet.size();
+        return mPrendas.size();
+    }
+
+    public static class PrendaViewHolder extends RecyclerView.ViewHolder {
+        // Asume que todos los layouts de ítem usan el ID 'image_prenda'
+        ImageView imageViewPrenda;
+
+        public PrendaViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imageViewPrenda = itemView.findViewById(R.id.image_prenda);
+        }
     }
 }

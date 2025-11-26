@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/navigation_outfits"
+        android:id="@+id/nav_home"
         android:icon="@drawable/icono_home"
-        android:title="@string/outfits" />
+        android:title="Home" />
+
     <item
-        android:id="@+id/navigation_armario"
-        android:icon="@drawable/icono_armario"
-        android:title="@string/armario" />
-    <item
-        android:id="@+id/navigation_calendario"
-        android:icon="@drawable/icono_calendar"
-        android:title="@string/calendario" />
-    <item
-        android:id="@+id/navigation_favoritos"
+        android:id="@+id/nav_favorites"
         android:icon="@drawable/icono_corazon"
-        android:title="@string/favoritos" />
+        android:title="Favoritos" />
+
+    <item
+        android:id="@+id/nav_calendar"
+        android:icon="@drawable/icono_calendar"
+        android:title="Calendario" />
 
 </menu>
