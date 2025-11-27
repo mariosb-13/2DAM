@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/mario/Desktop/2DAM/Acceso_Datos/AD_Eclipse/DB4O/com.db4o-7.7.67.jar"/>
+	<classpathentry kind="lib" path="/Users/alumnado/Desktop/2DAM/Acceso_Datos/AD_Eclipse/DB4O/com.db4o-7.7.67.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
