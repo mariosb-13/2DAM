@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnTarea.setOnClickListener(v -> {
             Intent intent = new Intent(this, ActivityTarea.class);
+            intent.putExtra("id", etId.getText().toString());
             startActivity(intent);
         });
     }
