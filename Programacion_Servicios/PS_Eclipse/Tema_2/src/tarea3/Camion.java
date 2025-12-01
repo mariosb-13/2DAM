@@ -1,14 +1,15 @@
 package tarea3;
 
-public class Camion extends Thread{
-	double tiempoPaso;
+public class Camion extends Thread {
+    LineaInspeccion linea;
 
-	public Camion() {
-		this.tiempoPaso = 1.5;
-	}
+    public Camion(LineaInspeccion linea) {
+        this.linea = linea;
+    }
 
-	@Override
-	public void run() {
-		System.out.println("Soy un camión");
-	}
+    @Override
+    public void run() {
+        // El camión tarda 1.5 segundos (1500 ms)
+        linea.revisar("Camión " + getId(), 1500);
+    }
 }

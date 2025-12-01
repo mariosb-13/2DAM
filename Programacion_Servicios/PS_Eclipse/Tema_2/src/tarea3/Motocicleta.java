@@ -1,20 +1,15 @@
 package tarea3;
 
-public class Motocicleta extends Thread{
-	double tiempoPaso;
+public class Motocicleta extends Thread {
+    LineaInspeccion linea;
 
-	public Motocicleta() {
-		this.tiempoPaso = 0.5;
-	}
+    public Motocicleta(LineaInspeccion linea) {
+        this.linea = linea;
+    }
 
-	@Override
-	public void run() {
-		System.out.println("Soy una moto");
-		try {
-			sleep(500);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void run() {
+        // La moto tarda 0.5 segundos (500 ms)
+        linea.revisar("Moto " + getId(), 500);
+    }
 }

@@ -1,22 +1,27 @@
 package tarea3;
 
-public class ITV {
+public class ITV2 {
     public static void main(String[] args) {
-        LineaInspeccion linea = new LineaInspeccion(1);
+        //Semáforo con 3 permisos (3 líneas de inspección)
+        LineaInspeccion linea = new LineaInspeccion(3);
         
-        // Array para guardar los vehículos
-        Thread[] cola = new Thread[24];
+        //Cola de 64 vehículos
+        Thread[] cola = new Thread[64];
 
-        // Crear los vehículos aleatoriamente
+        // Crear los vehículos
         for (int i = 0; i < cola.length; i++) {
-            int tipo = (int)(Math.random() * 3); // Número entre 0 y 2
+            // CAMBIO 3: Ahora elegimos entre 4 tipos (0, 1, 2, 3)
+            int tipo = (int)(Math.random() * 4); 
             
             if (tipo == 0) {
                 cola[i] = new Coche(linea);
             } else if (tipo == 1) {
                 cola[i] = new Motocicleta(linea);
-            } else {
+            } else if (tipo == 2) {
                 cola[i] = new Camion(linea);
+            } else {
+                // Nuevo tipo de vehículo
+                cola[i] = new VehiculoAgricola(linea);
             }
         }
 
@@ -25,13 +30,13 @@ public class ITV {
             vehiculo.start();
         }
 
-        // Esperar a que todos terminen (join)
+        // Esperar a que terminen
         for (Thread vehiculo : cola) {
             try {
                 vehiculo.join();
             } catch (Exception e) {}
         }
 
-        System.out.println("--- ITV FINALIZADA ---");
+        System.out.println("--- SIMULACIÓN AMPLIADA FINALIZADA ---");
     }
 }
