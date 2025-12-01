@@ -1,96 +1,85 @@
 package entities;
 
-import javax.persistence.AssociationOverride;
-import javax.persistence.AssociationOverrides;
+import java.io.Serializable;
+import java.util.Objects;
+
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "trabaja")
-@AssociationOverrides({
-    @AssociationOverride(name = "id.emp_no", joinColumns = @JoinColumn(name = "emp_no")),
-    @AssociationOverride(name = "id.proyecto_no", joinColumns = @JoinColumn(name = "proyecto_no"))
-})
+@IdClass(Trabaja.TrabajaId.class)
 public class Trabaja {
 
-	@EmbeddedId
-	private TrabajaPK id = new TrabajaPK();
+    @Id
+    @Column(name = "emp_no")
+    private Integer emp_no;
 
-	@Column(name = "horas")
-	private Integer horas;
+    // --- CORRECCIÓN AQUÍ ---
+    // La variable se llama 'proyecto' (para Java), pero en la BD es 'proyecto_no'
+    @Id
+    @Column(name = "proyecto_no") 
+    private Integer proyecto;
 
-	@Transient 
-	@ManyToOne
-	@JoinColumn(name = "emp_no", insertable = false, updatable = false)
-	private Empleado empleado;
+    @Column(name = "horas")
+    private Integer horas;
 
-	// Relación con Proyecto (ManyToOne)
-	@Transient 
-	@ManyToOne
-	@JoinColumn(name = "proyecto_no", insertable = false, updatable = false)
-	private Proyecto proyecto;
+    public Trabaja() {
+    }
 
-	// Constructor sin parámetros (Obligatorio)
-	public Trabaja() {
-	}
+    public Trabaja(Integer emp_no, Integer proyecto, Integer horas) {
+        this.emp_no = emp_no;
+        this.proyecto = proyecto;
+        this.horas = horas;
+    }
 
-	// Constructor con objetos relacionados
-	public Trabaja(Empleado empleado, Proyecto proyecto, Integer horas) {
-		this.empleado = empleado;
-		this.proyecto = proyecto;
-		this.horas = horas;
-		this.id.setEmp_no(empleado.getEmp_no());
-		this.id.setProyecto_no(proyecto.getProyecto_no());
-	}
+    // Constructor auxiliar para objetos
+    public Trabaja(Empleado empleado, Proyecto proyecto, Integer horas) {
+        this.emp_no = empleado.getEmp_no();
+        this.proyecto = proyecto.getProyecto_no();
+        this.horas = horas;
+    }
 
-	// --- Getters y Setters ---
-	
-	public TrabajaPK getId() {
-		return id;
-	}
+    public Integer getEmp_no() { return emp_no; }
+    public void setEmp_no(Integer emp_no) { this.emp_no = emp_no; }
 
-	public void setId(TrabajaPK id) {
-		this.id = id;
-	}
+    public Integer getProyecto() { return proyecto; }
+    public void setProyecto(Integer proyecto) { this.proyecto = proyecto; }
 
-	public Integer getHoras() {
-		return horas;
-	}
+    public Integer getHoras() { return horas; }
+    public void setHoras(Integer horas) { this.horas = horas; }
 
-	public void setHoras(Integer horas) {
-		this.horas = horas;
-	}
-    
+    // --- CLASE INTERNA PARA PK COMPUESTA ---
+    public static class TrabajaId implements Serializable {
+        
+        private static final long serialVersionUID = 1L;
+        
+        // Los nombres de variable deben coincidir con los de la clase principal
+        private Integer emp_no;
+        private Integer proyecto;
 
-	public Empleado getEmpleado() {
-		return empleado;
-	}
+        public TrabajaId() {}
 
-	public void setEmpleado(Empleado empleado) {
-		this.empleado = empleado;
-		if (empleado != null) {
-			this.id.setEmp_no(empleado.getEmp_no());
-		}
-	}
+        public TrabajaId(Integer emp_no, Integer proyecto) {
+            this.emp_no = emp_no;
+            this.proyecto = proyecto;
+        }
 
-	public Proyecto getProyecto() {
-		return proyecto;
-	}
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            TrabajaId trabajaId = (TrabajaId) o;
+            return Objects.equals(emp_no, trabajaId.emp_no) &&
+                   Objects.equals(proyecto, trabajaId.proyecto);
+        }
 
-	public void setProyecto(Proyecto proyecto) {
-		this.proyecto = proyecto;
-		if (proyecto != null) {
-			this.id.setProyecto_no(proyecto.getProyecto_no());
-		}
-	}
-
-	@Override
-	public String toString() {
-		return "Trabaja [emp_no=" + this.id.getEmp_no() + ", proyecto_no=" + this.id.getProyecto_no() + ", horas=" + horas + "]";
-	}
+        @Override
+        public int hashCode() {
+            return Objects.hash(emp_no, proyecto);
+        }
+    }
 }

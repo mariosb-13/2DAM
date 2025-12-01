@@ -1,28 +1,28 @@
 package test;
 
 import java.sql.Date;
-
 import entities.Empleado;
 
 /**
  * DTO (Data Transfer Object) para la entidad Empleado.
- * No contiene anotaciones de persistencia ni referencias a otras entidades DTO.
+ * CORRECTO: Solo contiene datos, constructores y getters/setters.
+ * Se ha eliminado la lógica de Hibernate y los imports erróneos.
  */
 public class EmpleadoDTO {
     
-    private Integer emp_no; // PRIMARY KEY
+    private Integer emp_no; 
     private String apellido;
     private String oficio;
-    private Integer dir; // Clave del director
+    private Integer dir; 
     private Date fecha_alt;
     private Float salario;
     private Float comision;
-    private Integer dept; // Clave del departamento
+    private Integer dept; 
 
-    // Constructor sin parámetros
+    // --- Constructor sin parámetros ---
     public EmpleadoDTO() { }
 
-    // Constructor con parámetros (tipos primitivos)
+    // --- Constructor con parámetros ---
     public EmpleadoDTO(Integer emp_no, String apellido, String oficio, Integer dir, Date fecha_alt, Float salario, Float comision, Integer dept) {
         this.emp_no = emp_no;
         this.apellido = apellido;
@@ -34,13 +34,13 @@ public class EmpleadoDTO {
         this.dept = dept;
     }
 
-    // Constructor con objeto entidad (Empleado)
+    // --- Constructor desde Entidad (Empleado -> DTO) ---
     public EmpleadoDTO(Empleado emp) {
         this.emp_no = emp.getEmp_no(); 
         this.apellido = emp.getApellido();
         this.oficio = emp.getOficio(); 
         
-        // Manejo de la relación con el director (dir)
+        // Manejo de nulos para Director
         if (emp.getDir() != null) {
             this.dir = emp.getDir().getEmp_no();
         } else {
@@ -51,16 +51,15 @@ public class EmpleadoDTO {
         this.salario = emp.getSalario();
         this.comision = emp.getComision();
         
-        // Manejo de la relación con el departamento (dept)
+        // Manejo de nulos para Departamento
         if (emp.getDept() != null) {
             this.dept = emp.getDept().getDept_no();
         } else {
-             // Esto no debería pasar si la FK es NOT NULL, pero se incluye por seguridad
             this.dept = null; 
         }
     }
 
-    // Getters
+    // --- Getters ---
     public Integer getEmp_no() { return emp_no; }
     public String getApellido() { return apellido; }
     public String getOficio() { return oficio; }
@@ -70,7 +69,7 @@ public class EmpleadoDTO {
     public Float getComision() { return comision; }
     public Integer getDept() { return dept; }
     
-    // Setters
+    // --- Setters ---
     public void setEmp_no(Integer emp_no) { this.emp_no = emp_no; }
     public void setApellido(String apellido) { this.apellido = apellido; }
     public void setOficio(String oficio) { this.oficio = oficio; }
@@ -79,7 +78,6 @@ public class EmpleadoDTO {
     public void setSalario(Float salario) { this.salario = salario; }
     public void setComision(Float comision) { this.comision = comision; }
     public void setDept(Integer dept) { this.dept = dept; }
-
 
     @Override
     public String toString() {

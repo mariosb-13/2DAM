@@ -12,7 +12,7 @@ import entities.Trabaja;
 
 public class Main {
     
-    // Función de utilidad para simular la conversión de fecha
+    // Función de utilidad para convertir Strings a java.sql.Date
     private static java.sql.Date toSqlDate(String dateString) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
@@ -23,16 +23,17 @@ public class Main {
         }
     }
     
-    // --- SIMULACIÓN DE DATOS EN LA BD (INSERCIÓN) ---
+    // --- 1. CONFIGURACIÓN Y CARGA DE DATOS ---
     public static void setupInitialData() {
-        System.out.println("--- 1. CONFIGURANDO Y POBLANDO BD (SIMULACIÓN) ---");
+        System.out.println("--- 1. INSERTANDO DATOS DE PRUEBA ---");
         
+        // Instanciamos los DAOs necesarios
         GenericDAO<Departamento> deptDAO = new GenericDAO<>(Departamento.class);
         GenericDAO<Empleado> empDAO = new GenericDAO<>(Empleado.class);
         GenericDAO<Proyecto> proyDAO = new GenericDAO<>(Proyecto.class);
         GenericDAO<Trabaja> trabajaDAO = new GenericDAO<>(Trabaja.class);
 
-        // Departamentos
+        // 1. Crear Departamentos
         Departamento d10 = new Departamento(10, "CONTABILIDAD", "SEVILLA");
         Departamento d20 = new Departamento(20, "INVESTIGACIÓN", "MADRID");
         Departamento d30 = new Departamento(30, "VENTAS", "BARCELONA");
@@ -43,104 +44,84 @@ public class Main {
         deptDAO.save(d30);
         deptDAO.save(d40); 
 
-        // Empleados
-        Empleado e7839 = new Empleado(7839, "REY", "PRESIDENTE", null, toSqlDate("1991/11/17"), 4100.00f, (Float) null, d10);
-        Empleado e7782 = new Empleado(7782, "CEREZO", "DIRECTOR", e7839, toSqlDate("1991/06/09"), 2885.00f, (Float) null, d10);
-        Empleado e7934 = new Empleado(7934, "MUÑOZ", "EMPLEADO", e7782, toSqlDate("1992/01/23"), 1690.00f, (Float) null, d10);
-        
-        Empleado e7566 = new Empleado(7566, "JIMÉNEZ", "DIRECTOR", e7839, toSqlDate("1991/04/02"), 2900.00f, (Float) null, d20);
-        Empleado e7788 = new Empleado(7788, "GIL", "ANALISTA", e7566, toSqlDate("1991/11/09"), 3000.00f, (Float) null, d20);
-        
-        Empleado e7698 = new Empleado(7698, "NEGRO", "DIRECTOR", e7839, toSqlDate("1991/05/01"), 3005.00f, (Float) null, d30);
+        // 2. Crear Empleados (Ojo al orden por las claves foráneas de los jefes)
+        // Presidente
+        Empleado e7839 = new Empleado(7839, "REY", "PRESIDENTE", null, toSqlDate("1991/11/17"), 4100.00f, null, d10);
+        empDAO.save(e7839);
+
+        // Directores / Analistas
+        Empleado e7566 = new Empleado(7566, "JIMÉNEZ", "DIRECTOR", e7839, toSqlDate("1991/04/02"), 2900.00f, null, d20);
+        Empleado e7698 = new Empleado(7698, "NEGRO", "DIRECTOR", e7839, toSqlDate("1991/05/01"), 3005.00f, null, d30);
+        empDAO.save(e7566);
+        empDAO.save(e7698);
+
+        // Resto de empleados (Vendedores, etc.)
         Empleado e7499 = new Empleado(7499, "ARROYO", "VENDEDOR", e7698, toSqlDate("1990/02/20"), 1500.00f, 390.00f, d30);
         Empleado e7521 = new Empleado(7521, "SALA", "VENDEDOR", e7698, toSqlDate("1991/02/22"), 1625.00f, 650.00f, d30);
         Empleado e7654 = new Empleado(7654, "MARTÍN", "VENDEDOR", e7698, toSqlDate("1991/09/29"), 1600.00f, 1020.00f, d30);
         Empleado e7844 = new Empleado(7844, "TOVAR", "VENDEDOR", e7698, toSqlDate("1991/09/08"), 1350.00f, 0f, d30);
-
-        empDAO.save(e7839);
-        empDAO.save(e7782);
-        empDAO.save(e7934);
-        empDAO.save(e7566);
-        empDAO.save(e7788);
-        empDAO.save(e7698);
+        
         empDAO.save(e7499);
         empDAO.save(e7521);
         empDAO.save(e7654);
         empDAO.save(e7844);
 
-        // Proyectos
+        // 3. Crear Proyectos
         Proyecto p1 = new Proyecto(1, "Comparadores");
         Proyecto p2 = new Proyecto(2, "Proyecto Grow");
         proyDAO.save(p1);
         proyDAO.save(p2);
 
-        // Trabaja (Relación N:M)
-        trabajaDAO.save(new Trabaja(e7521, p2, 55));
-        trabajaDAO.save(new Trabaja(e7698, p2, 30));
-        trabajaDAO.save(new Trabaja(e7698, p1, 300));
+        // 4. Crear Relación Trabaja (N:M)
+        // Usamos el constructor especial que creamos en Trabaja.java para pasar objetos directamente
+        trabajaDAO.save(new Trabaja(e7521, p2, 55));  // Sala trabaja en Grow
+        trabajaDAO.save(new Trabaja(e7698, p2, 30));  // Negro trabaja en Grow
+        trabajaDAO.save(new Trabaja(e7698, p1, 300)); // Negro trabaja en Comparadores
 
-        System.out.println("--- Datos iniciales cargados. ---");
+        System.out.println("--- Datos insertados correctamente. ---");
     }
 
-    // --- PRUEBA DE MÉTODOS DAO (CRUD Y ADICIONAL) ---
+    // --- 2. EJECUCIÓN DE PRUEBAS DE TUS MÉTODOS ---
     public static void testDAO() {
-        System.out.println("\n--- 2. PRUEBAS CON GENERICDAO (ACCESO A RELACIONES Y SQL) ---");
+        System.out.println("\n--- 2. PRUEBAS DE MÉTODOS DEL DAO ---");
         
-        GenericDAO<Departamento> deptDAO = new GenericDAO<>(Departamento.class); 
+        GenericDAO<Departamento> deptDAO = new GenericDAO<>(Departamento.class);
+        GenericDAO<Trabaja> trabajaDAO = new GenericDAO<>(Trabaja.class);
 
-        // --- PRUEBA 1: FUNCIÓN ADICIONAL: empleadosPorDepartamento ---
-        System.out.println("\n[ACCESO A RELACIÓN] Empleados en Departamento 30 (VENTAS):");
+        // --- PRUEBA 1: empleadosPorDepartamento (Lazy Loading) ---
+        System.out.println("\n[1] Empleados en Departamento 30 (VENTAS) - Vía relación:");
         List<EmpleadoDTO> empleadosVentas = deptDAO.empleadosPorDepartamento(30);
         
-        System.out.printf("  Total: %d empleados\n", empleadosVentas.size());
-        for(EmpleadoDTO emp : empleadosVentas) {
-             System.out.println("  -> " + emp.toString());
+        System.out.printf("  Total encontrados: %d\n", empleadosVentas.size());
+        for(EmpleadoDTO dto : empleadosVentas) {
+             System.out.println("  -> " + dto.toString());
         }
         
-        // --- PRUEBA 2: FUNCIÓN ADICIONAL: departamentosConSueldos (Mantenemos la prueba) ---
-        Map<Integer, Double> sueldosPorDepto = deptDAO.departamentosConSueldos();
-        System.out.println("\n[SQL AVANZADO] Suma de Salarios (Top 3 + Dept. Vacío):");
-        sueldosPorDepto.forEach((dept, sueldo) -> 
-            System.out.printf("  -> Dept %d: %,.2f€\n", dept, sueldo)
-        );
+        System.out.println("\n[2] Suma de Salarios por Departamento:");
+        Map<Integer, Double> sueldos = deptDAO.departamentosConSueldos();
         
-        // --- PRUEBA 3: FUNCIÓN ADICIONAL: idEmpleadosPorProyectosSQL (Mantenemos la prueba) ---
-        GenericDAO<Trabaja> trabajaDAO = new GenericDAO<>(Trabaja.class); 
+        for (Map.Entry<Integer, Double> entry : sueldos.entrySet()) {
+            System.out.printf("  -> Dept %d: %,.2f€\n", entry.getKey(), entry.getValue());
+        }
+        
+        System.out.println("\n[3] IDs de Empleados en Proyecto 2 (ID=2):");
         List<Integer> idsProyecto2 = trabajaDAO.idEmpleadosPorProyectosSQL(2);
-        System.out.println("\n[SQL NATIVA] IDs de Empleados en Proyecto 2 (ID=2): " + idsProyecto2);
+        System.out.println("  -> IDs encontrados: " + idsProyecto2);
     }
 
     public static void main(String[] args) {
-        System.out.println("Se requiere la configuración de Hibernate para la ejecución, mostrando salida esperada.");
-        System.out.println("\n=================================================================================");
-        testOutput();
-        System.out.println("=================================================================================\n");
-    }
-    
-    // Simulación de la salida por consola
-    public static void testOutput() {
-        System.out.println("--- 1. CONFIGURANDO Y POBLANDO BD (SIMULACIÓN) ---");
-        System.out.println("Hibernate: [Múltiples INSERT para 4 Dept, 10 Emp, 2 Proy, 3 Trabaja]");
-        System.out.println("--- Datos iniciales cargados. ---");
-        
-        System.out.println("\n--- 2. PRUEBAS CON GENERICDAO (ACCESO A RELACIONES Y SQL) ---");
-        
-        System.out.println("\n[ACCESO A RELACIÓN] Empleados en Departamento 30 (VENTAS):");
-        System.out.println("  Total: 5 empleados");
-        System.out.println("  -> EmpleadoDTO [id=7698, apellido='NEGRO', oficio='DIRECTOR', dir=7839, dept=30]");
-        System.out.println("  -> EmpleadoDTO [id=7499, apellido='ARROYO', oficio='VENDEDOR', dir=7698, dept=30]");
-        System.out.println("  -> EmpleadoDTO [id=7521, apellido='SALA', oficio='VENDEDOR', dir=7698, dept=30]");
-        System.out.println("  -> EmpleadoDTO [id=7654, apellido='MARTÍN', oficio='VENDEDOR', dir=7698, dept=30]");
-        System.out.println("  -> EmpleadoDTO [id=7844, apellido='TOVAR', oficio='VENDEDOR', dir=7698, dept=30]");
-
-        System.out.println("\n[SQL AVANZADO] Suma de Salarios (Top 3 + Dept. Vacío):");
-        System.out.println("  -> Dept 30: 9.080,00€");
-        System.out.println("  -> Dept 10: 8.675,00€");
-        System.out.println("  -> Dept 20: 5.900,00€");
-        System.out.println("  -> Dept 40: 0,00€");
-        
-        System.out.println("\n[SQL NATIVA] IDs de Empleados en Proyecto 2 (ID=2): [7521, 7698]");
-        
-        // HibernateUtils.closeSessionFactory();
+        try {
+            // 1. Preparar la BD
+            setupInitialData();
+            
+            // 2. Ejecutar las consultas
+            testDAO();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // Cerramos la factoría de sesiones al terminar todo
+            HibernateUtils.closeSessionFactory();
+        }
     }
 }

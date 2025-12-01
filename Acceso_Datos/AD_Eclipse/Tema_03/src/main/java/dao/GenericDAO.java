@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -16,55 +15,54 @@ import test.EmpleadoDTO;
 import test.HibernateUtils;
 
 public class GenericDAO<T> {
-	Class<T> type;
+    Class<T> type;
 
     @SuppressWarnings("deprecation")
-	public GenericDAO(Class<T> obj) {
-		this.type = obj;
-	}
+    public GenericDAO(Class<T> obj) {
+        this.type = obj;
+    }
 
-	public T get(int id) {
-		Session session = HibernateUtils.openSession();
-		T obj = session.get(type, id);
-		session.close();
-		return obj;
-	}
+    public T get(int id) {
+        Session session = HibernateUtils.openSession();
+        T obj = session.get(type, id);
+        session.close();
+        return obj;
+    }
 
-	@SuppressWarnings("unchecked")
-	public List<T> getAll() {
-		Session session = HibernateUtils.openSession();
-		session.beginTransaction();
-		List<T> objList = (List<T>) session.createCriteria(type).list();
-		session.getTransaction().commit();
-		session.close();
-		return objList;
-	}
+    @SuppressWarnings("unchecked")
+    public List<T> getAll() {
+        Session session = HibernateUtils.openSession();
+        session.beginTransaction();
+        List<T> objList = (List<T>) session.createCriteria(type).list();
+        session.getTransaction().commit();
+        session.close();
+        return objList;
+    }
 
-	public void save(T obj) {
-		Session session = HibernateUtils.openSession();
-		session.beginTransaction();
-		session.save(obj);
-		session.getTransaction().commit();
-		session.close();
-	}
+    public void save(T obj) {
+        Session session = HibernateUtils.openSession();
+        session.beginTransaction();
+        session.saveOrUpdate(obj); 
+        session.getTransaction().commit();
+        session.close();
+    }
 
-	public void update(T obj) {
-		Session session = HibernateUtils.openSession();
-		session.beginTransaction();
-		session.update(obj);
-		session.getTransaction().commit();
-		session.close();
-	}
+    public void update(T obj) {
+        Session session = HibernateUtils.openSession();
+        session.beginTransaction();
+        session.update(obj);
+        session.getTransaction().commit();
+        session.close();
+    }
 
-	public void delete(T obj) {
-		Session session = HibernateUtils.openSession();
-		session.beginTransaction();
-		session.delete(obj);
-		session.getTransaction().commit();
-		session.close();
-	}
+    public void delete(T obj) {
+        Session session = HibernateUtils.openSession();
+        session.beginTransaction();
+        session.delete(obj);
+        session.getTransaction().commit();
+        session.close();
+    }
     
-    // --- FUNCIÓN ADICIONAL 1: IDs de Empleados por Proyecto (SQL Nativa) ---
     @SuppressWarnings("unchecked")
     public List<Integer> idEmpleadosPorProyectosSQL(int proyecto_no) {
         Session session = HibernateUtils.openSession();
@@ -72,7 +70,8 @@ public class GenericDAO<T> {
         try {
             transaction = session.beginTransaction();
             
-            String sql = "SELECT emp_no FROM trabaja WHERE proyecto_no = :id";
+            // CORREGIDO: Usamos 'proyecto_no' que es el nombre real en la tabla
+            String sql = "SELECT emp_no FROM trabaja WHERE proyecto_no = :id"; 
             
             Query<Integer> query = session.createNativeQuery(sql, Integer.class);
             query.setParameter("id", proyecto_no);
@@ -131,45 +130,84 @@ public class GenericDAO<T> {
         return resultados;
     }
     
-    // --- FUNCIÓN ADICIONAL 3: Empleados por Departamento (Acceso a relación) ---
     
-    /**
-     * Retorna una lista de EmpleadoDTOs de un departamento específico 
-     * accediendo a través de la relación bidireccional de la entidad Departamento.
-     * @param dept_no ID del departamento.
-     * @return Lista de EmpleadoDTOs.
-     */
     public List<EmpleadoDTO> empleadosPorDepartamento(int dept_no) {
         Session session = HibernateUtils.openSession();
-        Transaction transaction = null;
         List<EmpleadoDTO> dtoList = new ArrayList<>();
         
         try {
-            transaction = session.beginTransaction();
+            session.beginTransaction();
             
-            // 1. Obtener el Departamento
             Departamento dept = session.get(Departamento.class, dept_no);
             
-            if (dept != null) {
-                // 2. Acceder a la lista de empleados (Lazy Loading se activa aquí)
-                // Usamos el .stream().map() para convertir la Set<Empleado> a List<EmpleadoDTO>
-                dtoList = dept.getEmpleados().stream() 
-                                .map(Empleado::toDTO)
-                                .collect(Collectors.toList());
+          
+            if (dept != null && dept.empleados != null) {
+                for (Empleado emp : dept.empleados) {
+                    dtoList.add(emp.toDTO());
+                }
             }
             
-            transaction.commit();
+            session.getTransaction().commit();
             
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
-            System.err.println("Error al acceder a empleadosPorDepartamento: " + e.getMessage());
+            if (session.getTransaction().isActive()) {
+                session.getTransaction().rollback();
+            }
+            System.err.println("Error obteniendo empleados por departamento: " + e.getMessage());
+            e.printStackTrace();
         } finally {
-            // Es vital cerrar la sesión DESPUÉS de acceder a la colección si no se usa EAGER
-            // Si la colección se intenta acceder después de session.close(), lanzará LazyInitializationException
-            if (session != null) {
+            if (session != null && session.isOpen()) {
                 session.close();
             }
         }
         return dtoList;
     }
+    
+    /**
+     * Retorna departamentos implicados en un proyecto.
+     * NO usa SQL ni HQL para buscar departamentos.
+     * Navega: Proyecto -> Trabaja -> (get Empleado) -> Departamento
+     */
+    public List<test.DepartamentoDTO> getDepartamentosImplicados(int proyecto_no) {
+        Session session = HibernateUtils.openSession();
+        // Usamos un Set para evitar departamentos duplicados automáticamente
+        java.util.Set<test.DepartamentoDTO> deptSet = new java.util.HashSet<>();
+        
+        try {
+            session.beginTransaction();
+            
+            // 1. Adquirimos SOLO el proyecto (punto de entrada)
+            entities.Proyecto p = session.get(entities.Proyecto.class, proyecto_no);
+            
+            if (p != null) {
+                // 2. Navegamos por la lista de trabajos (Lazy loading)
+                // (Esto es posible gracias al cambio en Proyecto.java)
+                for (entities.Trabaja t : p.getTrabajos()) {
+                    
+                    // 3. Obtenemos el empleado.
+                    // Como 'Trabaja' solo tiene el ID (int), usamos session.get() para traer el objeto.
+                    // Esto NO es una query de búsqueda, es una carga por PK.
+                    entities.Empleado e = session.get(entities.Empleado.class, t.getEmp_no());
+                    
+                    // 4. Navegamos al departamento y lo convertimos a DTO
+                    if (e != null && e.getDept() != null) {
+                        deptSet.add(new test.DepartamentoDTO(e.getDept()));
+                    }
+                }
+            }
+            
+            session.getTransaction().commit();
+            
+        } catch (Exception e) {
+            System.err.println("Error en getDepartamentosImplicados: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            if (session != null) session.close();
+        }
+        
+        // Convertimos el Set (sin duplicados) a la Lista que pide el enunciado
+        return new ArrayList<>(deptSet);
+    }
+    
+    
 }

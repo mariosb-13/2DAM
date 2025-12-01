@@ -15,6 +15,7 @@
 		<mapping class="entities.Departamento" />
 		<mapping class="entities.Empleado" />
 		<mapping class="entities.Proyecto"/>
+		<mapping class="entities.Trabaja"/>
 	
 	</session-factory>
 </hibernate-configuration>
