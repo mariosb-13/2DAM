@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DiseñoFigma</string>
+    <string name="carta">Carta</string>
+    <string name="azafata">Azafata</string>
+    <string name="info_vuelo">Info Vuelo</string>
+    <string name="volver">Volver</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="idioma">Idioma</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_blanco_palido">#F3F1F1</color>
+    <color name="color_azul_claro">#AFE0EB</color>
+    <color name="color_azul_medio">#53B5E6</color>
+    <color name="color_azul_oscuro">#116FA8</color>
+</resources>

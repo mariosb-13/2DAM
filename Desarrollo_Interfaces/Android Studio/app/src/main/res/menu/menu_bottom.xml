@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_volver"
+        android:icon="@drawable/ic_volver"
+        android:title="Volver" />
+
+    <item
+        android:id="@+id/nav_azafata"
+        android:icon="@drawable/ic_azafata"
+        android:title="Azafata" />
+
+    <item
+        android:id="@+id/nav_info_vuelo"
+        android:icon="@drawable/ic_vuelo"
+        android:title="Vuelo" />
+
+    <item
+        android:id="@+id/nav_carta"
+        android:icon="@drawable/ic_carta"
+        android:title="Carta" />
+</menu>
