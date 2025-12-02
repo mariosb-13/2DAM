@@ -37,6 +37,6 @@ public class ITV2 {
             } catch (Exception e) {}
         }
 
-        System.out.println("--- SIMULACIÓN AMPLIADA FINALIZADA ---");
+        System.out.println("--- ITV FINALIZADA ---");
     }
 }
