@@ -7,11 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-// Importa aquí tus otros fragments cuando los crees
-// import es.iescarrillo.diseofigma.AzafataFragment;
-// import es.iescarrillo.diseofigma.VueloFragment;
-// import es.iescarrillo.diseofigma.CartaFragment;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override

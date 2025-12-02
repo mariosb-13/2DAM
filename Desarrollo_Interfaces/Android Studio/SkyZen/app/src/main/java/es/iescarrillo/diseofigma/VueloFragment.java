@@ -1,5 +1,6 @@
 package es.iescarrillo.diseofigma;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,7 +14,9 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 public class VueloFragment extends Fragment implements OnMapReadyCallback {
 
@@ -54,29 +57,55 @@ public class VueloFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(@NonNull GoogleMap map) {
         googleMap = map;
 
-        // 1. DESACTIVAR los controles nativos (los que salen por defecto)
-        // Esto quita la brújula y los botones +/- originales para que no se dupliquen
+        // 1. DESACTIVAR los controles nativos
         googleMap.getUiSettings().setZoomControlsEnabled(false);
         googleMap.getUiSettings().setCompassEnabled(false);
 
         // 2. CONFIGURAR TUS BOTONES NUEVOS
-        // (Asegúrate de buscar las vistas con getView().findViewById si no usas ViewBinding)
         View view = getView();
         if (view != null) {
             view.findViewById(R.id.btnZoomIn).setOnClickListener(v -> {
-                // Animación de acercar
                 googleMap.animateCamera(CameraUpdateFactory.zoomIn());
             });
 
             view.findViewById(R.id.btnZoomOut).setOnClickListener(v -> {
-                // Animación de alejar
                 googleMap.animateCamera(CameraUpdateFactory.zoomOut());
             });
         }
 
-        // Resto de tu configuración (Marcadores, posición inicial, etc.)
-        LatLng aeropuerto = new LatLng(40.472255, -3.560917);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(aeropuerto, 12f));
+
+        // A. Definimos las coordenadas (Ejemplo: Madrid -> París)
+        LatLng puntoSalida = new LatLng(40.472255, -3.560917); // Aeropuerto Madrid
+        LatLng puntoLlegada = new LatLng(-34.8164701, -58.5372424);
+
+
+        googleMap.addMarker(new MarkerOptions()
+                .position(puntoLlegada)
+                .title("Llegada: París"));
+
+        // Dibujamos la línea (Polyline)
+        googleMap.addPolyline(new PolylineOptions()
+                .add(puntoSalida, puntoLlegada) // Conecta los puntos
+                .width(10f)           // Grosor de la línea
+                .color(Color.RED)     // Color de la línea (Importar android.graphics.Color)
+                .geodesic(true));     // True hace que la línea se curve como un vuelo real
+
+        // D. Movemos la cámara para que se vean AMBOS puntos (Zoom automático)
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+        builder.include(puntoSalida);
+        builder.include(puntoLlegada);
+        LatLngBounds bounds = builder.build();
+
+        // El '100' es el padding (margen) en píxeles para que los marcadores no toquen el borde
+        int padding = 150;
+
+        try {
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, padding));
+        } catch (Exception e) {
+            // A veces falla si el mapa no ha terminado de calcular su tamaño en pantalla
+            // Si eso pasa, usamos una vista por defecto al punto de salida
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(puntoSalida, 5f));
+        }
     }
 
     // -----------------------------------------------------------
