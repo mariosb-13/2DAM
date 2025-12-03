@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="-32dp"
+        android:layout_marginBottom="-170dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="303dp"
+        android:layout_height="268dp"
+        android:background="@drawable/bg_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDNI"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="225dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:hint="DNI"
+        android:textColorHint="@color/color_blanco_palido"
+        app:boxBackgroundColor="@color/cardview_shadow_end_color"
+        app:boxStrokeColor="@color/box_white_selector"
+        app:hintTextColor="@color/color_blanco_palido"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/color_blanco_palido"
+            android:textColorHint="@color/color_blanco_palido" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilCodVuelo"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="225dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="16dp"
+        android:hint="Código de Vuelo"
+        android:textColorHint="@color/color_blanco_palido"
+        app:boxBackgroundColor="@color/cardview_shadow_end_color"
+        app:boxStrokeColor="@color/box_white_selector"
+        app:hintTextColor="@color/color_blanco_palido"
+        app:layout_constraintEnd_toEndOf="@+id/tilDNI"
+        app:layout_constraintStart_toStartOf="@+id/tilDNI"
+        app:layout_constraintTop_toBottomOf="@+id/tilDNI">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/color_blanco_palido"
+            android:textColorHint="@color/color_blanco_palido" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="293dp"
+        android:layout_height="98dp"
+        android:text="Accede a tu vuelo SkyZen"
+        android:textAlignment="center"
+        android:textColor="@color/color_azul_oscuro"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/color_azul_medio"
+        android:text="Iniciar sesión"
+        app:layout_constraintEnd_toEndOf="@+id/tilCodVuelo"
+        app:layout_constraintStart_toStartOf="@+id/tilCodVuelo"
+        app:layout_constraintTop_toBottomOf="@+id/tilCodVuelo" />
+
+    <TextView
+        android:id="@+id/tvInfoCodVuelo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Accede aquí para saber \ntu código de vuelo"
+        android:textAlignment="center"
+        android:textColor="@color/color_blanco_palido"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/btnLogin"
+        app:layout_constraintStart_toStartOf="@+id/btnLogin" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

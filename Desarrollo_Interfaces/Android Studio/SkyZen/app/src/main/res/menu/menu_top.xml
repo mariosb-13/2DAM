@@ -5,4 +5,9 @@
         android:id="@+id/language_selection"
         android:title="@string/idioma"
         app:actionViewClass="android.widget.SearchView" />
+
+    <item
+        android:id="@+id/logOut"
+        android:title="@string/logout"
+        app:actionViewClass="android.widget.SearchView" />
 </menu>
