@@ -35,15 +35,38 @@ public class CocheDAO {
 
         if (cursor.moveToFirst()) {
             do {
-                Coche c= new Coche();
-                c.setId(cursor.getInt(0));
+                Coche c = new Coche();
+                // 1. Datos básicos
+                c.setId_coche(cursor.getInt(0));
                 c.setMatricula(cursor.getString(1));
                 c.setModelo(cursor.getString(2));
                 c.setPrecio_venta(cursor.getDouble(3));
+
+                c.setId_Motor(cursor.getInt(4));
+                c.setId_Marca(cursor.getInt(5));
+                c.setId_Proveedor(cursor.getInt(6));
+
                 lista.add(c);
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
+        cursor.close();
         return lista;
+    }
+
+    public void actualizarCoche(Coche coche) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("matricula", coche.getMatricula());
+        values.put("modelo", coche.getModelo());
+        values.put("precio_venta", coche.getPrecio_venta());
+
+        // Asignamos las FK correctas
+        values.put("id_motor", coche.getId_Motor());
+        values.put("id_marca", coche.getId_Marca());
+        values.put("id_proveedor", coche.getId_Proveedor());
+
+        db.update("coche", values, "id = ?", new String[]{String.valueOf(coche.getId_coche())});
     }
 
 
