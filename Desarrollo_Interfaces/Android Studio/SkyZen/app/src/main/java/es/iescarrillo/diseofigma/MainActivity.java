@@ -32,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = new MainFragment();
             }
             else if (itemId == R.id.nav_azafata) {
-                // selectedFragment = new AzafataFragment(); // Descomenta al crear la clase
-                selectedFragment = new MainFragment(); // (Temporal hasta que crees la clase)
+                selectedFragment = new AzafataFragment(); // Descomenta al crear la clase
             }
             else if (itemId == R.id.nav_info_vuelo) {
                 selectedFragment = new VueloFragment();
