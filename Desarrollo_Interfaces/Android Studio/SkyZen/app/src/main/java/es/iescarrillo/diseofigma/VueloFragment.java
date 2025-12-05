@@ -74,7 +74,6 @@ public class VueloFragment extends Fragment implements OnMapReadyCallback {
         }
 
 
-        // A. Definimos las coordenadas (Ejemplo: Madrid -> París)
         LatLng puntoSalida = new LatLng(40.472255, -3.560917); // Aeropuerto Madrid
         LatLng puntoLlegada = new LatLng(-34.8164701, -58.5372424);
 
