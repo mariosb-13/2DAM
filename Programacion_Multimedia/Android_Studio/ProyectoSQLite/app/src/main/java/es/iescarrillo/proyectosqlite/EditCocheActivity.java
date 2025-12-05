@@ -45,16 +45,16 @@ public class EditCocheActivity extends AppCompatActivity {
         motorDAO = new MotorDAO(dbHelper);
         cocheDAO = new CocheDAO(dbHelper);
 
-        // 1. Inicializar Vistas
-        etMatricula = findViewById(R.id.etMatriculaEditar);
-        etModelo = findViewById(R.id.etModeloEditar);
-        etPrecio = findViewById(R.id.etPrecioEditar);
-        spMarca = findViewById(R.id.spinnerMarcaEditar);
-        spProveedor = findViewById(R.id.spinnerProveedorEditar);
+        // Inicializar Vistas
+        etMatricula = findViewById(R.id.etMatriculaAdd);
+        etModelo = findViewById(R.id.etModeloAdd);
+        etPrecio = findViewById(R.id.etPrecioAdd);
+        spMarca = findViewById(R.id.spinnerMarcaAdd);
+        spProveedor = findViewById(R.id.spinnerProveedorAdd);
         spMotor = findViewById(R.id.spinnerMotorEditar);
-        btnGuardar = findViewById(R.id.btnGuardarCambios);
+        btnGuardar = findViewById(R.id.btnCrearCoche);
 
-        // 2. Recibir Coche
+        // Obtiene el Coche
         if (getIntent().hasExtra("coche_objeto")) {
             cocheActual = (Coche) getIntent().getSerializableExtra("coche_objeto");
         } else {
@@ -63,20 +63,17 @@ public class EditCocheActivity extends AppCompatActivity {
             return;
         }
 
-        // 3. Cargar Textos
+        // Cargar los campos de texto con los datos del coche
         etMatricula.setText(cocheActual.getMatricula());
         etModelo.setText(cocheActual.getModelo());
         etPrecio.setText(String.valueOf(cocheActual.getPrecio_venta()));
 
-        // 4. Cargar Listas (Llenamos los ArrayList)
         cargarListasDesdeBD();
 
-        // 5. Configurar Adapters de los Spinners
         configurarSpinner(spMarca, listaMarcas);
         configurarSpinner(spProveedor, listaProveedores);
         configurarSpinner(spMotor, listaMotores);
 
-        // 6. SELECCIONAR LOS VALORES ACTUALES (CORREGIDO)
         // Buscamos el nombre en la BD usando el ID, y luego buscamos su posición en la lista
         seleccionarValorActual();
 
@@ -90,6 +87,12 @@ public class EditCocheActivity extends AppCompatActivity {
         listaMotores = motorDAO.obtenerNombresMotores();
     }
 
+    /**
+     * Método que configura los spinners
+     *
+     * @param spinner
+     * @param datos
+     */
     private void configurarSpinner(Spinner spinner, ArrayList<String> datos) {
         if (datos != null) {
             ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
@@ -99,9 +102,11 @@ public class EditCocheActivity extends AppCompatActivity {
         }
     }
 
-    // --- NUEVO MÉTODO PARA SELECCIONAR CORRECTAMENTE ---
+    /**
+     * Método que selecciona el valor actual de los spinners
+     */
     private void seleccionarValorActual() {
-        // 1. MARCA: Obtenemos el nombre real de la BD (ej: "Toyota")
+        // MARCA
         String nombreMarca = marcaDAO.obtenerNombreMarca(cocheActual.getId_Marca());
         if (nombreMarca != null) {
             // Buscamos en qué posición de la lista está "Toyota"
@@ -109,14 +114,14 @@ public class EditCocheActivity extends AppCompatActivity {
             if (posicion >= 0) spMarca.setSelection(posicion);
         }
 
-        // 2. PROVEEDOR
+        // PROVEEDOR
         String nombreProv = proveedorDAO.obtenerNombreProveedor(cocheActual.getId_Proveedor());
         if (nombreProv != null) {
             int posicion = listaProveedores.indexOf(nombreProv);
             if (posicion >= 0) spProveedor.setSelection(posicion);
         }
 
-        // 3. MOTOR
+        // MOTOR
         String nombreMotor = motorDAO.obtenerNombreMotor(cocheActual.getId_Motor());
         if (nombreMotor != null) {
             int posicion = listaMotores.indexOf(nombreMotor);

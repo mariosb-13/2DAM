@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoSQLite">
         <activity
+            android:name=".AddCocheActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditCocheActivity"
             android:exported="false" />
         <activity

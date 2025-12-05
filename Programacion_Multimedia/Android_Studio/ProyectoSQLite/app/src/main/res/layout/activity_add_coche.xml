@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F5F5F5"
-    tools:context=".EditCocheActivity">
+    tools:context=".AddCocheActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -52,8 +52,7 @@
                 android:id="@+id/etMatriculaAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:enabled="false"
-                android:hint="Matrícula" />
+                android:hint="Ej: 1234ABC" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -116,7 +115,7 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/spinnerMotorEditar"
+                android:id="@+id/spinnerMotorAdd"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@android:drawable/btn_dropdown" />
@@ -127,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="#4CAF50"
-                android:text="Guardar Cambios"
+                android:text="Crear Coche"
                 android:textColor="#FFF" />
 
         </LinearLayout>

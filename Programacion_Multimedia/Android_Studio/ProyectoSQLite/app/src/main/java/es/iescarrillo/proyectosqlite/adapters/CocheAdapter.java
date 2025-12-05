@@ -51,6 +51,10 @@ public class CocheAdapter extends RecyclerView.Adapter<CocheAdapter.ViewHolder> 
             intent.putExtra("coche_objeto", coche);
             context.startActivity(intent);
         });
+
+        //holder.btnEliminar.setOnClickListener(v -> {
+            // Aquí puedes implementar la lógica para eliminar el coche
+        //});
     }
 
     @Override
@@ -61,7 +65,7 @@ public class CocheAdapter extends RecyclerView.Adapter<CocheAdapter.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtMatricula, txtModelo, txtPrecio;
-        Button btnEditar; // Cambiamos Spinners por Botón
+        Button btnEditar, btnEliminar; // Cambiamos Spinners por Botón
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
