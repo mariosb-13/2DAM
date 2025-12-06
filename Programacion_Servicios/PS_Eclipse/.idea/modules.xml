@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/PS_Eclipse.iml" filepath="$PROJECT_DIR$/.idea/PS_Eclipse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.metadata/.plugins/org.eclipse.egit.core/.org.eclipse.egit.core.cmp/.org.eclipse.egit.core.cmp.iml" filepath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.egit.core/.org.eclipse.egit.core.cmp/.org.eclipse.egit.core.cmp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ExamenPSP_MSB/ExamenPSP/ExamenPSP.iml" filepath="$PROJECT_DIR$/ExamenPSP_MSB/ExamenPSP/ExamenPSP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PSP_Tema1_Luis-del-Moral/PSP_Tema1_Luis-del-Moral.iml" filepath="$PROJECT_DIR$/PSP_Tema1_Luis-del-Moral/PSP_Tema1_Luis-del-Moral.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tema_1/Tema_1.iml" filepath="$PROJECT_DIR$/Tema_1/Tema_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tema_2/Tema_2.iml" filepath="$PROJECT_DIR$/Tema_2/Tema_2.iml" />
     </modules>
   </component>
 </project>
