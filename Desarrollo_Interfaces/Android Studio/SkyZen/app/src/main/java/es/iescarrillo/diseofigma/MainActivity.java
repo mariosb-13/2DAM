@@ -38,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = new VueloFragment();
             }
             else if (itemId == R.id.nav_carta) {
-                // selectedFragment = new CartaFragment();   // Descomenta al crear la clase
-                selectedFragment = new MainFragment(); // (Temporal)
+                selectedFragment = new CartaFragment();
             }
 
             // Realizar el intercambio (Transacción)

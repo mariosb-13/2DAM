@@ -3,6 +3,8 @@ import java.io.FileInputStream
 
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -52,6 +54,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
     }
 }
 
@@ -61,11 +64,24 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
 
-    // Asegúrate de que esta línea coincide con cómo se llama en tu libs.versions.toml
-    // Si te da error en rojo, cámbiala por: implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation(libs.play.services.maps)
+    implementation(libs.legacy.support.v4)
+    implementation(libs.recyclerview)
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.activity.compose)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.ui)
+    implementation(libs.ui.graphics)
+    implementation(libs.ui.tooling.preview)
+    implementation(libs.material3)
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(libs.gridlayout)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.ui.test.junit4)
+    debugImplementation(libs.ui.tooling)
+    debugImplementation(libs.ui.test.manifest)
 }

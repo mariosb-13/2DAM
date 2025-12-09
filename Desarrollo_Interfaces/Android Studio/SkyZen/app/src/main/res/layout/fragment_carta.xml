@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".CartaFragment">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btnCarnes"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carnes"
+                android:textColor="@color/color_azul_oscuro"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnBebidas"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Bebidas"
+                android:textColor="@color/color_azul_oscuro"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnPescados"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pescados"
+                android:textColor="@color/color_azul_oscuro"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnPostres2"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Postres"
+                android:textColor="@color/color_azul_oscuro"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnOtros"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Otros"
+                android:textColor="@color/color_azul_oscuro"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:clickable="true"
+        android:src="@drawable/cart"
+        app:backgroundTint="@color/color_azul_oscuro"
+        app:tint="@color/color_blanco_palido" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCarta"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp" />
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="75dp"
+        android:text="Postres"
+        android:textColor="@color/color_azul_oscuro"
+        android:textSize="20sp" />
+
+</FrameLayout>
