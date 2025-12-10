@@ -44,8 +44,6 @@ public class AddCocheActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_add_coche);
 
-        // --- 1. CONFIGURACIÓN DE TOOLBAR (Importante para que se vea la barra) ---
-        // Asegúrate de tener <com.google.android.material.appbar.MaterialToolbar android:id="@+id/toolbar" ... /> en tu XML
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -55,23 +53,18 @@ public class AddCocheActivity extends AppCompatActivity {
             }
         }
 
-        // Configuración de márgenes para EdgeToEdge
-        // NOTA: Asegúrate de que el ID "main" existe en tu activity_add_coche.xml
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // --- 2. INICIALIZAR BBDD Y DAOS ---
         dbHelper = new DatabaseHelper(this);
         marcaDAO = new MarcaDAO(dbHelper);
         proveedorDAO = new ProveedorDAO(dbHelper);
         motorDAO = new MotorDAO(dbHelper);
         cocheDAO = new CocheDAO(dbHelper);
 
-        // --- 3. VINCULAR VISTAS ---
-        // Asegúrate de que estos IDs coincidan con tu activity_add_coche.xml
         etMatricula = findViewById(R.id.etMatriculaAdd);
         etModelo = findViewById(R.id.etModeloAdd);
         etPrecio = findViewById(R.id.etPrecioAdd);
@@ -80,13 +73,12 @@ public class AddCocheActivity extends AppCompatActivity {
         spMotor = findViewById(R.id.spinnerMotorAdd);
         btnCrear = findViewById(R.id.btnCrearCoche);
 
-        // --- 4. CARGAR DATOS EN SPINNERS ---
+        // CARGAR DATOS EN SPINNERS ---
         cargarListasDesdeBD();
         configurarSpinner(spMarca, listaMarcas);
         configurarSpinner(spProveedor, listaProveedores);
         configurarSpinner(spMotor, listaMotores);
 
-        // --- 5. LISTENER DEL BOTÓN ---
         btnCrear.setOnClickListener(v -> crearCoche());
     }
 
@@ -98,8 +90,7 @@ public class AddCocheActivity extends AppCompatActivity {
 
     private void configurarSpinner(Spinner spinner, ArrayList<String> datos) {
         if (datos != null) {
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                    android.R.layout.simple_spinner_item, datos);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, datos);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner.setAdapter(adapter);
         }
@@ -127,12 +118,10 @@ public class AddCocheActivity extends AppCompatActivity {
         // Crear objeto Coche
         Coche nuevoCoche = getCoche(matricula, modelo, precio);
 
-        // Insertar en Base de Datos
-        // Asumo que tu CocheDAO tiene un método insertarCoche(Coche c)
         cocheDAO.insertarCoche(nuevoCoche);
 
         Toast.makeText(this, "Coche añadido correctamente", Toast.LENGTH_SHORT).show();
-        finish(); // Cierra la actividad y vuelve a la lista
+        finish();
     }
 
     @NonNull
@@ -142,10 +131,22 @@ public class AddCocheActivity extends AppCompatActivity {
         nuevoCoche.setModelo(modelo);
         nuevoCoche.setPrecio_venta(precio);
 
-        nuevoCoche.setId_Marca(spMarca.getSelectedItemPosition() + 1);
-        nuevoCoche.setId_Proveedor(spProveedor.getSelectedItemPosition() + 1);
-        nuevoCoche.setId_Motor(spMotor.getSelectedItemPosition() + 1);
+        // Obtener los nombres seleccionados en los Spinners
+        String nombreMarca = spMarca.getSelectedItem().toString();
+        String nombreProveedor = spProveedor.getSelectedItem().toString();
+        String nombreMotor = spMotor.getSelectedItem().toString();
+
+        // Buscar los IDs reales usando los DAOs (Asegúrate de no mezclar las variables)
+        int idMarca = marcaDAO.obtenerIdPorNombre(nombreMarca);
+        int idProveedor = proveedorDAO.obtenerIdPorNombre(nombreProveedor);
+        int idMotor = motorDAO.obtenerIdPorNombre(nombreMotor);
+
+        // Asignar cada ID a su campo correspondiente
+        nuevoCoche.setId_Marca(idMarca);
+        nuevoCoche.setId_Proveedor(idProveedor);
+        nuevoCoche.setId_Motor(idMotor);
+
         return nuevoCoche;
     }
-    
+
 }

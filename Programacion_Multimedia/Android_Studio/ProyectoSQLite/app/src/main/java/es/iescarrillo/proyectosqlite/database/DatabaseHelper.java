@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "dbCarLog.db";
-    // IMPORTANTE: He subido la versión a 3 para forzar la actualización de datos
     public static final int DB_VERSION = 3;
 
     public DatabaseHelper(@Nullable Context context) {
@@ -19,7 +18,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        // 1. Crear tablas
         db.execSQL(
                 "CREATE TABLE marca (" +
                         "id_marca INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -44,8 +42,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         "cilindrada REAL)"
         );
 
-        // 2. Insertar MARCAS (Añadidas Ford, Audi, Tesla)
-        // IDs: 1=Toyota, 2=Seat, 3=BMW, 4=Ford, 5=Audi, 6=Tesla
         db.execSQL("INSERT INTO marca (nombre, pais, telefono) VALUES " +
                 "('Toyota', 'Japón', '111111111')," +
                 "('Seat', 'España', '222222222')," +
@@ -54,13 +50,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "('Audi', 'Alemania', '555555555')," +
                 "('Tesla', 'EEUU', '666666666')");
 
-        // 3. Insertar PROVEEDORES
         db.execSQL("INSERT INTO proveedor (nombre, email, dias_entrega) VALUES " +
                 "('AutoSpain S.L.', 'ventas@autospain.com', 3)," +
                 "('EuroCars Logistics', 'info@eurocars.com', 5)," +
                 "('Global Motors', 'contact@globalmotors.com', 7)");
 
-        // 4. Insertar MOTORES (Más variedad)
         db.execSQL("INSERT INTO motor (nombre, etiqueta_ambiental, cilindrada) VALUES " +
                 "('1.6 VVT-i', 'C', 1.6)," +
                 "('1.0 TSI', 'C', 1.0)," +
@@ -69,7 +63,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "('2.0 TDI', 'B', 2.0)," +
                 "('Electric Dual Motor', '0', 0.0)");
 
-        // 5. Crear tabla COCHE
         db.execSQL(
                 "CREATE TABLE coche (" +
                         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -84,7 +77,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         "FOREIGN KEY(id_proveedor) REFERENCES proveedor(id_proveedor))"
         );
 
-        // 6. Insertar COCHES (Lista ampliada a 10 coches)
         db.execSQL("INSERT INTO coche (matricula, modelo, precio_venta, id_motor, id_marca, id_proveedor) VALUES " +
 
                 "('1234ABC', 'Toyota Corolla', 21000, 3, 1, 1)," +

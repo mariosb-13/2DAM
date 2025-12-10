@@ -31,12 +31,23 @@ public class MarcaDAO {
     public String obtenerNombreMarca(int id) {
         String nombre = null;
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        // Ojo: Asegúrate de que el nombre de la tabla y columna sean los de tu DatabaseHelper
         Cursor cursor = db.rawQuery("SELECT nombre FROM marca WHERE id_marca = ?", new String[]{String.valueOf(id)});
         if (cursor.moveToFirst()) {
             nombre = cursor.getString(0);
         }
         cursor.close();
         return nombre;
+    }
+
+    public int obtenerIdPorNombre(String nombre) {
+        int id = -1;
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id_marca FROM marca WHERE nombre = ?", new String[]{nombre});
+
+        if (cursor.moveToFirst()) {
+            id = cursor.getInt(0);
+        }
+        cursor.close();
+        return id;
     }
 }

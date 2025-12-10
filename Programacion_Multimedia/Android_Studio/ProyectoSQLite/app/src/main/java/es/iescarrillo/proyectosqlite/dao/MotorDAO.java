@@ -37,4 +37,15 @@ public class MotorDAO {
         cursor.close();
         return nombre;
     }
+    public int obtenerIdPorNombre(String nombre) {
+        int id = -1;
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id_motor FROM motor WHERE nombre = ?", new String[]{nombre});
+
+        if (cursor.moveToFirst()) {
+            id = cursor.getInt(0);
+        }
+        cursor.close();
+        return id;
+    }
 }

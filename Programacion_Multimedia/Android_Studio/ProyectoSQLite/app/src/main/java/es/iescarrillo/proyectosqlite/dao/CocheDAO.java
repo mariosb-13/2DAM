@@ -1,6 +1,7 @@
 package es.iescarrillo.proyectosqlite.dao;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -16,16 +17,20 @@ public class CocheDAO {
         this.dbHelper = dbHelper;
     }
 
-    public long insertarCoche(Coche coche) {
+    public CocheDAO(Context context) {
+    }
+
+    public void insertarCoche(Coche coche) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("matricula", coche.getMatricula());
         values.put("modelo", coche.getModelo());
         values.put("precio_venta", coche.getPrecio_venta());
         values.put("id_motor", coche.getId_Motor());
-        values.put("id_marca", coche.getId_Motor());
-        values.put("id_proveedor", coche.getId_Motor());
-        return db.insert("coche", null, values);
+        values.put("id_marca", coche.getId_Marca());
+        values.put("id_proveedor", coche.getId_Proveedor());
+
+        db.insert("coche", null, values);
     }
 
     public ArrayList<Coche> obtenerCoches(){
@@ -60,13 +65,16 @@ public class CocheDAO {
         values.put("matricula", coche.getMatricula());
         values.put("modelo", coche.getModelo());
         values.put("precio_venta", coche.getPrecio_venta());
-
-        // Asignamos las FK correctas
         values.put("id_motor", coche.getId_Motor());
         values.put("id_marca", coche.getId_Marca());
         values.put("id_proveedor", coche.getId_Proveedor());
 
         db.update("coche", values, "id = ?", new String[]{String.valueOf(coche.getId_coche())});
+    }
+
+    public void eliminarCoche(int id) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.delete("coche", "id = ?", new String[]{String.valueOf(id)});
     }
 
 

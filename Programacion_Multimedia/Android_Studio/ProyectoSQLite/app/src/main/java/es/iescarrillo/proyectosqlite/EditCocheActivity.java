@@ -77,7 +77,7 @@ public class EditCocheActivity extends AppCompatActivity {
         // Buscamos el nombre en la BD usando el ID, y luego buscamos su posición en la lista
         seleccionarValorActual();
 
-        // 7. Botón Guardar
+        // Botón Guardar
         btnGuardar.setOnClickListener(v -> guardarCambios());
     }
 

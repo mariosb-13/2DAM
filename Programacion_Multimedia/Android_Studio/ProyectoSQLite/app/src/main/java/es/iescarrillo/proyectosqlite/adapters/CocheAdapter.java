@@ -1,5 +1,6 @@
 package es.iescarrillo.proyectosqlite.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -15,12 +16,13 @@ import java.util.ArrayList;
 
 import es.iescarrillo.proyectosqlite.EditCocheActivity;
 import es.iescarrillo.proyectosqlite.R;
+import es.iescarrillo.proyectosqlite.dao.CocheDAO;
+import es.iescarrillo.proyectosqlite.database.DatabaseHelper;
 import es.iescarrillo.proyectosqlite.entidades.Coche;
 
 public class CocheAdapter extends RecyclerView.Adapter<CocheAdapter.ViewHolder> {
 
     private ArrayList<Coche> lista;
-    // Ya no necesitamos las listas de spinners aquí
 
     public CocheAdapter(ArrayList<Coche> lista) {
         this.lista = lista;
@@ -34,27 +36,33 @@ public class CocheAdapter extends RecyclerView.Adapter<CocheAdapter.ViewHolder> 
         return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Coche coche = lista.get(position);
 
-        // Textos
         holder.txtMatricula.setText(coche.getMatricula());
         holder.txtModelo.setText(coche.getModelo());
         holder.txtPrecio.setText(coche.getPrecio_venta() + " €");
 
-        // Acción del Botón Editar
         holder.btnEditar.setOnClickListener(v -> {
             Context context = v.getContext();
             Intent intent = new Intent(context, EditCocheActivity.class);
-
             intent.putExtra("coche_objeto", coche);
             context.startActivity(intent);
         });
 
-        //holder.btnEliminar.setOnClickListener(v -> {
-            // Aquí puedes implementar la lógica para eliminar el coche
-        //});
+        holder.btnEliminar.setOnClickListener(v -> {
+            Context context = v.getContext();
+
+            DatabaseHelper dbHelper = new DatabaseHelper(context);
+
+            CocheDAO cocheDAO = new CocheDAO(dbHelper);
+
+            cocheDAO.eliminarCoche(coche.getId_coche());
+
+            updateList(cocheDAO.obtenerCoches());
+        });
     }
 
     @Override
@@ -65,7 +73,7 @@ public class CocheAdapter extends RecyclerView.Adapter<CocheAdapter.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtMatricula, txtModelo, txtPrecio;
-        Button btnEditar, btnEliminar; // Cambiamos Spinners por Botón
+        Button btnEditar, btnEliminar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,6 +81,7 @@ public class CocheAdapter extends RecyclerView.Adapter<CocheAdapter.ViewHolder> 
             txtModelo = itemView.findViewById(R.id.txtModelo);
             txtPrecio = itemView.findViewById(R.id.txtPrecio);
             btnEditar = itemView.findViewById(R.id.btnEditar);
+            btnEliminar = itemView.findViewById(R.id.btnEliminar);
         }
     }
 
