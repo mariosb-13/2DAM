@@ -36,6 +36,6 @@
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="tarea_2"/>
+	<classpathentry kind="src" path="aves_migratorias"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
