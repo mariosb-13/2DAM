@@ -33,7 +33,7 @@ public class CocheDAO {
         db.insert("coche", null, values);
     }
 
-    public ArrayList<Coche> obtenerCoches(){
+    public ArrayList<Coche> obtenerCoches() {
         ArrayList<Coche> lista = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM coche", null);
@@ -41,12 +41,10 @@ public class CocheDAO {
         if (cursor.moveToFirst()) {
             do {
                 Coche c = new Coche();
-                // 1. Datos básicos
                 c.setId_coche(cursor.getInt(0));
                 c.setMatricula(cursor.getString(1));
                 c.setModelo(cursor.getString(2));
                 c.setPrecio_venta(cursor.getDouble(3));
-
                 c.setId_Motor(cursor.getInt(4));
                 c.setId_Marca(cursor.getInt(5));
                 c.setId_Proveedor(cursor.getInt(6));

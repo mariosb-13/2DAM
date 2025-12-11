@@ -27,7 +27,6 @@ public class MarcaDAO {
         return lista;
     }
 
-    // Añade este método para buscar el nombre por ID
     public String obtenerNombreMarca(int id) {
         String nombre = null;
         SQLiteDatabase db = dbHelper.getReadableDatabase();

@@ -38,6 +38,15 @@ public class EditCocheActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_coche);
 
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                getSupportActionBar().setTitle("Añadir Coche");
+            }
+        }
+
         // Inicializamos BBDD y DAOs
         dbHelper = new DatabaseHelper(this);
         marcaDAO = new MarcaDAO(dbHelper);
@@ -109,7 +118,6 @@ public class EditCocheActivity extends AppCompatActivity {
         // MARCA
         String nombreMarca = marcaDAO.obtenerNombreMarca(cocheActual.getId_Marca());
         if (nombreMarca != null) {
-            // Buscamos en qué posición de la lista está "Toyota"
             int posicion = listaMarcas.indexOf(nombreMarca);
             if (posicion >= 0) spMarca.setSelection(posicion);
         }

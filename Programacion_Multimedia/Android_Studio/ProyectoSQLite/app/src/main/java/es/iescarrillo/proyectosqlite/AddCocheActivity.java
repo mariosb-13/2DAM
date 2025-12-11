@@ -48,7 +48,7 @@ public class AddCocheActivity extends AppCompatActivity {
         if (toolbar != null) {
             setSupportActionBar(toolbar);
             if (getSupportActionBar() != null) {
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Botón atrás
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                 getSupportActionBar().setTitle("Añadir Coche");
             }
         }
@@ -73,7 +73,7 @@ public class AddCocheActivity extends AppCompatActivity {
         spMotor = findViewById(R.id.spinnerMotorAdd);
         btnCrear = findViewById(R.id.btnCrearCoche);
 
-        // CARGAR DATOS EN SPINNERS ---
+        // CARGAR DATOS EN SPINNERS
         cargarListasDesdeBD();
         configurarSpinner(spMarca, listaMarcas);
         configurarSpinner(spProveedor, listaProveedores);

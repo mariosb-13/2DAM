@@ -8,8 +8,4 @@
         android:title="@string/a_adir_coche"
         app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/action_settings"
-        android:title="@string/ajustes"
-        app:showAsAction="never" />
 </menu>

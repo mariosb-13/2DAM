@@ -49,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerCoches);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Inicializar DBHelper y DAOs
         DatabaseHelper dbHelper = new DatabaseHelper(this);
-
         cocheDAO = new CocheDAO(dbHelper);
 
     }
