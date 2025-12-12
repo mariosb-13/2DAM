@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45a7cc02-d0d5-49a5-9da4-d14555568ecf" name="Changes" comment="" />
+    <list default="true" id="45a7cc02-d0d5-49a5-9da4-d14555568ecf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Ejercicios_3/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PyCharm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PyCharm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejercicios_2/EJ_19.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ejercicios_2/EJ_19.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practica/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Ejercicios_1/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practica/.idea/PyCharm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Ejercicios_1/.idea/PyCharm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practica/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Ejercicios_1/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practica/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Ejercicios_1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practica/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Ejercicios_1/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practica/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Ejercicios_1/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practica/Ejercicios_Iniciales.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ejercicios_1/Ejercicios_Iniciales.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,49 +47,27 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.EJ_18.executor": "Run",
+    "Python.EJ_19.executor": "Run",
     "Python.Ejercicios_Iniciales.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/mario/Desktop/2DAM/Sistemas Gestion Empresarial/PyCharm",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/alumnado/Desktop/2DAM/Sistemas Gestion Empresarial/PyCharm",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "settings.sync",
+    "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="PyCharm" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -95,6 +85,7 @@
       <updated>1764923612603</updated>
       <workItem from="1764923620692" duration="2809000" />
       <workItem from="1765403594504" duration="28000" />
+      <workItem from="1765527286951" duration="1050000" />
     </task>
     <servers />
   </component>
