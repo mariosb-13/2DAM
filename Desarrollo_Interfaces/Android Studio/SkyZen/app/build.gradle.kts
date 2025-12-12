@@ -10,7 +10,6 @@ plugins {
 android {
     namespace = "es.iescarrillo.diseofigma"
     compileSdk = 36
-    // He puesto 34 (Android 14) que es estable. 36 es beta aún.
 
     defaultConfig {
         applicationId = "es.iescarrillo.diseofigma"
@@ -21,22 +20,16 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // --- INICIO CONFIGURACIÓN API KEY ---
-        // 1. Definir el archivo local.properties
         val localPropertiesFile = rootProject.file("local.properties")
         val properties = Properties()
 
-        // 2. Cargarlo si existe
         if (localPropertiesFile.exists()) {
             properties.load(FileInputStream(localPropertiesFile))
         }
 
-        // 3. Obtener la clave (o dejarla vacía si no la encuentra)
         val mapsApiKey = properties.getProperty("MAPS_API_KEY") ?: ""
 
-        // 4. Inyectarla en el Manifest
         manifestPlaceholders["MAPS_API_KEY"] = mapsApiKey
-        // --- FIN CONFIGURACIÓN API KEY ---
     }
 
     buildTypes {
@@ -74,7 +67,7 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(libs.constraintlayout)
     implementation(libs.gridlayout)
 
     testImplementation(libs.junit)
