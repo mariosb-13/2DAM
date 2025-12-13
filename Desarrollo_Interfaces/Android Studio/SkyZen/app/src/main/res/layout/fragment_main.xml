@@ -4,281 +4,681 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FA"
+    android:background="#F0F4F8"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="24dp">
-
-        <TextView
-            android:id="@+id/tvBrand"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="SkyZen"
-            android:textColor="@color/color_azul_medio"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.1"
-            android:textAllCaps="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvGreeting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Hola, Viajero"
-            android:textColor="@color/color_azul_oscuro"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBrand" />
+        android:paddingBottom="40dp"
+        android:padding="20dp">
 
         <LinearLayout
-            android:id="@+id/layoutWidgets"
+            android:id="@+id/headerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hola, Viajero"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#102A43"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vuelo IB-6845 • En curso"
+                android:textSize="14sp"
+                android:textColor="#627D98"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/widgetsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/tvGreeting">
+            android:layout_marginTop="24dp"
+            android:baselineAligned="false"
+            app:layout_constraintTop_toBottomOf="@+id/headerLayout">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
-                android:layout_height="150dp"
+                android:layout_height="140dp"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                app:cardBackgroundColor="@android:color/white"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="4dp">
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp">
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12dp">
 
                     <ImageView
-                        android:id="@+id/iconWeather"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:src="@android:drawable/ic_menu_day"
-                        app:tint="@color/color_azul_medio"
-                        android:layout_alignParentEnd="true"/>
+                        app:tint="#F59E0B"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:text="21°"
-                        android:textColor="@color/color_azul_oscuro"
-                        android:textSize="42sp"
-                        android:textStyle="bold"/>
+                        android:text="06:32"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#102A43"
+                        android:layout_marginTop="8dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/iconWeather"
-                        android:text="Madrid"
-                        android:textColor="#90A4AE"
+                        android:text="Despejado"
                         android:textSize="12sp"
-                        android:textStyle="bold"/>
-                </RelativeLayout>
+                        android:textColor="#627D98"/>
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
-                android:layout_height="150dp"
+                android:layout_height="140dp"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                app:cardBackgroundColor="@color/color_azul_medio"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="4dp">
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp">
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12dp">
 
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        app:tint="@android:color/white"
-                        android:layout_alignParentEnd="true"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MAD"
+                            android:textStyle="bold"
+                            android:textColor="#102A43"/>
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@android:drawable/ic_menu_send"
+                            android:rotation="90"
+                            android:layout_marginHorizontal="4dp"
+                            app:tint="#0F7BB0"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="EZE"
+                            android:textStyle="bold"
+                            android:textColor="#102A43"/>
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="WiFi"
-                        android:textColor="#E1F5FE"
-                        android:textSize="12sp"
-                        android:textStyle="bold"/>
+                        android:text="Llegada: 08:00"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#0F7BB0"
+                        android:layout_marginTop="8dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:text="Gratis"
-                        android:textColor="@android:color/white"
-                        android:textSize="28sp"
-                        android:textStyle="bold"/>
-                </RelativeLayout>
+                        android:text="8h 30m"
+                        android:textSize="10sp"
+                        android:textColor="#627D98"/>
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
-
         <TextView
-            android:id="@+id/tvAppsHeader"
+            android:id="@+id/tvPromosTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="ENTRETENIMIENTO"
-            android:textColor="#90A4AE"
-            android:textSize="12sp"
+            android:text="Ofertas para ti"
+            android:textColor="#102A43"
             android:textStyle="bold"
-            android:letterSpacing="0.1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutWidgets" />
+            android:textSize="18sp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/widgetsLayout"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <HorizontalScrollView
+            android:id="@+id/promosScroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:scrollbars="none"
+            app:layout_constraintTop_toBottomOf="@id/tvPromosTitle"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="200dp"
+                    android:layout_height="250dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/img_oferta"
+                            android:scaleType="centerCrop"
+                            android:background="#333333"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#60000000"/>
+
+                        <TextView
+                            android:id="@+id/tvTituloPromo1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ofertas Vuelos"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="4dp"
+                            app:layout_constraintBottom_toTopOf="@+id/tvSubtituloPromo1"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/tvSubtituloPromo1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hasta 50% Descuento"
+                            android:textColor="#DDDDDD"
+                            android:textSize="12sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:layout_constraintBottom_toTopOf="@+id/tvVerMas1"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/tvVerMas1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ver más"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="20dp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="200dp"
+                    android:layout_height="250dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/img_pintalabios"
+                            android:scaleType="centerCrop"
+                            android:background="#AA0000"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#40000000"/>
+
+                        <TextView
+                            android:id="@+id/tvTituloPromo2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pintalabios\nSephora"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="4dp"
+                            app:layout_constraintBottom_toTopOf="@+id/tvSubtituloPromo2"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/tvSubtituloPromo2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rojo Carmín"
+                            android:textColor="#DDDDDD"
+                            android:textSize="12sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:layout_constraintBottom_toTopOf="@+id/tvVerMas2"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/tvVerMas2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Comprar Ahora"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="20dp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="200dp"
+                    android:layout_height="250dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/img_perfume"
+                            android:scaleType="centerCrop"
+                            android:background="#DDAA00"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#50000000"/>
+
+                        <TextView
+                            android:id="@+id/tvTituloPromo3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Perfume\nChanel"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="4dp"
+                            app:layout_constraintBottom_toTopOf="@+id/tvSubtituloPromo3"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/tvSubtituloPromo3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nº 5"
+                            android:textColor="#DDDDDD"
+                            android:textSize="12sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="12dp"
+                            app:layout_constraintBottom_toTopOf="@+id/tvVerMas3"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/tvVerMas3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Comprar Ahora"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="20dp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/tvApps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entretenimiento y Servicios"
+            android:textColor="#102A43"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/promosScroll"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <androidx.gridlayout.widget.GridLayout
-            android:id="@+id/gridApps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:columnCount="4"
-            app:layout_constraintTop_toBottomOf="@id/tvAppsHeader">
+            app:columnCount="2"
+            app:layout_constraintTop_toBottomOf="@+id/tvApps"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_columnWeight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+                app:layout_rowWeight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_margin="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
 
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/bg_circulo_azul"
-                    android:padding="18dp"
-                    android:src="@drawable/ic_netflix"
-                    app:tint="@color/color_azul_oscuro"/>
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_youtube"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="YouTube"
+                        android:textStyle="bold"
+                        android:textColor="#102A43"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_columnWeight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/bg_circulo_azul"
-                    android:padding="18dp"
-                    android:src="@drawable/ic_disney"
-                    app:tint="@color/color_azul_oscuro"/>
-            </LinearLayout>
+                app:layout_rowWeight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_margin="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
 
-            <LinearLayout
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_tiktok"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TikTok"
+                        android:textStyle="bold"
+                        android:textColor="#102A43"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_columnWeight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/bg_circulo_azul"
-                    android:padding="18dp"
-                    android:src="@drawable/ic_spoti"
-                    app:tint="@color/color_azul_oscuro"/>
-            </LinearLayout>
+                app:layout_rowWeight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_margin="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
 
-            <LinearLayout
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_spoti"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Spotify"
+                        android:textStyle="bold"
+                        android:textColor="#102A43"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_columnWeight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/bg_circulo_azul"
-                    android:padding="18dp"
-                    android:src="@drawable/ic_prime"
-                    app:tint="@color/color_azul_oscuro"/>
-            </LinearLayout>
+                app:layout_rowWeight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_margin="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_hbo"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HBO Max"
+                        android:textStyle="bold"
+                        android:textColor="#102A43"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_margin="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_disney"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Disney+"
+                        android:textStyle="bold"
+                        android:textColor="#102A43"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_margin="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_netflix"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Netflix"
+                        android:textStyle="bold"
+                        android:textColor="#102A43"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_margin="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_dazn"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DAZN"
+                        android:textStyle="bold"
+                        android:textColor="#102A43"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_margin="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_appletv"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Apple TV"
+                        android:textStyle="bold"
+                        android:textColor="#102A43"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_margin="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_trivago"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Trivago"
+                        android:textStyle="bold"
+                        android:textColor="#102A43"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_margin="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_airbnb"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Airbnb"
+                        android:textStyle="bold"
+                        android:textColor="#102A43"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </androidx.gridlayout.widget.GridLayout>
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="40dp"
-            app:cardCornerRadius="32dp"
-            app:cardElevation="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gridApps">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/gradiente_azul_overlay"/>
-
-                <TextView
-                    android:id="@+id/tvPromoTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
-                    android:text="VUELOS"
-                    android:textColor="@color/color_azul_claro"
-                    android:textSize="14sp"
-                    android:letterSpacing="0.2"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="24dp"
-                    android:text="50% DTO."
-                    android:textColor="@android:color/white"
-                    android:textSize="36sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tvPromoTitle"
-                    app:layout_constraintTop_toBottomOf="@+id/tvPromoTitle" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:background="@drawable/bg_boton_blanco_relleno"
-                    android:paddingHorizontal="24dp"
-                    android:paddingVertical="12dp"
-                    android:text="Reservar"
-                    android:textStyle="bold"
-                    android:textColor="@color/color_azul_oscuro"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tvPromoTitle" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:text="Mi Pedido"
+        android:textColor="@color/color_azul_oscuro"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCarrito"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:elevation="16dp"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TOTAL A PAGAR"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#757575"/>
+
+            <TextView
+                android:id="@+id/tvTotalCarrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00€"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_azul_oscuro"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnConfirmarPedido"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="CONFIRMAR PEDIDO"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/color_azul_medio"/>
+
+    </LinearLayout>
+
+</LinearLayout>

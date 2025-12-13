@@ -14,7 +14,6 @@ public class PostreAdapter extends RecyclerView.Adapter<PostreAdapter.PostreView
     private List<Postre> listaPostres;
     private OnPostreClickListener listener;
 
-    // Interfaz para el clic
     public interface OnPostreClickListener {
         void onItemClick(Postre postre);
     }
@@ -27,8 +26,7 @@ public class PostreAdapter extends RecyclerView.Adapter<PostreAdapter.PostreView
     @NonNull
     @Override
     public PostreViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_producto, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto, parent, false);
         return new PostreViewHolder(view);
     }
 
@@ -39,15 +37,9 @@ public class PostreAdapter extends RecyclerView.Adapter<PostreAdapter.PostreView
         holder.tvNombre.setText(postre.getNombre());
         holder.tvIngredientes.setText(postre.getIngredientes());
         holder.tvPrecio.setText(postre.getPrecio() + "€");
-        // holder.imgPostre.setImageResource(postre.getImagenResId());
+        holder.imgPostre.setImageResource(postre.getImagen());
 
-        // Configurar el Clic
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onItemClick(postre);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> listener.onItemClick(postre));
     }
 
     @Override
@@ -55,17 +47,17 @@ public class PostreAdapter extends RecyclerView.Adapter<PostreAdapter.PostreView
         return listaPostres.size();
     }
 
-    // Clase ViewHolder interna
     public static class PostreViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPostre;
         TextView tvNombre, tvIngredientes, tvPrecio;
 
         public PostreViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgPostre = itemView.findViewById(R.id.imgPostre);
-            tvNombre = itemView.findViewById(R.id.tvNombre);
-            tvIngredientes = itemView.findViewById(R.id.tvIngredientes);
-            tvPrecio = itemView.findViewById(R.id.tvPrecio);
+            // Estos IDs coinciden con item_postre.xml
+            imgPostre = itemView.findViewById(R.id.imgPostreRow);
+            tvNombre = itemView.findViewById(R.id.tvNombreRow);
+            tvIngredientes = itemView.findViewById(R.id.tvIngredientesRow);
+            tvPrecio = itemView.findViewById(R.id.tvPrecioRow);
         }
     }
 }

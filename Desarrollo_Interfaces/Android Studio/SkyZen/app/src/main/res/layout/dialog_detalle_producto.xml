@@ -4,143 +4,176 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="32dp"
+    android:layout_margin="16dp"
+    app:cardBackgroundColor="@color/color_blanco_palido"
     app:cardCornerRadius="24dp"
-    app:cardElevation="16dp"
-    app:cardBackgroundColor="@android:color/white">
+    app:cardElevation="0dp">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="30dp">
-
-        <TextView
-            android:id="@+id/tvHeaderDialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/color_azul_oscuro"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="DETALLE"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_alignParentTop="true"/>
+        android:paddingBottom="24dp">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardImagen"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/tvHeaderDialog"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="90dp"
-            app:cardElevation="6dp">
+            android:id="@+id/cardHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Postres"
+                android:textColor="@color/color_azul_oscuro"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardContenido"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="80dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardHeader">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="90dp"
+                android:paddingBottom="24dp">
+
+                <TextView
+                    android:id="@+id/tvDialogNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Nombre"
+                    android:textColor="@color/color_azul_oscuro"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDialogDetalle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:gravity="center"
+                    android:text="Ingredientes..."
+                    android:textColor="#666666"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardImagenCircular"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:cardCornerRadius="70dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/cardContenido"
+            app:layout_constraintTop_toTopOf="@id/cardContenido">
 
             <ImageView
-                android:id="@+id/imgDialogo"
+                android:id="@+id/imgDialogFoto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/cart"
-                tools:ignore="ContentDescription" />
+                android:src="@drawable/cart" />
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/tvNombreDialogo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/cardImagen"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="Flan de Queso"
-            android:textColor="@color/color_azul_oscuro"
-            android:textSize="26sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvDetalleDialogo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvNombreDialogo"
-            android:layout_marginTop="12dp"
-            android:layout_marginHorizontal="24dp"
-            android:gravity="center"
-            android:lineSpacingExtra="5dp"
-            android:text="Ingredientes..."
-            android:textColor="#666666"
-            android:textSize="16sp" />
-
-        <LinearLayout
-            android:id="@+id/layoutAlergenos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvDetalleDialogo"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/iconGluten"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="12dp"
-                android:src="@drawable/ic_gluten"
-                android:visibility="gone"
-                tools:visibility="visible" />
-
-            <ImageView
-                android:id="@+id/iconLactosa"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="12dp"
-                android:src="@drawable/ic_lacteo"
-                android:visibility="gone"
-                tools:visibility="visible" />
-
-            <ImageView
-                android:id="@+id/iconHuevo"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="12dp"
-                android:src="@drawable/ic_huevo"
-                android:visibility="gone"
-                tools:visibility="visible" />
-
-            <ImageView
-                android:id="@+id/iconCacahuete"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_frutos"
-                android:visibility="gone"
-                tools:visibility="visible" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvPrecioDialogo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/layoutAlergenos"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="4.50€"
-            android:textColor="@color/color_azul_oscuro"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabAgregar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvPrecioDialogo"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/cart"
-            app:backgroundTint="@color/color_azul_medio"
+        <ImageView
+            android:id="@+id/btnNavAnt"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/bg_circulo_azul"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_back"
             app:tint="@android:color/white"
-            app:fabCustomSize="64dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cardContenido"
+            app:layout_constraintBottom_toBottomOf="@id/cardContenido"/>
 
-    </RelativeLayout>
+        <ImageView
+            android:id="@+id/btnNavSig"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_circulo_azul"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_forward"
+            app:tint="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cardContenido"
+            app:layout_constraintBottom_toBottomOf="@id/cardContenido"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="24dp"
+            app:layout_constraintTop_toBottomOf="@id/cardContenido"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/btnDialogAtras"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_circulo_azul"
+                android:padding="8dp"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@android:color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toEndOf="@id/btnDialogAtras"
+                app:layout_constraintEnd_toStartOf="@id/btnDialogCarrito"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <ImageView android:id="@+id/iconGluten" android:src="@drawable/ic_gluten" android:layout_width="24dp" android:layout_height="24dp" android:layout_margin="4dp"/>
+                <ImageView android:id="@+id/iconLactosa" android:src="@drawable/ic_lacteo" android:layout_width="24dp" android:layout_height="24dp" android:layout_margin="4dp"/>
+                <ImageView android:id="@+id/iconHuevo" android:src="@drawable/ic_huevo" android:layout_width="24dp" android:layout_height="24dp" android:layout_margin="4dp"/>
+                <ImageView android:id="@+id/iconCacahuete" android:src="@drawable/ic_frutos" android:layout_width="24dp" android:layout_height="24dp" android:layout_margin="4dp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnDialogCarrito"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_circulo_azul"
+                android:padding="8dp"
+                android:src="@drawable/cart"
+                app:tint="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

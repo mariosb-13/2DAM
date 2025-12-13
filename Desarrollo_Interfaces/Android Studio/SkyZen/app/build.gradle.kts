@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
-
 android {
     namespace = "es.iescarrillo.diseofigma"
     compileSdk = 36

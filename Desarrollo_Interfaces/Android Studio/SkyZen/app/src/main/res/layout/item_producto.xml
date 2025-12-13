@@ -13,7 +13,7 @@
         android:padding="12dp">
 
         <ImageView
-            android:id="@+id/imgPostre"
+            android:id="@+id/imgPostreRow"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:scaleType="centerCrop"
@@ -22,41 +22,40 @@
             android:layout_centerVertical="true" />
 
         <TextView
-            android:id="@+id/tvNombre"
+            android:id="@+id/tvNombreRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_toEndOf="@id/imgPostre"
+            android:layout_toEndOf="@id/imgPostreRow"
             android:layout_alignParentTop="true"
-            android:text="Flan de Queso"
+            android:text="Nombre Postre"
             android:textColor="@color/color_azul_oscuro"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvIngredientes"
+            android:id="@+id/tvIngredientesRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            android:layout_toEndOf="@id/imgPostre"
-            android:layout_below="@id/tvNombre"
-            android:text="Queso, caramelo..."
+            android:layout_toEndOf="@id/imgPostreRow"
+            android:layout_below="@id/tvNombreRow"
+            android:text="Ingredientes..."
             android:textColor="#757575"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/tvPrecio"
+            android:id="@+id/tvPrecioRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_toEndOf="@id/imgPostre"
-            android:layout_below="@id/tvIngredientes"
-            android:text="4.50€"
+            android:layout_toEndOf="@id/imgPostreRow"
+            android:layout_below="@id/tvIngredientesRow"
+            android:text="0.00€"
             android:textColor="@color/color_azul_medio"
             android:textSize="16sp"
             android:textStyle="bold" />
-
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

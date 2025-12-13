@@ -81,7 +81,7 @@
         app:tint="@color/color_blanco_palido" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCarta"
+        android:id="@+id/rvCarrito"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="100dp" />
