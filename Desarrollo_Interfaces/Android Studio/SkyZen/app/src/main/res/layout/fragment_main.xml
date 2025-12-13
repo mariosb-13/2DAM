@@ -65,7 +65,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@android:drawable/ic_menu_day"
+                        android:src="@drawable/ic_amanecer"
                         app:tint="#F59E0B"/>
 
                     <TextView
