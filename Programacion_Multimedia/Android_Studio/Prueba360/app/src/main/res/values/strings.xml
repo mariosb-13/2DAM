@@ -1,3 +1,43 @@
 <resources>
     <string name="app_name">Prueba360</string>
+
+    <string-array name="sneaker_slugs">
+        <item>Air-Jordan-1-Retro-High-OG-Chicago-Reimagined</item>
+        <item>Air-Jordan-1-Retro-High-OG-Lost-and-Found</item>
+        <item>Air-Jordan-1-Retro-High-OG-Dark-Mocha</item>
+        <item>Air-Jordan-1-Retro-High-OG-Patent-Bred</item>
+        <item>Air-Jordan-1-Retro-High-OG-University-Blue</item>
+        <item>Air-Jordan-1-Retro-Low-OG-SP-Travis-Scott-Reverse-Mocha</item>
+        <item>Air-Jordan-1-Retro-Low-OG-SP-Travis-Scott-Black-Phantom</item>
+
+        <item>Air-Jordan-3-Retro-White-Cement-Reimagined</item>
+        <item>Air-Jordan-4-Retro-Military-Black</item>
+        <item>Air-Jordan-4-Retro-Bred-2019</item>
+        <item>Air-Jordan-4-Retro-SB-Pine-Green</item>
+        <item>Air-Jordan-11-Retro-Cool-Grey-2021</item>
+        <item>Air-Jordan-11-Retro-Cherry-2022</item>
+
+        <item>Nike-Dunk-Low-Retro-White-Black-2021</item>
+        <item>Nike-Dunk-Low-Grey-Fog</item>
+        <item>Nike-Dunk-Low-University-Blue-2021</item>
+        <item>Nike-SB-Dunk-Low-Travis-Scott</item>
+        <item>Nike-SB-Dunk-Low-Ben-Jerrys-Chunky-Dunky</item>
+
+        <item>Nike-Air-Force-1-Low-White-07</item>
+        <item>Nike-Air-Force-1-Low-Supreme-Box-Logo-White</item>
+        <item>Nike-Air-Max-1-Travis-Scott-Cactus-Jack-Baroque-Brown</item>
+        <item>Nike-Kobe-6-Protro-Grinch</item>
+
+        <item>adidas-Yeezy-Boost-350-V2-Bone</item>
+        <item>adidas-Yeezy-Boost-350-V2-Onyx</item>
+        <item>adidas-Yeezy-Boost-700-Wave-Runner</item>
+        <item>adidas-Yeezy-Slide-Pure-Restock-Pair</item>
+        <item>adidas-Yeezy-Foam-RNNR-Sand</item>
+        <item>adidas-Samba-OG-Cloud-White-Core-Black</item>
+        <item>adidas-Bad-Bunny-Forum-Buckle-Low-Last-Forum</item>
+
+        <item>New-Balance-550-White-Green</item>
+        <item>New-Balance-2002R-Protection-Pack-Rain-Cloud</item>
+        <item>New-Balance-990v3-JJJJound-Olive</item>
+    </string-array>
 </resources>
