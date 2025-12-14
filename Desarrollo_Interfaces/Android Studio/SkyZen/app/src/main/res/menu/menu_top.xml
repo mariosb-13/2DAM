@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/language_selection"
-        android:title="@string/idioma"
-        app:actionViewClass="android.widget.SearchView" />
+        android:title="Idioma"
+        android:icon="@drawable/ic_language"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/logOut"
-        android:title="@string/logout"
-        app:actionViewClass="android.widget.SearchView" />
+        android:title="Cerrar Sesión"
+        app:showAsAction="never" />
 </menu>
