@@ -57,4 +57,12 @@ public class Departamento {
 		this.empleados = empleados;
 	}
 
+	@Override
+	public String toString() {
+	    return "Departamento [dept_no=" + dept_no + ", dnombre=" + dnombre + ", loc=" + loc + "]";
+	    // Hemos eliminado "+ empleados"
+	}
+	
+	
+
 }

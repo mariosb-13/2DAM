@@ -100,5 +100,14 @@ public class Empleado {
 		this.dept = dept;
 	}
 
+	@Override
+	public String toString() {
+	    return "Empleado [emp_no=" + emp_no + ", apellido=" + apellido + ", oficio=" + oficio + ", dir=" + dir
+	            + ", fecha_alt=" + fecha_alt + ", salario=" + salario + ", comision=" + comision + ", dept=" + dept
+	            + "]";
+	}
+	
+	
+
 	
 }
