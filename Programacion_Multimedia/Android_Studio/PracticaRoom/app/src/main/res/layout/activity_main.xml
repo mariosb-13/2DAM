@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gestión de Tareas (Room)"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/btnCrearUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Usuario" />
+
+    <Button
+        android:id="@+id/btnListarUsuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Usuarios"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/btnCrearCategoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Categoría" />
+
+    <Button
+        android:id="@+id/btnListarCategorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Categorías"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/btnCrearTarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nueva Tarea"
+        android:backgroundTint="#FF6200EE"
+        android:textColor="#FFFFFF"/>
+
+    <Button
+        android:id="@+id/btnListarTareas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Todas las Tareas"
+        android:backgroundTint="#FF6200EE"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>
