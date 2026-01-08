@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "566059627748",
+    "project_id": "app-firebase-ejemplo",
+    "storage_bucket": "app-firebase-ejemplo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566059627748:android:7c382822754ee3467868f1",
+        "android_client_info": {
+          "package_name": "es.iescarrillo.appfirebaseejemplo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvoK9QBsdEGJ7aQYHQteemTVXquGq9XGs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
