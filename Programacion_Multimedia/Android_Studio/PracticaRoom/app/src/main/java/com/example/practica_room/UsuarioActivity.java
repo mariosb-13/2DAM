@@ -26,7 +26,7 @@ public class UsuarioActivity extends AppCompatActivity {
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 1. Obtener datos
+                // Obtener datos
                 String nombre = etNombre.getText().toString();
                 String email = etEmail.getText().toString();
 
@@ -35,12 +35,12 @@ public class UsuarioActivity extends AppCompatActivity {
                     return;
                 }
 
-                // 2. Crear objeto
+                // Crear objeto
                 Usuario usuario = new Usuario();
                 usuario.nombre = nombre;
                 usuario.email = email;
 
-                // 3. Guardar en BBDD
+                // Guardar en BBDD
                 AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
                 db.daoUsuario().insertarUsuario(usuario);
 

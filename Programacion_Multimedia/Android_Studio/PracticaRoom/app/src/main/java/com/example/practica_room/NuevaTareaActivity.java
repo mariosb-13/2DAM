@@ -51,11 +51,11 @@ public class NuevaTareaActivity extends AppCompatActivity {
     private void cargarSpinners() {
         AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
 
-        // 1. Obtener listas de la BD
+        // Obtener listas de la BD
         listaUsuarios = db.daoUsuario().obtenerUsuarios();
         listaCategorias = db.daoCategoria().obtenerCategorias();
 
-        // 2. Crear listas de Strings solo con los nombres para mostrarlos en el Spinner
+        // Crear listas de Strings solo con los nombres para mostrarlos en el Spinner
         List<String> nombresUsuarios = new ArrayList<>();
         for (Usuario u : listaUsuarios) {
             nombresUsuarios.add(u.nombre);
@@ -66,7 +66,7 @@ public class NuevaTareaActivity extends AppCompatActivity {
             nombresCategorias.add(c.nombre);
         }
 
-        // 3. Configurar los adaptadores para los Spinners
+        // Configurar los adaptadores para los Spinners
         // Si no hay usuarios o categorías, avisamos
         if (listaUsuarios.isEmpty() || listaCategorias.isEmpty()) {
             Toast.makeText(this, "Primero crea Usuarios y Categorías", Toast.LENGTH_LONG).show();
@@ -90,7 +90,7 @@ public class NuevaTareaActivity extends AppCompatActivity {
             return;
         }
 
-        // 1. Averiguar qué Usuario y Categoría se han seleccionado
+        // Averiguar qué Usuario y Categoría se han seleccionado
         int posicionUsuario = spinnerUsuario.getSelectedItemPosition();
         int posicionCategoria = spinnerCategoria.getSelectedItemPosition();
 
@@ -98,7 +98,7 @@ public class NuevaTareaActivity extends AppCompatActivity {
         Usuario usuarioSeleccionado = listaUsuarios.get(posicionUsuario);
         Categoria categoriaSeleccionada = listaCategorias.get(posicionCategoria);
 
-        // 2. Crear la Tarea
+        // Crear la Tarea
         Tarea tarea = new Tarea();
         tarea.titulo = titulo;
         tarea.descripcion = descripcion;
@@ -106,7 +106,7 @@ public class NuevaTareaActivity extends AppCompatActivity {
         tarea.idCategoria = categoriaSeleccionada.idCategoria; // RELACIÓN: Aquí guardamos la FK
         tarea.completada = false; // Por defecto
 
-        // 3. Guardar en BD
+        // Guardar en BD
         AppDatabase.getDatabase(getApplicationContext()).daoTarea().insertarTarea(tarea);
 
         Toast.makeText(this, "Tarea guardada correctamente", Toast.LENGTH_SHORT).show();

@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // --- GESTIÓN DE TAREAS (La parte principal) ---
+        // --- GESTIÓN DE TAREAS ---
         btnCrearTarea.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, NuevaTareaActivity.class);
             startActivity(intent);
