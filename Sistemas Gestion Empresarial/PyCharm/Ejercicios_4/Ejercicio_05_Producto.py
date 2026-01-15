@@ -1,36 +1,35 @@
 class Producto:
-    pid = 0
+    _pid_counter = 0  # Contador estático de la clase
 
     def __init__(self, nombre, precio, stock=0):
+        self.pid = Producto._pid_counter
+        Producto._pid_counter += 1
         self.nombre = nombre
         self.precio = precio
         self.stock = stock
-        self.pid = Producto.pid
-        Producto.pid += 1
 
-    def mostrarInfo(self):
-        print(self.pid, self.nombre, self.precio, self.stock)
+    def mostrar_info(self):
+        # Retornamos string o imprimimos directamente, pero es mejor imprimir limpio
+        print(f"ID: {self.pid} | Nombre: {self.nombre} | Precio: {self.precio} | Stock: {self.stock}")
 
-    def addStock(self, cantidad):
-        if (cantidad < 0):
-            print("La cantidad indicada no puede ser 0")
+    def add_stock(self, cantidad):
+        if cantidad <= 0:
+            print("La cantidad debe ser mayor a 0.")
         else:
             self.stock += cantidad
-            print("Stock Actualizado")
+            print(f"Stock actualizado. Nuevo stock: {self.stock}")
 
-    def eliminarStock(self, cantidad):
-        if (self.stock < cantidad):
-            print("La cantidad no puede ser mayor al stock actual, stock actual: ", self.stock)
-        elif (cantidad < 0):
-            print("La cantidad indicada no puede ser 0")
+    def del_stock(self, cantidad):
+        if cantidad <= 0:
+            print("La cantidad debe ser mayor a 0.")
+        elif self.stock < cantidad:
+            print(f"No hay suficiente stock para eliminar. Stock actual: {self.stock}")
         else:
             self.stock -= cantidad
+            print(f"Stock reducido. Nuevo stock: {self.stock}")
 
-    def hayStock(self, cantidad):
-        if (cantidad > self.stock):
-            return False
-        else:
-            return True
+    def hay_stock(self, cantidad):
+        return self.stock >= cantidad
 
     def __str__(self):
         return f'{self.pid}, {self.nombre}, {self.precio}, {self.stock}'

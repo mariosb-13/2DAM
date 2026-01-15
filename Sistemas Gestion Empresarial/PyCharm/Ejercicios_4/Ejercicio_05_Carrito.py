@@ -1,38 +1,56 @@
-from Ejercicio_05_Producto import Producto
-
 class Carrito:
     def __init__(self):
-        self.items = {}
+        self.items = {}  # Diccionario: {ObjetoProducto: cantidad}
 
     def add_item(self, producto, cantidad):
-        if not producto.hayStock(cantidad):
-            print("No hay stock suficiente")
-        elif self.items[producto]:
-            if producto.hayStock(cantidad + self.items[producto]):
-                self.items.get[producto] += cantidad
-            else:
-                print("No hay stock suficiente")
+        if not producto.hay_stock(cantidad):
+            print("No hay stock suficiente en el almacén.")
+            return
+
+        # Verificar si ya está en el carrito para sumar cantidad
+        cantidad_actual_en_carrito = self.items.get(producto, 0)
+
+        # Validar si hay stock para la nueva suma total (lo que ya tengo + lo nuevo)
+        if not producto.hay_stock(cantidad + cantidad_actual_en_carrito):
+            print("No hay stock suficiente para añadir esa cantidad extra.")
+            return
+
+        if producto in self.items:
+            self.items[producto] += cantidad
         else:
             self.items[producto] = cantidad
+        print("Producto añadido al carrito.")
 
     def del_item(self, producto, cantidad):
+        if producto not in self.items:
+            print("Este producto no está en el carrito.")
+            return
+
         if self.items[producto] < cantidad:
-            print("No se puede retirar mas cantidad de la que hay en el carrito")
-        elif self.items[producto] > cantidad:
-            self.items[producto] -= cantidad
+            print("No puedes retirar más cantidad de la que tienes en el carrito.")
+        elif self.items[producto] == cantidad:
+            self.items.pop(producto)  # Eliminar del todo si la cantidad es exacta
+            print("Producto eliminado del carrito.")
         else:
-            self.items.pop(producto)
+            self.items[producto] -= cantidad
+            print("Cantidad reducida en el carrito.")
 
     def mostrar(self):
-        for producto, valor in self.items.items():
-            print(producto.mostrarInfo(), valor)
+        if not self.items:
+            print("El carrito está vacío.")
+            return
+
+        print("--- Contenido del Carrito ---")
+        for producto, cantidad in self.items.items():
+            subtotal = producto.precio * cantidad
+            print(f"{producto.nombre} | Cantidad: {cantidad} | Precio Unit: {producto.precio} | Subtotal: {subtotal}")
 
     def total(self):
-        precioTotal = 0
-        for producto, valor in self.items.items():
-            precioTotal += valor * producto.precio
-        print("Coste total:", precioTotal)
+        precio_total = 0
+        for producto, cantidad in self.items.items():
+            precio_total += cantidad * producto.precio
+        print(f"Coste total del carrito: {precio_total:.2f}")
 
     def vaciar(self):
         self.items.clear()
-        print("Carrito vaciado")
+        print("Carrito vaciado.")
