@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "591733144118",
+    "project_id": "login-c1eab",
+    "storage_bucket": "login-c1eab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591733144118:android:ef01b367e0e3b40433b697",
+        "android_client_info": {
+          "package_name": "es.iescarrillo.logingoogle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8TOPl7GI044jKE5cnQkvWIyHnGSFWZxQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
