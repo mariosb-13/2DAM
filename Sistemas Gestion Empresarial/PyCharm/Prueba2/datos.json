@@ -1,0 +1,258 @@
+{
+  "turistas": [
+    {
+      "email": "ana@gmail.com",
+      "nombre": "Ana L\u00f3pez",
+      "telefono": "600111111"
+    },
+    {
+      "email": "juan@gmail.com",
+      "nombre": "Juan P\u00e9rez",
+      "telefono": "600222222"
+    },
+    {
+      "email": "maria@gmail.com",
+      "nombre": "Mar\u00eda S\u00e1nchez",
+      "telefono": "600333333"
+    },
+    {
+      "email": "carlos@gmail.com",
+      "nombre": "Carlos Ruiz",
+      "telefono": "600444444"
+    },
+    {
+      "email": "laura@gmail.com",
+      "nombre": "Laura Mart\u00edn",
+      "telefono": "600555555"
+    },
+    {
+      "email": "pedro@gmail.com",
+      "nombre": "Pedro G\u00f3mez",
+      "telefono": "600666666"
+    },
+    {
+      "email": "lucia@gmail.com",
+      "nombre": "Luc\u00eda Torres",
+      "telefono": "600777777"
+    },
+    {
+      "email": "miguel@gmail.com",
+      "nombre": "Miguel Navarro",
+      "telefono": "600888888"
+    },
+    {
+      "email": "sofia@gmail.com",
+      "nombre": "Sof\u00eda Romero",
+      "telefono": "600999999"
+    },
+    {
+      "email": "david@gmail.com",
+      "nombre": "David Molina",
+      "telefono": "600000000"
+    }
+  ],
+  "actividades": [
+    {
+      "id": 1,
+      "titulo": "Ruta por la Alhambra",
+      "fecha": "2026-01-20",
+      "precio": 25.0,
+      "plazas_totales": 30,
+      "plazas_disponibles": 22
+    },
+    {
+      "id": 2,
+      "titulo": "Visita al Albaic\u00edn",
+      "fecha": "2026-01-22",
+      "precio": 18.0,
+      "plazas_totales": 25,
+      "plazas_disponibles": 20
+    },
+    {
+      "id": 3,
+      "titulo": "Senderismo Sierra Nevada",
+      "fecha": "2026-01-25",
+      "precio": 40.0,
+      "plazas_totales": 20,
+      "plazas_disponibles": 16
+    },
+    {
+      "id": 4,
+      "titulo": "Tour gastron\u00f3mico",
+      "fecha": "2026-01-27",
+      "precio": 35.0,
+      "plazas_totales": 15,
+      "plazas_disponibles": 10
+    },
+    {
+      "id": 5,
+      "titulo": "Paseo nocturno Granada",
+      "fecha": "2026-01-28",
+      "precio": 15.0,
+      "plazas_totales": 40,
+      "plazas_disponibles": 34
+    },
+    {
+      "id": 6,
+      "titulo": "Visita Sacromonte",
+      "fecha": "2026-01-30",
+      "precio": 20.0,
+      "plazas_totales": 30,
+      "plazas_disponibles": 26
+    },
+    {
+      "id": 7,
+      "titulo": "Clases de flamenco",
+      "fecha": "2026-02-01",
+      "precio": 30.0,
+      "plazas_totales": 12,
+      "plazas_disponibles": 9
+    },
+    {
+      "id": 8,
+      "titulo": "Excursi\u00f3n a la Costa",
+      "fecha": "2026-02-03",
+      "precio": 45.0,
+      "plazas_totales": 25,
+      "plazas_disponibles": 19
+    },
+    {
+      "id": 9,
+      "titulo": "Museos de Granada",
+      "fecha": "2026-02-05",
+      "precio": 12.0,
+      "plazas_totales": 50,
+      "plazas_disponibles": 47
+    },
+    {
+      "id": 10,
+      "titulo": "Ruta en bicicleta",
+      "fecha": "2026-02-07",
+      "precio": 28.0,
+      "plazas_totales": 18,
+      "plazas_disponibles": 16
+    }
+  ],
+  "reservas": [
+    {
+      "id": 1,
+      "email": "ana@gmail.com",
+      "id_actividad": 1,
+      "plazas_reservadas": 2
+    },
+    {
+      "id": 2,
+      "email": "ana@gmail.com",
+      "id_actividad": 3,
+      "plazas_reservadas": 1
+    },
+    {
+      "id": 3,
+      "email": "juan@gmail.com",
+      "id_actividad": 1,
+      "plazas_reservadas": 4
+    },
+    {
+      "id": 4,
+      "email": "juan@gmail.com",
+      "id_actividad": 4,
+      "plazas_reservadas": 2
+    },
+    {
+      "id": 5,
+      "email": "maria@gmail.com",
+      "id_actividad": 2,
+      "plazas_reservadas": 3
+    },
+    {
+      "id": 6,
+      "email": "maria@gmail.com",
+      "id_actividad": 5,
+      "plazas_reservadas": 2
+    },
+    {
+      "id": 7,
+      "email": "carlos@gmail.com",
+      "id_actividad": 3,
+      "plazas_reservadas": 2
+    },
+    {
+      "id": 8,
+      "email": "carlos@gmail.com",
+      "id_actividad": 6,
+      "plazas_reservadas": 1
+    },
+    {
+      "id": 9,
+      "email": "laura@gmail.com",
+      "id_actividad": 4,
+      "plazas_reservadas": 3
+    },
+    {
+      "id": 10,
+      "email": "laura@gmail.com",
+      "id_actividad": 7,
+      "plazas_reservadas": 1
+    },
+    {
+      "id": 11,
+      "email": "pedro@gmail.com",
+      "id_actividad": 8,
+      "plazas_reservadas": 4
+    },
+    {
+      "id": 12,
+      "email": "pedro@gmail.com",
+      "id_actividad": 1,
+      "plazas_reservadas": 2
+    },
+    {
+      "id": 13,
+      "email": "lucia@gmail.com",
+      "id_actividad": 2,
+      "plazas_reservadas": 2
+    },
+    {
+      "id": 14,
+      "email": "lucia@gmail.com",
+      "id_actividad": 9,
+      "plazas_reservadas": 3
+    },
+    {
+      "id": 15,
+      "email": "miguel@gmail.com",
+      "id_actividad": 10,
+      "plazas_reservadas": 2
+    },
+    {
+      "id": 16,
+      "email": "miguel@gmail.com",
+      "id_actividad": 3,
+      "plazas_reservadas": 1
+    },
+    {
+      "id": 17,
+      "email": "sofia@gmail.com",
+      "id_actividad": 5,
+      "plazas_reservadas": 4
+    },
+    {
+      "id": 18,
+      "email": "sofia@gmail.com",
+      "id_actividad": 8,
+      "plazas_reservadas": 2
+    },
+    {
+      "id": 19,
+      "email": "david@gmail.com",
+      "id_actividad": 6,
+      "plazas_reservadas": 3
+    },
+    {
+      "id": 20,
+      "email": "david@gmail.com",
+      "id_actividad": 7,
+      "plazas_reservadas": 2
+    }
+  ]
+}
