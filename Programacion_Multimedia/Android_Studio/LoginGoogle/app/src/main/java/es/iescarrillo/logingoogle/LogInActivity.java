@@ -117,7 +117,7 @@ public class LogInActivity extends AppCompatActivity {
                 request,
                 new CancellationSignal(),
                 ContextCompat.getMainExecutor(this),
-                new androidx.credentials.CredentialManagerCallback<GetCredentialResponse, GetCredentialException>() {
+                new androidx.credentials.CredentialManagerCallback<>() {
                     @Override
                     public void onResult(GetCredentialResponse result) {
                         handleSignInResult(result);
