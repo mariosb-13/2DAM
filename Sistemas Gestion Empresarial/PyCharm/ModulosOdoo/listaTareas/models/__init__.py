@@ -1,1 +1,1 @@
-from . import Tarea
+from . import Tarea, Categoria

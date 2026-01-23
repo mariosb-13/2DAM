@@ -8,6 +8,7 @@
     "application": True,
     "data":[
         "security/ir.model.access.csv",
+        "views/categoria_view.xml",
         "views/tarea_view.xml"
     ]
 }

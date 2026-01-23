@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record id="action_lista_categorias_categoria" model="ir.actions.act_window">
+            <field name="name">Lista de Categorías</field>
+            <field name="res_model">msb.lista_categorias.categoria</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_lista_tareas_root" name="Gestión de Tareas" sequence="10"/>
+
+        <menuitem id="menu_categorias_action"
+                  name="Categorías"
+                  action="action_lista_categorias_categoria"
+                  parent="menu_lista_tareas_root"/>
+
+        <record model="ir.ui.view" id="view_lista_categorias_categoria">
+            <field name="name">Lista de Categorias</field>
+            <field name="model">msb.lista_categorias.categoria</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="nombre"></field>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>
