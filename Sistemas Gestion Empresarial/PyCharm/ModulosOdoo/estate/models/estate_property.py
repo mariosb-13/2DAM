@@ -1,6 +1,6 @@
 from odoo import models, fields, api
-from odoo.exceptions import UserError, ValidationError  # <--- IMPORTANTE: Importar ValidationError
-from odoo.tools import float_compare, float_is_zero  # <--- Para comparar precios correctamente
+from odoo.exceptions import UserError, ValidationError
+from odoo.tools import float_compare, float_is_zero
 from dateutil.relativedelta import relativedelta
 
 
@@ -9,9 +9,7 @@ class EstateProperty(models.Model):
     _description = "Real Estate Property"
     _order = "id desc"
 
-    # --- SQL CONSTRAINTS (NUEVO CAP 10) ---
     _sql_constraints = [
-        # HE CAMBIADO EL NOMBRE AQUI A _v2 PARA FORZAR LA ACTUALIZACION
         ('check_expected_price_v2', 'CHECK(expected_price > 0)',
          'El precio esperado debe ser estrictamente positivo.'),
         ('check_selling_price', 'CHECK(selling_price >= 0)',
@@ -70,7 +68,6 @@ class EstateProperty(models.Model):
     total_area = fields.Integer(compute="_compute_total_area", string="Total Area (sqm)")
     best_price = fields.Float(compute="_compute_best_price", string="Best Offer")
 
-    # --- PYTHON CONSTRAINTS (NUEVO CAP 10) ---
     @api.constrains('selling_price', 'expected_price')
     def _check_selling_price(self):
         for record in self:
@@ -83,8 +80,6 @@ class EstateProperty(models.Model):
 
             # Comparamos: Si precio venta < 90% esperado
             if float_compare(record.selling_price, price_limit, precision_digits=2) == -1:
-                # Permitimos excepciones si hay una oferta aceptada manualmente (lógica opcional pero recomendada)
-                # Pero siguiendo el tutorial estricto, lanzamos error:
                 raise ValidationError(
                     "El precio de venta no puede ser inferior al 90% del precio esperado. "
                     "¡Intenta aumentar la oferta o bajar el precio esperado!"
