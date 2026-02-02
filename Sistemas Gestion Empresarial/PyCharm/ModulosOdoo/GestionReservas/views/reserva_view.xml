@@ -1,0 +1,48 @@
+<odoo>
+    <record id="view_reserva_form" model="ir.ui.view">
+        <field name="name">msb.gestor.reserva.form</field>
+        <field name="model">msb.gestor.reserva</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_cancelar" string="Cancelar Reserva" type="object"
+                            class="oe_highlight" invisible="estado == 'cancelada'"/>
+                    <field name="estado" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="turista_id" readonly="estado == 'cancelada'"/>
+                        <field name="actividad_id" readonly="estado == 'cancelada'"/>
+                        <field name="plazas_reservadas" readonly="estado == 'cancelada'"/>
+                        <field name="fecha_compra" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_reserva_list" model="ir.ui.view">
+        <field name="name">msb.gestor.reserva.list</field>
+        <field name="model">msb.gestor.reserva</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="estado == 'cancelada'">
+                <field name="turista_id"/>
+                <field name="actividad_id"/>
+                <field name="fecha_compra"/>
+                <field name="plazas_reservadas"/>
+                <field name="estado"/>
+                <button name="action_cancelar" string="Cancelar" type="object"
+                        invisible="estado == 'cancelada'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_reservas" model="ir.actions.act_window">
+        <field name="name">Reservas</field>
+        <field name="res_model">msb.gestor.reserva</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_root" name="Reservas" action="action_reservas"/>
+
+</odoo>

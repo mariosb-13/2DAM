@@ -1,0 +1,85 @@
+<odoo>
+    <record id="view_turista_form" model="ir.ui.view">
+        <field name="name">msb.gestor.turista.form</field>
+        <field name="model">msb.gestor.turista</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="email"/>
+                        <field name="telefono"/>
+                    </group>
+                    <notebook>
+                        <page string="Historial de Reservas">
+                            <field name="reserva_ids" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_turista_list" model="ir.ui.view">
+        <field name="name">msb.gestor.turista.list</field>
+        <field name="model">msb.gestor.turista</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="nombre"/>
+                <field name="email"/>
+                <field name="telefono"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_turista_analisis_reservas_list" model="ir.ui.view">
+        <field name="name">msb.gestor.turista.analisis.reservas.list</field>
+        <field name="model">msb.gestor.turista</field>
+        <field name="arch" type="xml">
+            <list default_order="total_reservas desc">
+                <field name="nombre"/>
+                <field name="total_reservas" string="Total Reservas"/>
+                <field name="reservas_activas" string="Reservas Activas"/>
+                <field name="reservas_canceladas" string="Reservas Canceladas"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_turista_analisis_gasto_list" model="ir.ui.view">
+        <field name="name">msb.gestor.turista.analisis.gasto.list</field>
+        <field name="model">msb.gestor.turista</field>
+        <field name="arch" type="xml">
+            <list default_order="gasto_total desc">
+                <field name="nombre"/>
+                <field name="gasto_total" string="Importe Total Gastado"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_turistas" model="ir.actions.act_window">
+        <field name="name">Turistas</field>
+        <field name="res_model">msb.gestor.turista</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_turista_list"/>
+    </record>
+
+    <record id="action_analisis_reservas" model="ir.actions.act_window">
+        <field name="name">Top Reservas</field>
+        <field name="res_model">msb.gestor.turista</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_turista_analisis_reservas_list"/>
+    </record>
+
+    <record id="action_analisis_gasto" model="ir.actions.act_window">
+        <field name="name">Top Gasto</field>
+        <field name="res_model">msb.gestor.turista</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_turista_analisis_gasto_list"/>
+    </record>
+
+    <menuitem id="menu_turistas" name="Turistas" parent="menu_root" action="action_turistas"/>
+
+    <menuitem id="menu_analisis" name="Análisis" parent="menu_root"/>
+    <menuitem id="menu_top_reservas" name="Top Reservas" parent="menu_analisis" action="action_analisis_reservas"/>
+    <menuitem id="menu_top_gasto" name="Top Gasto" parent="menu_analisis" action="action_analisis_gasto"/>
+</odoo>

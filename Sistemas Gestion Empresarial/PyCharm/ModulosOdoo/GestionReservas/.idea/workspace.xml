@@ -5,18 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a46a2f9d-db36-4c42-9639-9e0b4b511c7a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/__manifest__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Actividad.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Reserva.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Turista.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/ir.model.access.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/actividad_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/reserva_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/turista_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/views.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Reserva.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Reserva.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Turista.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Turista.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/security/ir.model.access.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/actividad_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/actividad_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/reserva_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/reserva_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/turista_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/turista_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/views.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +30,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="38vLaNRepnyxO5QDqOR5o4kLeOF" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -44,18 +41,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/alumnado/Desktop/2DAM/Sistemas Gestion Empresarial/PyCharm/ModulosOdoo/GestionReservas",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/alumnado/Desktop/2DAM/Sistemas Gestion Empresarial/PyCharm/ModulosOdoo/GestionReservas&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

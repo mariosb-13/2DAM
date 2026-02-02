@@ -1,4 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_gestor_turista,gestor.turista,model_gestor_turista,base.group_user,1,1,1,1
-access_gestor_actividad,gestor.actividad,model_gestor_actividad,base.group_user,1,1,1,1
-access_gestor_reserva,gestor.reserva,model_gestor_reserva,base.group_user,1,1,1,1
+access_msb_gestor_turista,msb.gestor.turista,model_msb_gestor_turista,base.group_user,1,1,1,1
+access_msb_gestor_actividad,msb.gestor.actividad,model_msb_gestor_actividad,base.group_user,1,1,1,1
+access_msb_gestor_reserva,msb.gestor.reserva,model_msb_gestor_reserva,base.group_user,1,1,1,1

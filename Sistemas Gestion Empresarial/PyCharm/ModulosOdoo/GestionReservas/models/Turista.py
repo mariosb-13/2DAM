@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 
 
-class Turista(models.model):
+class Turista(models.Model):
     _name = "msb.gestor.turista"
     _description = "Turista"
     _rec_name = "nombre"
