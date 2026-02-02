@@ -1,0 +1,12 @@
+[19:49:11] >>> usuario1 ha entrado al chat.
+[19:49:41] >>> tumorenito21 ha entrado al chat.
+[19:50:06] >>> pepe ha entrado al chat.
+[19:50:11] usuario1: hola pepe
+[19:50:19] tumorenito21: que dise ese pepe
+[19:50:26] usuario1: vaya tieso el pepe eh?
+[19:50:34] pepe: illo que decis de mi cabrones
+[19:50:41] <<< pepe ha abandonado el chat.
+[19:50:49] usuario1: a chuparla pepe
+[19:50:55] tumorenito21: se nos fue un grande
+[19:50:59] <<< tumorenito21 ha abandonado el chat.
+[19:51:20] <<< usuario1 ha abandonado el chat.
