@@ -7,6 +7,8 @@
                 <sheet>
                     <group>
                         <field name="titulo"/>
+                        <field name="categoria_id"/>
+                        <field name="guia_id"/>
                         <field name="fecha"/>
                         <field name="precio"/>
                         <field name="plazas_totales"/>

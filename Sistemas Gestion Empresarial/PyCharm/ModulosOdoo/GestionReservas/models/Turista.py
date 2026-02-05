@@ -1,6 +1,5 @@
 from odoo import models, fields, api
 
-
 class Turista(models.Model):
     _name = "msb.gestor.turista"
     _description = "Turista"

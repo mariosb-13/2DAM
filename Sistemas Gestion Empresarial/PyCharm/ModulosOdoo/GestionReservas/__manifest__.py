@@ -11,8 +11,10 @@
     'data': [
         'security/ir.model.access.csv',
         'views/reserva_view.xml',
-        'views/turista_view.xml',
         'views/actividad_view.xml',
+        'views/turista_view.xml',
+        'views/categoria_view.xml',
+        'views/guia_view.xml',
     ],
     'installable': True,
     'application': True,
