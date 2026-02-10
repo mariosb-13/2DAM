@@ -25,13 +25,13 @@ public class ProductoController {
 	@Autowired
 	private MongoTemplate mongoTemplate;
 
-	// 1. GET: Listar todos los elementos
+	//GET: Listar todos los elementos
 	@GetMapping
 	public List<Producto> listarTodos() {
 		return mongoTemplate.findAll(Producto.class);
 	}
 
-	// 2. GET: Obtener uno por ID
+	//GET: Obtener uno por ID
 	@GetMapping("/{id}")
 	public ResponseEntity<Producto> obtenerPorId(@PathVariable String id) {
 		Producto producto = mongoTemplate.findById(id, Producto.class);
@@ -42,14 +42,14 @@ public class ProductoController {
 		}
 	}
 
-	// 3. POST: Crear un nuevo registro
+	//POST: Crear un nuevo registro
 	@PostMapping
 	public Producto crear(@RequestBody Producto producto) {
 		// Al guardar sin ID, Mongo genera uno nuevo
 		return mongoTemplate.save(producto);
 	}
 
-	// 4. PUT: Actualizar
+	//PUT: Actualizar
 	@PutMapping("/{id}")
 	public ResponseEntity<Producto> actualizar(@PathVariable String id, @RequestBody Producto producto) {
 		Producto existe = mongoTemplate.findById(id, Producto.class);
@@ -60,7 +60,7 @@ public class ProductoController {
 		return ResponseEntity.notFound().build();
 	}
 
-	// 5. DELETE: Eliminar un registro
+	//DELETE: Eliminar un registro
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> eliminar(@PathVariable String id) {
 		Query query = new Query();
