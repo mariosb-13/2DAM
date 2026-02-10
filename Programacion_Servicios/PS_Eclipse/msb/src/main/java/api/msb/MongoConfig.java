@@ -15,7 +15,6 @@ public class MongoConfig {
 
     @Bean
     public MongoClient mongoClient() {
-        // Este mensaje TIENE que salir en el log si esto funciona
         return MongoClients.create(connectionString);
     }
 }
