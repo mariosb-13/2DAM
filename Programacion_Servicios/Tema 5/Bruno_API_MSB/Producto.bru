@@ -1,0 +1,23 @@
+meta {
+  name: Producto
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://192.168.13.182:8080/api/productos
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nombre": "NUEVO",
+    "precio": 0.1
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

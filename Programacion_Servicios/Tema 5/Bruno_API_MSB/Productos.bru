@@ -1,0 +1,16 @@
+meta {
+  name: Productos
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://192.168.13.182:8080/api/productos
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

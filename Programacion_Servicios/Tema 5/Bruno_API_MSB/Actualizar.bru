@@ -1,0 +1,23 @@
+meta {
+  name: Actualizar
+  type: http
+  seq: 5
+}
+
+put {
+  url: http:192.168.13.182:8080/api/productos/698b349415465bf80bc61304
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nombre": "Monitor 4K Sin rebaja",
+    "precio": 250.00
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
