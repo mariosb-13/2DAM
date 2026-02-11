@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda MSB - Realtime Database</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f0f2f5; padding: 20px; }
+        .card { margin-top: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .task-item { display: flex; justify-content: space-between; align-items: center; }
+        .status-badge { font-size: 0.8em; padding: 5px 10px; border-radius: 10px; }
+        .status-pending { background-color: #fff3cd; color: #856404; }
+        .status-done { background-color: #d4edda; color: #155724; }
+        .btn-group-action { display: flex; gap: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container" style="max-width: 600px;">
+    <h2 class="text-center mb-4">Tienda MSB (RTDB)</h2>
+
+    <div class="card p-4">
+        <h5>Nuevo Producto / Tarea</h5>
+        <div class="mb-3">
+            <input type="text" id="taskTitle" class="form-control" placeholder="Ej: Comprar Laptop Gamer">
+        </div>
+        <input type="hidden" id="userId" value="user_123"> 
+        <button id="btnCrear" class="btn btn-primary w-100">Agregar a Base de Datos</button>
+    </div>
+
+    <div class="card p-4">
+        <h5>Lista en Tiempo Real</h5>
+        <p class="text-muted small">Conectado a: rtdb-msb (Europe-West1)</p>
+        <ul id="taskList" class="list-group list-group-flush">
+            <li class="list-group-item text-center text-muted">Cargando datos...</li>
+        </ul>
+    </div>
+</div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, ref, push, set, onValue, remove, update } 
+           from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAKLYBhzGVdxmTYWAcf6f9PK9Fry2ahTNw",
+        authDomain: "rtdb-msb.firebaseapp.com",
+        databaseURL: "https://rtdb-msb-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "rtdb-msb",
+        storageBucket: "rtdb-msb.firebasestorage.app",
+        messagingSenderId: "1003549209295",
+        appId: "1:1003549209295:web:e19a728cae0eea25ea3dba",
+        measurementId: "G-42JBJ8NL8P"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // CREAR
+    async function crearTarea() {
+        const titleInput = document.getElementById('taskTitle');
+        const title = titleInput.value;
+        const ownerId = document.getElementById('userId').value;
+
+        if (!title) return alert("Escribe un título");
+
+        const tasksRef = ref(db, 'tasks');
+        const newTaskRef = push(tasksRef);
+
+        try {
+            await set(newTaskRef, {
+                titulo: title,
+                estado: "pendiente",
+                owner_id: ownerId,
+                fecha: new Date().toISOString()
+            });
+            titleInput.value = ""; 
+        } catch (error) {
+            console.error(error);
+            alert("Error: Revisa permisos en Firebase.");
+        }
+    }
+
+    // BORRAR
+    async function borrarTarea(taskId) {
+        if(!confirm("¿Borrar este elemento definitivamente?")) return;
+        await remove(ref(db, `tasks/${taskId}`));
+    }
+
+    // ACTUALIZAR ESTADO
+    async function cambiarEstado(taskId, estadoActual) {
+        const nuevoEstado = estadoActual === "pendiente" ? "completada" : "pendiente";
+        await update(ref(db, `tasks/${taskId}`), {
+            estado: nuevoEstado
+        });
+    }
+
+    // ACTUALIZAR TÍTULO
+    async function editarTarea(taskId, tituloActual) {
+        const nuevoTitulo = prompt("Editar nombre del producto:", tituloActual);
+        
+        // Si el usuario cancela o lo deja vacío, no hacemos nada
+        if (nuevoTitulo === null || nuevoTitulo.trim() === "") return;
+
+        if (nuevoTitulo !== tituloActual) {
+            try {
+                await update(ref(db, `tasks/${taskId}`), {
+                    titulo: nuevoTitulo
+                });
+            } catch (error) {
+                alert("Error al editar: " + error.message);
+            }
+        }
+    }
+
+    // Exponer funciones globales
+    window.crearTarea = crearTarea;
+    window.borrarTarea = borrarTarea;
+    window.cambiarEstado = cambiarEstado;
+    window.editarTarea = editarTarea;
+
+    document.getElementById('btnCrear').addEventListener('click', crearTarea);
+
+    // LISTENER
+    const tasksRef = ref(db, 'tasks');
+    
+    onValue(tasksRef, (snapshot) => {
+        const listElement = document.getElementById('taskList');
+        listElement.innerHTML = ""; 
+
+        const data = snapshot.val();
+
+        if (!data) {
+            listElement.innerHTML = "<li class='list-group-item text-center'>No hay datos</li>";
+            return;
+        }
+
+        Object.keys(data).forEach(key => {
+            const task = data[key];
+            const li = document.createElement('li');
+            
+            // Estilos dinámicos
+            const isDone = task.estado === 'completada';
+            li.className = `list-group-item task-item ${isDone ? 'bg-light' : ''}`;
+            const badgeClass = isDone ? 'status-done' : 'status-pending';
+
+            // Escapamos comillas simples en el título para que no rompa el HTML onclick
+            const safeTitle = task.titulo.replace(/'/g, "\\'");
+
+            li.innerHTML = `
+                <div>
+                    <strong>${task.titulo}</strong> 
+                    <span class="status-badge ${badgeClass}">${task.estado}</span>
+                    <br>
+                    <small class="text-muted" style="font-size:0.7rem">ID: ${key}</small>
+                </div>
+                <div class="btn-group-action">
+                    <button class="btn btn-sm btn-outline-success" 
+                        title="Cambiar Estado"
+                        onclick="cambiarEstado('${key}', '${task.estado}')">
+                        ${isDone ? 'Reabrir' : 'Completar'}
+                    </button>
+                    
+                    <button class="btn btn-sm btn-warning" 
+                        title="Editar Nombre"
+                        onclick="editarTarea('${key}', '${safeTitle}')">
+                        Editar
+                    </button>
+
+                    <button class="btn btn-sm btn-outline-danger" 
+                        title="Eliminar"
+                        onclick="borrarTarea('${key}')">
+                        Eliminar
+                    </button>
+                </div>
+            `;
+            listElement.appendChild(li);
+        });
+    });
+</script>
+</body>
+</html>
