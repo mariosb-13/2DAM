@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+msb_gestion_reservas_turista,Acceso a Turista,model_msb_gestion_reservas_turista,base.group_user,1,1,1,1
+msb_gestion_reservas_actividad,Acceso a Actividad,model_msb_gestion_reservas_actividad,base.group_user,1,1,1,1
+msb_gestion_reservas_reserva,Acceso a Reserva,model_msb_gestion_reservas_reserva,base.group_user,1,1,1,0
+msb_gestion_reservas_categoria_actividad,Acceso a Categoria Actividad,model_msb_gestion_reservas_categoria_actividad,base.group_user,1,1,1,1
+msb_gestion_reservas_guia_turistico,Acceso a Guia Turistico,model_msb_gestion_reservas_guia_turistico,base.group_user,1,1,1,1

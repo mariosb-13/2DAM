@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record id="action_gestion_reservas_actividad" model="ir.actions.act_window"> 
+            <field name="name">Lista de Actividades</field>
+            <field name="res_model">msb.gestion_reservas.actividad</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="view_gestion_reservas_actividad">
+            <field name="name">Lista de Actividades</field>
+            <field name="model">msb.gestion_reservas.actividad</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="categoria_id"/>
+                    <field name="titulo"/>
+                    <field name="fecha"/>
+                    <field name="precio"/>
+                    <field name="plazas_totales"/>
+                    <field name="plazas_disponibles"/>
+                    <field name="guia_turistico"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>

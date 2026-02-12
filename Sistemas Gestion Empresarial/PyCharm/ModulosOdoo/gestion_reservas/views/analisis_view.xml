@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <!-- Top reservas -->
+        <record model="ir.ui.view" id="view_gestion_reservas_top_reservas">
+            <field name="name">Top Reservas</field>
+            <field name="model">msb.gestion_reservas.turista</field>
+            <field name="arch" type="xml">
+                <list create="False" delete="False">
+                    <field name="nombre"/>
+                    <field name="email"/>
+                    <field name="telefono"/>
+                    <field name="numero_reservas"/>
+                    <field name="numero_reservas_activas"/>
+                    <field name="numero_reservas_canceladas"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_gestion_reservas_top_reservas" model="ir.actions.act_window"> 
+            <field name="name">Top Reservas</field>
+            <field name="res_model">msb.gestion_reservas.turista</field>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="view_gestion_reservas_top_reservas" />
+        </record>
+        <!-- Top gasto -->
+        <record model="ir.ui.view" id="view_gestion_reservas_top_gasto">
+            <field name="name">Top Gasto</field>
+            <field name="model">msb.gestion_reservas.turista</field>
+            <field name="arch" type="xml">
+                <list create="False" delete="False">
+                    <field name="nombre"/>
+                    <field name="email"/>
+                    <field name="telefono"/>
+                    <field name="gastado"/>
+                </list>
+            </field>
+        </record>
+        
+        <record id="action_gestion_reservas_top_gasto" model="ir.actions.act_window"> 
+            <field name="name">Top Gasto</field>
+            <field name="res_model">msb.gestion_reservas.turista</field>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="view_gestion_reservas_top_gasto" />
+        </record>
+    </data>
+</odoo>

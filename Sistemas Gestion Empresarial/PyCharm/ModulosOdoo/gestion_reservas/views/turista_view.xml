@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <record id="action_gestion_reservas_turista" model="ir.actions.act_window"> 
+            <field name="name">Turistas</field>
+            <field name="res_model">msb.gestion_reservas.turista</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="view_gestion_reservas_turista">
+            <field name="name">Lista de Turistas</field>
+            <field name="model">msb.gestion_reservas.turista</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="nombre"/>
+                    <field name="email"/>
+                    <field name="telefono"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>

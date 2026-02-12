@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <menuitem id="menu_gestion_reservas" action="action_gestion_reservas_reserva"/>
+
+        <menuitem id="menu_gestion_reservas_turista" name="Turistas" 
+                action="action_gestion_reservas_turista" parent="menu_gestion_reservas"/>
+
+        <menuitem id="menu_gestion_reservas_actividad" name="Actividades" 
+                action="action_gestion_reservas_actividad" parent="menu_gestion_reservas"/>
+
+        <menuitem id="menu_gestion_reservas_categoria_actividad" name="Categorías Actividades" 
+                action="action_gestion_reservas_categoria_actividad" parent="menu_gestion_reservas"/>
+
+        <menuitem id="menu_gestion_reservas_guia_turistico" name="Guías turísticos" 
+                action="action_gestion_reservas_guia_turistico" parent="menu_gestion_reservas"/>
+        
+        <menuitem id="menu_gestion_reservas_analisis" name="Análisis" 
+                parent="menu_gestion_reservas"/>
+
+        <menuitem id="menu_gestion_reservas_top_reservas" name="Top Reservas" 
+                action="action_gestion_reservas_top_reservas"
+                parent="menu_gestion_reservas_analisis"/>
+
+        <menuitem id="menu_gestion_reservas_top_gasto" name="Top Gasto" 
+                action="action_gestion_reservas_top_gasto"
+                parent="menu_gestion_reservas_analisis"/>
+        
+    </data>
+</odoo>
