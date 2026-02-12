@@ -13,9 +13,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="39Yqzcq1Dt8MdRUS4jU1V3X2lZ7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,7 +29,7 @@
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/alumnado/Desktop/2DAM/Sistemas Gestion Empresarial/PyCharm/ModulosOdoo/gestion_reservas",
+    "last_opened_file_path": "C:/Users/mario/Desktop/2DAM/Sistemas Gestion Empresarial/PyCharm/ModulosOdoo/gestion_reservas",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
