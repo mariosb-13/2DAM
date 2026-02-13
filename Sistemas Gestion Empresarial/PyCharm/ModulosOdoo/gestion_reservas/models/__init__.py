@@ -1,1 +1,1 @@
-from . import Reserva, Turista, Actividad, CategoriaActividad, GuiaTuristico
+from . import Reserva, Turista, Actividad, CategoriaActividad, GuiaTuristico, Comercial

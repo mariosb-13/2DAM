@@ -4,3 +4,4 @@ msb_gestion_reservas_actividad,Acceso a Actividad,model_msb_gestion_reservas_act
 msb_gestion_reservas_reserva,Acceso a Reserva,model_msb_gestion_reservas_reserva,base.group_user,1,1,1,0
 msb_gestion_reservas_categoria_actividad,Acceso a Categoria Actividad,model_msb_gestion_reservas_categoria_actividad,base.group_user,1,1,1,1
 msb_gestion_reservas_guia_turistico,Acceso a Guia Turistico,model_msb_gestion_reservas_guia_turistico,base.group_user,1,1,1,1
+msb_gestion_reservas_comercial,Acceso a Comercial,model_msb_gestion_reservas_comercial,base.group_user,1,1,1,1

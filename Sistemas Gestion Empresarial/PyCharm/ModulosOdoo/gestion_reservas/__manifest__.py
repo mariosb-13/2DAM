@@ -14,6 +14,7 @@
         "views/analisis_view.xml",
         "views/categoria_actividad_view.xml",
         "views/guia_turistico_view.xml",
+        "views/comercial_view.xml",
         "views/menu.xml",
     ]
 }

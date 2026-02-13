@@ -13,7 +13,11 @@
 
         <menuitem id="menu_gestion_reservas_guia_turistico" name="Guías turísticos" 
                 action="action_gestion_reservas_guia_turistico" parent="menu_gestion_reservas"/>
-        
+
+        <!-- Comercial-->
+        <menuitem id="menu_gestion_reservas_comercial" name="Comercial"
+                action="action_gestion_reservas_comercial" parent="menu_gestion_reservas"/>
+
         <menuitem id="menu_gestion_reservas_analisis" name="Análisis" 
                 parent="menu_gestion_reservas"/>
 
@@ -24,6 +28,10 @@
         <menuitem id="menu_gestion_reservas_top_gasto" name="Top Gasto" 
                 action="action_gestion_reservas_top_gasto"
                 parent="menu_gestion_reservas_analisis"/>
-        
+
+        <menuitem id="menu_gestion_reservas_top_actividad" name="Top Actividad"
+                action="action_gestion_reservas_top_actividad"
+                parent="menu_gestion_reservas_analisis"/>
+
     </data>
 </odoo>

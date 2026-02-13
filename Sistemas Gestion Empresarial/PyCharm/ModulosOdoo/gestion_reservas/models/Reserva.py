@@ -6,6 +6,7 @@ class Reserva(models.Model):
     
     turista_id = fields.Many2one("msb.gestion_reservas.turista", string="Turista", required=True)
     actividad_id = fields.Many2one("msb.gestion_reservas.actividad", string="Actividad", required=True)
+    #comercial_id = fields.One2many("msb.gestion_reservas.comercial", string="Comercial")
     plazas_reservadas = fields.Integer(required=True)
     fecha_compra = fields.Date(default=fields.Date.today())
     estado = fields.Selection([("0", "Cancelada"), ("1", "Activada")],default="1")

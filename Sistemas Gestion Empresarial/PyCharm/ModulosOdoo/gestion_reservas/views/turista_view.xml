@@ -14,6 +14,7 @@
                     <field name="nombre"/>
                     <field name="email"/>
                     <field name="telefono"/>
+                    <field name="VIP"/>
                 </list>
             </field>
         </record>
