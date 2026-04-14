@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <record id="action_bicicletas_msb_cliente" model="ir.actions.act_window">
+            <field name="name">Lista de Clientes</field>
+            <field name="res_model">bicicletas_msb.cliente</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="view_bicicletas_msb_cliente">
+            <field name="name">Lista de Clientes</field>
+            <field name="model">bicicletas_msb.cliente</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="nombre_completo"/>
+                    <field name="dni"/>
+                    <field name="email"/>
+                    <field name="telefono"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>

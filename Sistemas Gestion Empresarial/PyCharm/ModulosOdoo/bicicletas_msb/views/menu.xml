@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <menuitem id="menu_bicicletas_msb_root" name="PedaOlé"/>
+
+        <menuitem id="menu_bicicletas_msb_alquileres" name="Alquileres" parent="menu_bicicletas_msb_root" action="action_bicicletas_msb_alquiler"/>
+        <menuitem id="menu_bicicletas_msb_clientes" name="Clientes" parent="menu_bicicletas_msb_root" action="action_bicicletas_msb_cliente"/>
+        <menuitem id="menu_bicicletas_msb_bicicletas" name="Bicicletas" parent="menu_bicicletas_msb_root" action="action_bicicletas_msb_bicicleta"/>
+
+        <menuitem id="menu_bicicletas_msb_analisis" name="Análisis" parent="menu_bicicletas_msb_root"/>
+        <menuitem id="menu_bicicletas_msb_analisis_top_clientes" name="Top Clientes" parent="menu_bicicletas_msb_analisis" action="action_bicicletas_msb_top_clientes"/>
+        <menuitem id="menu_bicicletas_msb_analisis_top_bicicletas" name="Top Bicicletas" parent="menu_bicicletas_msb_analisis" action="action_bicicletas_msb_top_bicicletas"/>
+    </data>
+</odoo>

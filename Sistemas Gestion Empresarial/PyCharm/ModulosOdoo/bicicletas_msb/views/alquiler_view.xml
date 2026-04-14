@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record id="action_bicicletas_msb_alquiler" model="ir.actions.act_window">
+            <field name="name">Lista de Alquileres</field>
+            <field name="res_model">bicicletas_msb.alquiler</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="view_bicicletas_msb_alquiler">
+            <field name="name">Lista de Alquileres</field>
+            <field name="model">bicicletas_msb.alquiler</field>
+            <field name="arch" type="xml">
+                <list delete="False">
+                    <field name="cliente"/>
+                    <field name="bicicleta"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <field name="estado"/>
+                    <field name="precio"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>

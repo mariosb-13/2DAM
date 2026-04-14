@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+bicicletas_msb_cliente,Acceso a Cliente,model_bicicletas_msb_cliente,base.group_user,1,1,1,1
+bicicletas_msb_bicicleta,Acceso a Bicicleta,model_bicicletas_msb_bicicleta,base.group_user,1,1,1,0
+bicicletas_msb_alquiler,Acceso a Alquiler,model_bicicletas_msb_alquiler,base.group_user,1,1,1,0

@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_bicicletas_msb_top_clientes">
+            <field name="name">Top Clientes</field>
+            <field name="model">bicicletas_msb.cliente</field>
+            <field name="arch" type="xml">
+                <list create="False" delete="False">
+                    <field name="nombre_completo"/>
+                    <field name="dni"/>
+                    <field name="email"/>
+                    <field name="telefono"/>
+                    <field name="numero_alquileres"/>
+                    <field name="total_gastado"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_bicicletas_msb_top_clientes" model="ir.actions.act_window">
+            <field name="name">Top Clientes</field>
+            <field name="res_model">bicicletas_msb.cliente</field>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="view_bicicletas_msb_top_clientes"/>
+        </record>
+
+        <record model="ir.ui.view" id="view_bicicletas_msb_top_bicicletas">
+            <field name="name">Top Bicicletas</field>
+            <field name="model">bicicletas_msb.bicicleta</field>
+            <field name="arch" type="xml">
+                <list create="False" delete="False">
+                    <field name="codigo"/>
+                    <field name="tipo"/>
+                    <field name="numero_reservas"/>
+                    <field name="total_dias_reservados"/>
+                    <field name="total_ingresado"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_bicicletas_msb_top_bicicletas" model="ir.actions.act_window">
+            <field name="name">Top Bicicletas</field>
+            <field name="res_model">bicicletas_msb.bicicleta</field>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="view_bicicletas_msb_top_bicicletas"/>
+        </record>
+    </data>
+</odoo>

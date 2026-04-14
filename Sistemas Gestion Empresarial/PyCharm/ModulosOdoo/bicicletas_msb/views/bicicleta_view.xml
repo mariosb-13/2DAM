@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <record id="action_bicicletas_msb_bicicleta" model="ir.actions.act_window">
+            <field name="name">Lista de Bicicletas</field>
+            <field name="res_model">bicicletas_msb.bicicleta</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="view_bicicletas_msb_bicicleta">
+            <field name="name">Lista de Bicicletas</field>
+            <field name="model">bicicletas_msb.bicicleta</field>
+            <field name="arch" type="xml">
+                <list delete="False">
+                    <field name="codigo"/>
+                    <field name="tipo"/>
+                    <field name="precio_dia"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>
