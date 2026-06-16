@@ -11,32 +11,30 @@ public class HiloLector extends Thread {
 
 	@Override
 	public void run() {
-		System.out.println("El hilo '" + getName() + "' comenzó su ejecución");
-		
-		while (true) {
-			// 1. Pedir prestado (se guarda en una variable local)
-			Libro libroPrestado = b1.prestarLibro();
+	    System.out.println("El hilo '" + getName() + "' comenzó su ejecución");
+	    
+	    while (true) {
+	        // 1. Pedir prestado. Si no hay, el hilo se quedará PAUSADO en esta misma línea.
+	        Libro libroPrestado = b1.prestarLibro();
 
-			if (libroPrestado != null) {
-				try {
-					// 2. Leer
-					System.out.println(getName() + " está leyendo: " + libroPrestado.nombre);
-					sleep(libroPrestado.paginas * 100L); // L para asegurar que sea long
-					
-					// 3. Devolver
-					b1.devolverLibro(libroPrestado);
-					
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
+	        // 2. Si pasa de la línea anterior, seguro que tiene un libro
+	        try {
+	            System.out.println(getName() + " está leyendo: " + libroPrestado.nombre);
+	            sleep(libroPrestado.paginas * 100L); 
+	            
+	            // 3. Devolver (esto disparará el notifyAll por dentro)
+	            b1.devolverLibro(libroPrestado);
+	            
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
 
-			// 4. Descanso: Se hace siempre antes de volver a pedir
-			try {
-				sleep(250);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
+	        // 4. Descanso
+	        try {
+	            sleep(250);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	    }
 	}
 }

@@ -16,18 +16,28 @@ public class Biblioteca {
 	}
 
 	synchronized public Libro prestarLibro() {
-		if (libros.isEmpty()) {		
-			return null;
-		} 
-		
-		Random random = new Random();
-		int numAleatorio = random.nextInt(libros.size());
-		return libros.remove(numAleatorio);
+	    // 1. Bucle WHILE en vez de IF
+	    while (libros.isEmpty()) {		
+	        try {
+	            System.out.println("No hay libros. " + Thread.currentThread().getName() + " se queda esperando...");
+	            wait(); // 2. El hilo se congela aquí hasta que alguien haga notifyAll()
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	    } 
+	    
+	    // Si el código baja hasta aquí, es MATEMÁTICAMENTE SEGURO que hay libros
+	    Random random = new Random();
+	    int numAleatorio = random.nextInt(libros.size());
+	    return libros.remove(numAleatorio);
 	}
 
 	synchronized public void devolverLibro(Libro libro) {
-		System.out.println("Se ha devuelto el libro: " + libro.nombre);
-		libros.add(libro);
+	    libros.add(libro);
+	    System.out.println("Se ha devuelto el libro: " + libro.nombre);
+	    
+	    // 3. Pegar el grito para despertar a los que hicieron wait()
+	    notifyAll(); 
 	}
 
 	public void imprimirEstado() {
